@@ -2,9 +2,11 @@
 	<div class="container">
 		<nav>
 			<ul>
-          {% for item in site.data.nav.docs %}
-            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-          {% endfor %}
+				{% for page in site.pages %} {% if page.title %}
+				<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+				{% endif %} {% endfor %}
+			</ul>
+			</li>
 			</ul>
 		</nav>
 	</div>
