@@ -76,7 +76,9 @@ Points can be earned for the following contributions:
 
 #### Piazza
 
+This term we will be using Piazza for class discussion. The system is highly catered to getting you help fast and efficiently from classmates and myself. Rather than emailing questions to the teaching staff, I encourage you to post your questions on Piazza. If you have any problems or feedback for the developers, email team@piazza.com.
 
+Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https://piazza.com/ucr/winter2020/pbpl273/home)
 
 
 
