@@ -1,19 +1,11 @@
-# Start Jekyll
+# GIS4PP20
 
-A guide to getting started with Jekyll.
+This repository holds the materials to build [GIS4PP20](https://sergerey.org/gis4pp20).
 
-### [Read the tutorial](https://taniarascia.com/make-a-static-website-with-jekyll) | [View the demo](http://taniarascia.github.io/startjekyll/)
-
-## Purpose
-
-- Learn about static site generators
-- Install Ruby and Jekyll
-- Create a custom website running on Jekyll and Sass
-- Deploy a Jekyll site to GitHub pages
 
 ## Author
 
-- [Tania Rascia](https://www.taniarascia.com)
+- [Serge Rey](https://sergerey.org)
 
 ## License
 
