@@ -1,0 +1,15 @@
+# Site Settings
+title: GIS4PP'20
+email: sergio.rey@ucr.edu
+description: >
+  Geographic Information Systems for Public Policy
+baseurl: "/gis4pp20"
+url: "http://taniarascia.github.io"
+twitter_username: taniarascia
+github_username:  taniarascia
+# Build Settings
+sass:
+  sass_dir: _sass
+include: ['_pages']
+kramdown:
+  input: GFM
