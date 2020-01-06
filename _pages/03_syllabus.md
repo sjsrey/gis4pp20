@@ -10,7 +10,7 @@ This course introduces the fundamental concepts of geographic
 information systems (GISystems), geographic information science (GIScience),
 and their application to public policy and the social sciences. The course will also provide
 instruction in a variety of open source GIS and spatial analysis
-software packages including QGIS, PySAL and OpenGeoDa.
+software packages including [QGIS](http://qgis.org), [PySAL](http://pysal.org), and [OpenGeoDa](http://geodacenter.github.io/).
 
 ### Learning Outcomes
 
