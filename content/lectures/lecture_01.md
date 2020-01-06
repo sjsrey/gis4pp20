@@ -187,8 +187,15 @@ Points can be earned for the following contributions:
 -   Have to be approved by the professor for credit
 
 
-## Schedule
+## Piazza
+<CENTER>
+<img src="../content/lectures/images/00/piazza.png" alt="piazza" />
+[[https://piazza.com/ucr/winter2020/pbpl273/home](https://piazza.com/ucr/winter2020/pbpl273/home)]
+</CENTER>
 
+
+
+## [Schedule](../syllabus/#schedule)
 
 
 ## Code of Conduct

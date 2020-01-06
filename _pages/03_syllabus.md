@@ -81,8 +81,7 @@ This term we will be using Piazza for class discussion. The system is highly cat
 Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https://piazza.com/ucr/winter2020/pbpl273/home)
 
 
-
-## Schedule 
+## [Schedule](#schedule)
 
 ### Week 1: January 6, 8
 
@@ -139,9 +138,13 @@ Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https:/
 
 ## Readings {#sec:org861d953}
 
-Readings supporting the lecture are taken from **Longley, P.A., M.F.
-Goodchild, D.J. Maguire, and D.W. Rhind (2015) *Geographic Information
-Science and Systems***, 4th Edition, Wiley.
+
+
+Readings supporting the lecture are taken from the following sources:
+
+- Sutton,T, O. Dassau, and M. Sutton (2009) [A Gentle Introduction to GIS](https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/preamble.html). Spatial Information Management Unit, Office of the Premier, Eastern Cape, South Africa.
+
+- Longley, P.A., M.F. Goodchild, D.J. Maguire, and D.W. Rhind (2015) [Geographic Information Science and Systems](https://www.wiley.com/en-us/Geographic+Information+Science+and+Systems%2C+4th+Edition-p-9781119031307),  4th Edition, Wiley.
 
 Additional readings will be assigned and made available on the course
 learning site.
