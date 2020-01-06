@@ -1,0 +1,537 @@
+<!-- Copied from https://gist.github.com/aaronwolen/5017084#file-template-revealjs-html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+ 
+<title>Geographic Information Systems for Public Policy - Lecture I</title>
+ 
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture I">    
+ 
+  <meta name="author" content="Introduction" />
+ 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+<link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/journal.css" id="theme">
+ 
+ 
+<!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+ 
+ 
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + 
+    '.css" type="text/css" media="print">' );
+</script>
+ 
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+ 
+<body>
+ 
+<div class="reveal">
+ 
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+ 
+<section>
+<h1>Geographic Information Systems for Public Policy - Lecture I</h1>
+<h3>Introduction</h3>
+<p>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
+</p>
+</section>  
+ 
+ 
+<section id="today" class="level2">
+<h2>Today</h2>
+<ul>
+<li>This course</li>
+<li>Introduction to GIS</li>
+<li>GIS and Public Policy</li>
+</ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="this-course" class="level2">
+<h2>This course</h2>
+</section>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>This course introduces the fundamental concepts of geographic information systems (GIS), geographic information science (GIScience), spatial data, and applications of spatial analysis in the social sciences and public policy.</p>
+</section>
+<section id="overview-1" class="level2">
+<h2>Overview</h2>
+<p>In the scope of a 10-week quarter course we can only introduce a handful of the key concepts and methods relevant to GIS for Public Policy. As such, the course is not intended as an exhaustive treatment. Instead, the goal is that students will acquire an understanding of the more common and useful methods and practices, and use the course as an entry point for further engagement with the field.</p>
+</section>
+<section id="focus" class="level2">
+<h2>Focus</h2>
+<ul>
+<li class="fragment">
+Spatial <em>thinking</em>
+</li>
+<li class="fragment">
+Spatial <em>skills</em>
+</li>
+</ul>
+</section>
+<section id="spatial-thinking" class="level2">
+<h2>Spatial Thinking</h2>
+<CENTER>
+<img src="../content/lectures/images/00/heritage.png" alt='heritage'
+/> <span class="fragment"> <em>Earliest human writing ~5100 BP</em>
+</CENTER>
+</section>
+<section id="early-spatial-analysis" class="level2">
+<h2>Early Spatial Analysis</h2>
+<CENTER>
+<img src="../content/lectures/images/00/snowmap.png" alt='heritage'
+/>
+</CENTER>
+<p><span class="fragment"> [<a href="https://www.arcgis.com/apps/PublicInformation/index.html?appid=d7deb67f810d46dfacb80ff80ac224e9">source</a>]</p>
+</section>
+<section id="spatial-thinking-is-important" class="level2">
+<h2>Spatial Thinking is Important</h2>
+<CENTER>
+<img src="../content/lectures/images/00/nkorea1.png" alt="ML data"
+style="width:450px;height:450px;"/> <span class="fragment"> <img src="../content/lectures/images/00/nkorea2.png" alt="ML pic"
+style="width:450px;height:450px;"/>
+</CENTER>
+<p><span class="fragment"> [<a href="https://www.economist.com/asia/2003/05/15/correction-north-koreas-missiles">source</a>]</p>
+</section>
+<section id="course-objectives" class="level2">
+<h2>Course Objectives</h2>
+<p>At the end of this course students will:</p>
+<ul>
+<li>possess a sound understanding of fundamental spatial concepts and theory;</li>
+<li>know how to locate, import, manipulate, display, and analyze geographical data in open source computational tools;</li>
+<li>have the ability to apply GIScience concepts and methods in public policy and social science research.</li>
+</ul>
+</section>
+<section id="computational-learning" class="level2">
+<h2>Computational Learning</h2>
+<ul>
+<li>We will using <a href="https://en.wikipedia.org/wiki/Open-source_software">open source</a> geospatial software throughout the course, primarily <a href="https://qgis.org/en/site/">QGIS</a></li>
+<li>No prior programming experience is assumed and all computational concepts are presented in a self-contained manner</li>
+<li>All software for the course will be made available through lab computers. Students <strong>are strongly encouraged to install these packages on their personal computers</strong> to facilitate working outside of the meeting times.</li>
+</ul>
+</section>
+<section id="course-structure" class="level2">
+<h2>Course Structure</h2>
+<ul>
+<li>We will meet Mondays and Wednesdays.</li>
+<li>First part of the meeting will be in lecture format where we cover core GIS concepts and theory.</li>
+<li>Second part of the meeting will be more hands on where we explore GIS software to engage with the core concepts introduced in part one.</li>
+</ul>
+</section>
+<section id="grading" class="level2">
+<h2>Grading</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">
+Component
+</th>
+<th scope="col" class="org-right">
+Points
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">
+Exercise 1
+</td>
+<td class="org-right">
+15
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Exercise 2
+</td>
+<td class="org-right">
+15
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Exercise 3
+</td>
+<td class="org-right">
+15
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Exercise 4
+</td>
+<td class="org-right">
+15
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Midterm exam
+</td>
+<td class="org-right">
+10
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Final exam
+</td>
+<td class="org-right">
+20
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Collaboration
+</td>
+<td class="org-right">
+10
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercises" class="level2">
+<h2>Exercises</h2>
+<ul>
+<li>Four exercises will be introduced in class and are to be completed outside of meeting times.</li>
+<li>Collaboration on exercises is encouraged with the understanding that you alone are responsible for mastering the material</li>
+<li>Collaboration is not allowed on the examinations</li>
+<li>Material from the exercises will form the bases of some examination questions</li>
+</ul>
+</section>
+<section id="exams" class="level2">
+<h2>Exams</h2>
+<ul>
+<li>Exams will be given in-class and are closed-book</li>
+<li>Reviews will be held during the meeting prior to the exam</li>
+<li>The final exam will be cumulative</li>
+<li>Makeups for exams will be given in cases of unforeseen emergencies</li>
+<li>Makeups will consist of a 1-hour oral examination</li>
+</ul>
+</section>
+<section id="collaboration" class="level2">
+<h2>Collaboration</h2>
+<p>You have the opportunity to earn a total of 10 collaboration points. Collaboration here means you make a contribution that improves the course experience for all.</p>
+<p>Points can be earned for the following contributions:</p>
+<ul>
+<li>An approved review question (1 pt)</li>
+<li>An approved answer to a review question (1 pt)</li>
+</ul>
+</section>
+<section id="review-questions" class="level2">
+<h2>Review Questions</h2>
+<ul>
+<li><p>Can be submitted anytime up to 2 weeks before the midterm or final</p></li>
+<li><p>Must be submitted through piazza</p></li>
+<li><p>Have to be approved by the professor for credit</p></li>
+</ul>
+</section>
+<section id="schedule" class="level2">
+<h2>Schedule</h2>
+</section>
+<section id="code-of-conduct" class="level2">
+<h2>Code of Conduct</h2>
+<p>As course instructor, I am dedicated to providing a harassment-free learning experience for all students, regardless of gender, sexual orientation, disability, physical appearance, body size, race, religion, or choice of operating system. All course participants are expected to show respect and courtesy to other students throughout the semester. As a learning community we do not tolerate harassment of participants in any form.</p>
+</section>
+<section id="code-of-conduct-1" class="level2">
+<h2>Code of Conduct</h2>
+<ul>
+<li>All communication should be appropriate for a professional audience including people of many different backgrounds. Sexual language and imagery are not appropriate in this course.</li>
+<li>Be kind to others. Do not insult or put down other students. Behave professionally. Remember that harassment and sexist, racist, or exclusionary jokes are not appropriate for PBPL273.</li>
+<li>Students violating these rules may be asked to leave the course, and their violations will be reported to the UCR administration.</li>
+</ul>
+<p>This code of conduct is an adaptation of the <a href="https://scipy2018.scipy.org/ehome/299527/648147/index9a04.html">SciPy 2018 Code of Conduct</a>.</p>
+</section>
+</section>
+<section id="section-1" class="level1">
+<h1></h1>
+<section id="introduction-to-gis" class="level2">
+<h2>Introduction to GIS</h2>
+</section>
+<section id="geographic-information-systems" class="level2">
+<h2>Geographic Information Systems</h2>
+<ul>
+<li class="fragment">
+<em>Geographic</em>: relates to a specific place on or in relation to the Earth’s surface
+</li>
+<li class="fragment">
+<em>Information</em>: data to which some value or interpretation has been added
+</li>
+<li class="fragment">
+<em>Systems</em>: a system designed to perform a wide range of function on and with GI
+</li>
+<li class="fragment">
+Acronym: <code>GISystems</code>
+</li>
+</ul>
+</section>
+<section id="geographic-information-science" class="level2">
+<h2>Geographic Information Science</h2>
+<ul>
+<li class="fragment">
+The <em>science</em> behind GISystems
+</li>
+<li class="fragment">
+Coined by Michael Goodchild in 1992
+</li>
+<li class="fragment">
+Acronym: <code>GIScience</code>
+</li>
+</ul>
+<iframe class="fragment" width="560" height="315" src="https://www.youtube.com/embed/tbZ_QB6wuZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</section>
+</section>
+<section id="section-2" class="level1">
+<h1></h1>
+<section id="gis-and-public-policy" class="level2">
+<h2>GIS and Public Policy</h2>
+</section>
+<section id="positive-applications-of-gis" class="level2">
+<h2>Positive Applications of GIS</h2>
+<ul>
+<li>applications of GIS to examine a phenomena</li>
+<li>provide scientific evidence and knowledge</li>
+<li><em>describe</em> the world</li>
+</ul>
+</section>
+<section id="environmental-equity" class="level2">
+<h2>Environmental Equity</h2>
+<div style="height: 400px;" data-markdown="1">
+<p><img src="../content/lectures/images/00/latimes.png" /></p>
+</div>
+</section>
+<section id="land-use-dynamics" class="level2">
+<h2>Land Use Dynamics</h2>
+<CENTER>
+<img src="../content/lectures/images/00/loudoun2012.png" alt="ML data"
+style="height:450px;"/> <span class="fragment"> <img src="../content/lectures/images/00/loudoun2018.png" alt="ML pic"
+style="width:450px;height:450px;"/>
+</CENTER>
+<p><span class="fragment"> [<a href="https://www.nytimes.com/interactive/2019/12/27/upshot/america-from-above.htm">source</a>]</p>
+</section>
+<section id="spatial-criminology" class="level2">
+<h2>Spatial Criminology</h2>
+<CENTER>
+<img src="../content/lectures/images/00/castheat.png" alt="cast"
+style="width:450px;height:450px;"/>
+</CENTER>
+</section>
+<section id="neighborhood-dynamics" class="level2">
+<h2>Neighborhood Dynamics</h2>
+<CENTER>
+<img src="../content/lectures/images/00/geosnap.gif" alt="geosnap"
+style="width:450px;height:450px;"/>
+</CENTER>
+<p>[<a href="https://github.com/spatialucr/geosnap">source</a>]</p>
+</section>
+<section id="segregation" class="level2">
+<h2>Segregation</h2>
+<CENTER>
+<img src="../content/lectures/images/00/segregation.png" alt="segregation"/>
+</CENTER>
+<p>[<a href="https://github.com/pysal/segregation">source</a>]</p>
+</section>
+<section id="spatial-inequality" class="level2">
+<h2>Spatial Inequality</h2>
+<table>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+<tr>
+<td style="vertical-align:middle;">
+<img src="../content/lectures/images/00/hh69.png" />
+</td>
+<td style="vertical-align:middle;">
+<img src="../content/lectures/images/00/joy.png" />
+</td>
+<td style="vertical-align:middle;">
+<img src="../content/lectures/images/00/hh13.png" />
+</td>
+</tr>
+</table>
+</section>
+<section id="normative-applications-of-gis" class="level2">
+<h2>Normative Applications of GIS</h2>
+<ul>
+<li><em>Prescriptive</em></li>
+<li><em>change</em> the world</li>
+</ul>
+</section>
+<section id="urban-planning" class="level2">
+<h2>Urban Planning</h2>
+<CENTER>
+<img src="../content/lectures/images/00/philly3d.png" alt="philly 3d"
+style="width:450px;height:450px;"/>
+</CENTER>
+<p>[<a href="https://www.govtech.com/dc/articles/How-Street-Smart-Cities-Are-Boosting-Economic-Development-Using-GIS.html">source</a>]</p>
+</section>
+<section id="transportation" class="level2">
+<h2>Transportation</h2>
+<CENTER>
+<img src="../content/lectures/images/00/caldot.png" alt="caldot"
+/>
+</CENTER>
+<p>[<a href="https://gisdata-caltrans.opendata.arcgis.com/datasets/8887c21dce1d45ad93cd78a10b24781b_0?geometry=-117.709%2C33.942%2C-117.056%2C34.042">source</a>]</p>
+</section>
+<section id="disaster-response" class="level2">
+<h2>Disaster Response</h2>
+<CENTER>
+<img src="../content/lectures/images/00/tsunami.png" alt="tsunami"
+style="width:450px;height:450px;"/>
+</CENTER>
+<p>[<a href="https://earth-planets-space.springeropen.com/articles/10.1186/s40623-016-0507-0">source</a>]</p>
+</section>
+<section id="homelessness" class="level2">
+<h2>Homelessness</h2>
+<CENTER>
+<img src="../content/lectures/images/00/homeless.png" alt="homeless"
+/>
+</CENTER>
+<p>[<a href="https://www.gislounge.com/using-gis-identify-milwaukees-homeless-population/">source</a>]</p>
+</section>
+<section id="opioid-epidemic" class="level2">
+<h2>Opioid Epidemic</h2>
+<CENTER>
+<img src="../content/lectures/images/00/opioid.png" alt="opium"
+/>
+</CENTER>
+<p>[<a href="https://www.arcgis.com/apps/MapJournal/index.html?appid=8d43ab38289f4decbda45af1b4eff875">source</a>]</p>
+</section>
+</section>
+<section id="section-3" class="level1">
+<h1></h1>
+<section id="introductions" class="level2">
+<h2>Introductions</h2>
+</section>
+<section id="you" class="level2">
+<h2>You</h2>
+<p>Take a few minutes and let us know a bit about yourself</p>
+<ul>
+<li class="fragment">
+Name
+</li>
+<li class="fragment">
+Program/Concentration
+</li>
+<li class="fragment">
+Why you are here
+</li>
+</ul>
+</section>
+<section id="instructor" class="level2">
+<h2>Instructor</h2>
+</section>
+<section id="my-program" class="level2">
+<h2>My Program</h2>
+</section>
+<section id="section-4" class="level2" data-background="../content/lectures/images/00/cgs.png" data-background-size="contain">
+<h2></h2>
+<p><a href="http://spatial.ucr.edu"><code>url</code></a></p>
+</section>
+<section id="why-am-i-here" class="level2">
+<h2>Why am I here</h2>
+</section>
+<section id="section-5" class="level2" data-background="../content/lectures/images/00/john_sinton.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-6" class="level2" data-background="../content/lectures/images/00/atlantic_city.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="trump-turned-this-place-into-a-ghost-town" class="level2">
+<h2><a href="https://www.theguardian.com/artanddesign/2019/apr/08/atlantic-city-trump-ghost-town-gambling-brian-rose-photographer">‘Trump turned this place into a ghost town’</a></h2>
+<CENTER>
+<img src="../content/lectures/images/00/ac_hotel.png" alt="ac_hotel"
+/>
+</CENTER>
+</section>
+<section id="section-7" class="level2" data-background="../content/lectures/images/00/ac_stockton.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-8" class="level2" data-background="../content/lectures/images/00/camp0.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-9" class="level2" data-background="../content/lectures/images/00/camp1.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-10" class="level2" data-background="../content/lectures/images/00/camp2.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-11" class="level2" data-background="../content/lectures/images/00/camp3.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
+<ul>
+<li>Introduction to QGIS</li>
+<li><strong>Bring your flash drives!</strong></li>
+</ul>
+</section>
+</section>
+<section id="section-12" class="level1">
+<h1></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+</section>
+</div>
+ 
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+ 
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'linear',
+
+        math: {
+            // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'
+        },
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'journal', 
+   
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'linear',
+   
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '../../lib/js/classList.js' },
+    { src: 'plugin/math/math.js', async: true }
+  ]
+  });
+ 
+</script>
+
+</body>
+</html>

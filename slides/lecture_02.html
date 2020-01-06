@@ -1,0 +1,400 @@
+<!-- Copied from https://gist.github.com/aaronwolen/5017084#file-template-revealjs-html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+ 
+<title>Geographic Information Systems for Public Policy - Lecture II</title>
+ 
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture II">    
+ 
+  <meta name="author" content="Introduction to QGIS" />
+ 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+<link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/journal.css" id="theme">
+ 
+ 
+<!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+ 
+ 
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + 
+    '.css" type="text/css" media="print">' );
+</script>
+ 
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+ 
+<body>
+ 
+<div class="reveal">
+ 
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+ 
+<section>
+<h1>Geographic Information Systems for Public Policy - Lecture II</h1>
+<h3>Introduction to QGIS</h3>
+<p>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
+</p>
+</section>  
+ 
+ 
+<section id="last-time" class="level2">
+<h2>Last Time</h2>
+<ul>
+<li>This course</li>
+<li>Introduction to GIS</li>
+<li>GIS and Public Policy</li>
+</ul>
+</section>
+<section id="today" class="level2">
+<h2>Today</h2>
+<ul>
+<li>GIS Software</li>
+<li>Open Source, Open Science, Open Education</li>
+<li>Lab Logistics</li>
+<li>QGIS
+<ul>
+<li>Interface</li>
+<li>Working with projects, files and directories</li>
+</ul></li>
+</ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="gis-software" class="level2">
+<h2>GIS Software</h2>
+</section>
+<section id="gis-software-1" class="level2">
+<h2>GIS Software</h2>
+<ul>
+<li>slides here</li>
+</ul>
+</section>
+</section>
+<section id="section-1" class="level1">
+<h1></h1>
+<section id="open-source-open-science-open-education" class="level2">
+<h2>Open Source, Open Science, Open Education</h2>
+</section>
+<section id="open-source" class="level2">
+<h2>Open Source</h2>
+</section>
+<section id="freedoms" class="level2">
+<h2>Freedoms</h2>
+<ol type="1">
+<li>Free as in Beer</li>
+<li>Free as in Speech</li>
+</ol>
+</section>
+<section id="open-science" class="level2">
+<h2>Open Science</h2>
+</section>
+<section id="open-education" class="level2">
+<h2>Open Education</h2>
+<ul>
+<li>access to quality education is everyone’s birthright</li>
+<li>human knowledge is a <a href="https://en.wikipedia.org/wiki/Public_good_(economics)">public good</a> that should be available to all</li>
+<li>human knowledge is a public good that we all can contribute to</li>
+</ul>
+</section>
+</section>
+<section id="section-2" class="level1">
+<h1></h1>
+<section id="lab-logistics" class="level2">
+<h2>Lab Logistics</h2>
+</section>
+<section id="usb-thumb-drives" class="level2">
+<h2>USB Thumb Drives</h2>
+<ul>
+<li>saving your work</li>
+<li>allowing you to sit at a different lab computer</li>
+<li>allowing you to work outside of the lab</li>
+<li>2 gigabyte should suffice</li>
+</ul>
+</section>
+<section id="download-sample-data" class="level2">
+<h2>Download Sample Data</h2>
+</section>
+<section id="insert-usb-drive" class="level2">
+<h2>Insert USB Drive</h2>
+<CENTER>
+<img src="../content/lectures/images/01/finderdual.png" alt="finder dual"
+/>
+</CENTER>
+</section>
+<section id="copy-data-folder-to-usb-drive" class="level2">
+<h2>Copy Data Folder to USB Drive</h2>
+<CENTER>
+<img src="../content/lectures/images/01/findercopy.png" alt="finder copy"
+/>
+</CENTER>
+</section>
+</section>
+<section id="section-3" class="level1">
+<h1></h1>
+<section id="qgis" class="level2">
+<h2>QGIS</h2>
+</section>
+<section id="qgis-1" class="level2">
+<h2>QGIS</h2>
+</section>
+<section id="open-qgis" class="level2">
+<h2>Open QGIS</h2>
+<CENTER>
+<img src="../content/lectures/images/01/qgisopen.png" alt="open qgis"
+/>
+</CENTER>
+</section>
+<section id="load-a-vector-layer" class="level2">
+<h2>Load a Vector Layer</h2>
+<CENTER>
+<img src="../content/lectures/images/01/addvector.png" alt="vector layer"
+/>
+</CENTER>
+</section>
+<section id="set-path-to-usb-drive" class="level2">
+<h2>Set path to usb drive</h2>
+</section>
+<section id="section-4" class="level2" data-background="../content/lectures/images/01/vectorpathusb.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-5" class="level2" data-background="../content/lectures/images/01/vectorpathusbfilled.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="vector-layer-loaded" class="level2">
+<h2>Vector Layer Loaded</h2>
+</section>
+<section id="section-6" class="level2" data-background="../content/lectures/images/01/vectoraddresult.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="interface-components" class="level2">
+<h2>Interface Components</h2>
+</section>
+<section id="menu-bar" class="level2">
+<h2>Menu Bar</h2>
+<CENTER>
+<img src="../content/lectures/images/01/menubar.png" alt="menubar"
+/>
+</CENTER>
+</section>
+<section id="tool-bar" class="level2">
+<h2>Tool Bar</h2>
+<CENTER>
+<img src="../content/lectures/images/01/toolbar.png" alt="toolbar"
+/>
+</CENTER>
+</section>
+<section id="canvas" class="level2">
+<h2>Canvas</h2>
+<CENTER>
+<img src="../content/lectures/images/01/canvas.png" alt="canvas"
+/>
+</CENTER>
+</section>
+<section id="browser-panel" class="level2">
+<h2>Browser Panel</h2>
+<CENTER>
+<img src="../content/lectures/images/01/browserpanel.png" alt="browserpanel"
+/>
+</CENTER>
+</section>
+<section id="layer-panel" class="level2">
+<h2>Layer Panel</h2>
+<CENTER>
+<img src="../content/lectures/images/01/layerpanel.png" alt="layerpanel"
+/>
+</CENTER>
+</section>
+<section id="locator-bar" class="level2">
+<h2>Locator Bar</h2>
+<CENTER>
+<img src="../content/lectures/images/01/locatorbar.png" alt="locatorbar"
+/>
+</CENTER>
+</section>
+<section id="status-bar" class="level2">
+<h2>Status Bar</h2>
+<CENTER>
+<img src="../content/lectures/images/01/statusbar.png" alt="statusbar"
+/>
+</CENTER>
+</section>
+</section>
+<section id="section-7" class="level1">
+<h1></h1>
+<section id="working-with-projects-files-and-directories" class="level2">
+<h2>Working with Projects, Files, and Directories</h2>
+</section>
+<section id="load-the-rivers-layer" class="level2">
+<h2>Load the Rivers Layer</h2>
+</section>
+<section id="section-8" class="level2" data-background="../content/lectures/images/01/riversload.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-9" class="level2" data-background="../content/lectures/images/01/riversloaded.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="load-the-places-layer" class="level2">
+<h2>Load the Places Layer</h2>
+</section>
+<section id="section-10" class="level2" data-background="../content/lectures/images/01/placesloaded.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="projects" class="level2">
+<h2>Projects</h2>
+</section>
+<section id="what-is-a-qgis-project" class="level2">
+<h2>What is a QGIS Project?</h2>
+<ul>
+<li class="fragment">
+A <code>meta-file</code> that defines the files associated with an analysis
+</li>
+<li class="fragment">
+A <code>project file</code> records locations of files related to a <code>project</code>
+</li>
+<li class="fragment">
+Extension: <code>gqz</code>
+</li>
+</ul>
+</section>
+<section id="section-11" class="level2" data-background="../content/lectures/images/01/untitledproject.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="saving-a-project" class="level2">
+<h2>Saving a project</h2>
+<CENTER>
+<img src="../content/lectures/images/01/projectsave.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="project-save-dialog" class="level2">
+<h2>Project Save Dialog</h2>
+<CENTER>
+<img src="../content/lectures/images/01/projectsavedialog.png" alt="projectsavedialog"
+/>
+</CENTER>
+</section>
+<section id="project-saved" class="level2">
+<h2>Project Saved</h2>
+<CENTER>
+<img src="../content/lectures/images/01/projectsaved.png" alt="projectsavedialog"
+/>
+</CENTER>
+</section>
+<section id="project-file" class="level2">
+<h2>Project File</h2>
+<CENTER>
+<img src="../content/lectures/images/01/projectfile.png" alt="projectfile"
+/>
+</CENTER>
+</section>
+<section id="quit-qgis" class="level2">
+<h2>Quit QGIS</h2>
+<CENTER>
+<img src="../content/lectures/images/01/qgisquit.png" alt="qgisquit"
+/>
+</CENTER>
+</section>
+<section id="opening-project-on-a-different-computer" class="level2">
+<h2>Opening Project on a different computer</h2>
+<CENTER>
+(and operating system)
+</CENTER>
+</section>
+<section id="linux-file-browser" class="level2">
+<h2>Linux File Browser</h2>
+<CENTER>
+<img src="../content/lectures/images/01/linuxfile.png" alt="linuxfile"
+/>
+</CENTER>
+</section>
+<section id="qgis-on-linux" class="level2">
+<h2>QGIS on Linux</h2>
+<CENTER>
+<img src="../content/lectures/images/01/qgislinux.png" alt="qgislinux"
+/>
+</CENTER>
+</section>
+<section id="open-project-on-linux" class="level2">
+<h2>Open Project on Linux</h2>
+<CENTER>
+<img src="../content/lectures/images/01/linuxprojectopen.png" alt="linuxprojectopen"
+/>
+</CENTER>
+</section>
+<section id="our-project-on-linux" class="level2">
+<h2>Our Project on Linux</h2>
+<CENTER>
+<img src="../content/lectures/images/01/linuxprojectopened.png" alt="linuxprojectopened"
+/>
+</CENTER>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
+<ul>
+<li>Vector Data</li>
+<li><strong>Don’t forget to take your flash drive</strong></li>
+</ul>
+</section>
+</section>
+<section id="section-12" class="level1">
+<h1></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+</section>
+</div>
+ 
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+ 
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'linear',
+
+        math: {
+            // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'
+        },
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'journal', 
+   
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'linear',
+   
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '../../lib/js/classList.js' },
+    { src: 'plugin/math/math.js', async: true }
+  ]
+  });
+ 
+</script>
+
+</body>
+</html>
