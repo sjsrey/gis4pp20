@@ -69,7 +69,7 @@ website:
 
 website_local:
 	rm -rf _site
-	jekyll serve --watch --host 0.0.0.0 --incremental
+	bundle exec jekyll serve --watch --host 0.0.0.0 --incremental
 	rm -rf _site
 
 update:

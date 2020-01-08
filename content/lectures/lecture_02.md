@@ -43,11 +43,17 @@
 1.  Free as in Beer
 2.  Free as in Speech
 
+## Why Open Source GIS?
+
+<CENTER>
+[A word from the editor](https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/preamble.html#a-word-from-the-editor)
+</CENTER>
+
+
 ## Open Science (Why?)
 <CENTER>
 <img src="../content/lectures/images/01/reprocrisis.png" alt="openscience"
 style=height:450px"/>
-</CENTER>
 
 
 
@@ -64,9 +70,11 @@ style=height:450px"/>
 
 ## Open Education
 
--   access to quality education is everyone's birthright
--   human knowledge is a [public good](https://en.wikipedia.org/wiki/Public_good_(economics)) that should be available to all
--   human knowledge is a public good that we all can contribute to
+<ul>
+<li class="fragment">   access to quality education is everyone's birthright</li>
+<li class="fragment">   human knowledge is a [public good](https://en.wikipedia.org/wiki/Public_good_(economics)) that should be available to all</li> 
+<li class="fragment">   human knowledge is a public good that we all can contribute to</li>
+</ul>
 
 #
 ## Lab Logistics
