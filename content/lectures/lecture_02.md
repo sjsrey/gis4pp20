@@ -23,12 +23,17 @@
 ## GIS Software
 ## GIS Software
 
-- slides here
+<CENTER>
+<img src="../content/lectures/images/01/gissoftware.png" alt="finder dual"
+/>
+</CENTER>
+
 
 
 
 #
 ## Open Source, Open Science, Open Education
+
 
 ## Open Source
 
@@ -38,15 +43,38 @@
 1.  Free as in Beer
 2.  Free as in Speech
 
+## Why Open Source GIS?
 
-## Open Science
+<CENTER>
+[A word from the editor](https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/preamble.html#a-word-from-the-editor)
+</CENTER>
+
+
+## Open Science (Why?)
+<CENTER>
+<img src="../content/lectures/images/01/reprocrisis.png" alt="openscience"
+style=height:450px"/>
+
+
+
+
+## Open Science (What?)
+[(FOSTER)](https://www.fosteropenscience.eu/content/what-open-science-introduction) 
+<CENTER>
+<img src="../content/lectures/images/01/openscience.png" alt="openscience"
+style=height:450px"/>
+</CENTER>
+[`url`](https://www.fosteropenscience.eu/content/what-open-science-introduction) 
+
 
 
 ## Open Education
 
--   access to quality education is everyone's birthright
--   human knowledge is a [public good](https://en.wikipedia.org/wiki/Public_good_(economics)) that should be available to all
--   human knowledge is a public good that we all can contribute to
+<ul>
+<li class="fragment">   access to quality education is everyone's birthright</li>
+<li class="fragment">   human knowledge is a [public good](https://en.wikipedia.org/wiki/Public_good_(economics)) that should be available to all</li> 
+<li class="fragment">   human knowledge is a public good that we all can contribute to</li>
+</ul>
 
 #
 ## Lab Logistics
@@ -60,6 +88,9 @@
 
 ## Download Sample Data
 
+<CENTER>
+[Link](https://github.com/qgis/QGIS-Training-Data/archive/v2.0.zip)
+</CENTER>
 
 ## Insert USB Drive
 <CENTER>
@@ -85,6 +116,17 @@
 
 ## QGIS
 ## QGIS
+<CENTER>
+<img src="../content/lectures/images/01/qgis1.png" alt="finder copy"
+/>
+</CENTER>
+
+## QGIS Community
+<CENTER>
+<img src="../content/lectures/images/01/qgisteam.png" alt="finder copy"
+/>
+</CENTER>
+
 
 
 
@@ -252,8 +294,8 @@
 
 
 ## Next Up
-- Vector Data 
-- **Don't forget to take your flash drive**
+- Data Models
+- **Don't forget to take your flash drive out of the lab machine!**
 
 #
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">GIS for Public Policy'20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

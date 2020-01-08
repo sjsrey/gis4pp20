@@ -18,28 +18,11 @@ le01:
 le02:
 	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_02.md -o slides/lecture_02.html
 	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 slides/lecture_02.html slides/lecture_02.pdf
-le03:
-	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_03.md -o slides/lecture_03.html
-	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 slides/lecture_03.html slides/lecture_03.pdf
-le04:
-	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_04.md -o slides/lecture_04.html
-	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 slides/lecture_04.html slides/lecture_04.pdf
-le05:
-	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_05.md -o slides/lecture_05.html
-	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 slides/lecture_05.html slides/lecture_05.pdf
-le06:
-	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_06.md -o slides/lecture_06.html
-	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 slides/lecture_06.html slides/lecture_06.pdf
-le07:
-	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_07.md -o slides/lecture_07.html
-	decktape automatic --chrome-arg=--no-sandbox -s 1290x960 slides/lecture_07.html slides/lecture_07.pdf
-le08:
-	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_08.md -o slides/lecture_08.html
-	decktape automatic --chrome-arg=--no-sandbox -s 1290x960 slides/lecture_08.html slides/lecture_08.pdf
-	#pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/assignment03.md -o slides/assignment03.html
-le10:
-	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_10.md -o slides/lecture_10.html
-	decktape automatic --chrome-arg=--no-sandbox -s 1280x960 slides/lecture_10.html slides/lecture_10.pdf
+
+exercises: exer01
+
+exer01:
+	pandoc -t html5  --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/exercises/ex01.md -o exercises/exercise_01.html
 
 labs: la00 la01 la02 la03 la04 la05 la06 la08 la07
 la00:
@@ -86,7 +69,7 @@ website:
 
 website_local:
 	rm -rf _site
-	jekyll serve --watch --host 0.0.0.0 --incremental
+	bundle exec jekyll serve --watch --host 0.0.0.0 --incremental
 	rm -rf _site
 
 update:
