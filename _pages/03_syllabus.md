@@ -124,6 +124,8 @@ Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https:/
 ### Week 8: February 24, 26
 - 24: GIS in the Cloud
 - 26: Exploratory Spatial Data Analysis
+- 26: *Exercise 3 Due*
+- 26: *Exercise 4 Out*
 
 ### Week 9: March 2, 4
 - 2: GISS in the Service of Humanity
@@ -132,6 +134,7 @@ Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https:/
 ### Week 10: March 9, 11
 - 9: Next Steps 
 - 11: Review
+- 11: *Exercise 4 Due*
 
 
 
