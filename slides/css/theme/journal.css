@@ -12,8 +12,7 @@ body {
   counter-reset: sidenote-counter; }
 
 code {
-  color: #f6f4f2;
-  background-color: #c6ad8f;
+    color: #3238a8;
 }
 
 .reveal a {
