@@ -160,7 +160,7 @@ At the end of this course students will:
 -   Reviews will be held during the meeting prior to the exam
 -   The final exam will be cumulative
 -   Makeups for exams will be given in cases of unforeseen emergencies
--   Makeups will consist of a 1-hour oral examination
+-   Makeups will consist of a 30 minute oral examination during office hours
 
 
 
