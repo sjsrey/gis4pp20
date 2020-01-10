@@ -14,3 +14,10 @@ title: Lectures
 ### Jan 8: Introduction to QGIS
   -  <a href="../slides/lecture_02.html">Slides</a> 
   - <a href="https://docs.qgis.org/3.4/en/docs/training_manual/index.html">Reading: QGIS Training Manual, Ch. 1-2</a>
+
+## Week 2 January 13, 15 
+
+### Jan 13: Data Models
+  - <a href="../slides/lecture_03.html">Slides</a> 
+  - <a href="https://mgimond.github.io/Spatial/feature-representation.html">Reading: Gilmond, M. "Feature Representation"</a>
+  - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_data.html">Reading: Sutton, T. "Vector Data" </a>
