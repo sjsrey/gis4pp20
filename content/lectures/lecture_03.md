@@ -126,23 +126,31 @@ Explain
 </CENTER>
 
 
-
-## Vector Attributes
-
-Explain how they are stored
-
-## Raster Data Model
-
-
-## Which Model? 
+## Scale and Representation
 
 <CENTER>
-<img src="../content/lectures/images/02/vector_vs_raster.jpg" alt="vector v. raster"
+<img src="../content/lectures/images/02/riverside_point.png" alt="riverside as point"
+/>
+</CENTER>
+
+## Scale and Representation
+
+<CENTER>
+<img src="../content/lectures/images/02/riverside_network.png" alt="riverside as network"
 />
 </CENTER>
 
 
 
+## Vector Attributes
+
+Explain how they are stored
+
+## Issues with Vector Data
+
+- under and overshoots
+
+- slivers
 
 
 ## Why Math in GIS?
@@ -238,29 +246,6 @@ We don't know if there were exactly 8000 people at the concert, but we do know t
 
 ## Accuracy and Precision
 
-
-
-#
-## Vector Model
-
-## Scale and Representation
-
-<CENTER>
-<img src="../content/lectures/images/02/riverside_point.png" alt="riverside as point"
-/>
-</CENTER>
-
-## Scale and Representation
-
-<CENTER>
-<img src="../content/lectures/images/02/riverside_network.png" alt="riverside as network"
-/>
-</CENTER>
-
-
-
-
-## Editing Vector Data
 
 
 
