@@ -17,7 +17,6 @@
 
 #
 ## (Spatial) Data
-## (Spatial) Data
 
 
 ## What is Data?
@@ -92,7 +91,7 @@ Two key views of geospatial reality are the:
 
 
 
-##
+#
 ## GIS Data Models
 
 ## GIS Data Models
@@ -101,7 +100,16 @@ Two key views of geospatial reality are the:
 
 ## Vector Data Model
 
-Explain
+- Each discrete object is considered to be a **feature**
+- Vector features have **attributes**, which consist of text or numerical information that describe the features
+- A vector feature has its shape represented using **geometry**
+- The geometry is made up of one or more interconnected **vertices**
+
+## Vector Geometry
+
+- The geometry is made up of one or more interconnected **vertices**
+- A vertex describes a position in space using an X, Y and optionally Z axis. 
+- Geometries which have vertices with a Z axis are often referred to as 2.5D since they describe height or depth at each vertex, but not both.
 
 
 ##
@@ -144,107 +152,26 @@ Explain
 
 ## Vector Attributes
 
-Explain how they are stored
-
-## Issues with Vector Data
-
-- under and overshoots
-
-- slivers
-
-
-## Why Math in GIS?
 <CENTER>
-<img src="https://imgs.xkcd.com/comics/coordinate_precision.png" alt="coordinate precision"
+<img src="../content/lectures/images/02/attribute_table.png" alt="attribute table"
+/>
+</CENTER>
+
+## Attribute Properties
+
+<CENTER>
+<img src="../content/lectures/images/02/attribute_properties.png" alt="attribute properties"
 />
 </CENTER>
 
 
 
 
-## Numerical Concepts
+## Issues with Vector Data
 
-- Numerical Types
-- Precision/Accuracy
-- Measurement Scales
+- under and overshoots
 
-## Numerical Types
-- Natural Numbers
-- Integers
-- Rational Numbers
-- Real Numbers
-
- 
-
-## Set
-
-A *set* is a collection of unique items:
-
-`$$D = \{1, 2, 3\} $$`
-
-`$D$` is a set while,
-
-
-`$$ E = \{1, 2, 3, 1\} $$`
-
-is not a set, but a collection.
-
-## Natural Numbers
-
-
-`$$ N = \{1, 2, 3, 4, \ldots \} $$`
-
-The set `$N$` of natural counting numbers.
-
-- Good for counting
-- Bad for math: `$4-7$` is not an element of `$N$`.
-- `$4-7 \notin N$` 
-
-## Integers
-
-
-`$$I = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\} $$`
-`$$I = \{\ldots, -3, -2, -1, 0, N\} $$`
-
-- Good for add/subtraction: `$4-7 \in I$`
-- Problems with some division: `$7/4 \notin I$`
-
-## Rationals
-
-
-`$$Q = \{x \mid x = \frac{a}{b}, where\ a,b \in I,\ b \ne 0 \} $$`
-
-- the set of all numbers `$x$` such that `$x$` equals the quotient of integers `$a$` and `$b$`, the latter is not equal to zero. 
-- the quotient of two rational numbers is always rational
-
-## Reals
-
-
-`$$R = \{x \mid x:\text{can be written in decimal notation}\} $$`
-
-- `$\sqrt{2} \notin Q$`, `$\sqrt{2} \in R$`
-- `$\pi \notin Q$`, `$\pi \in R$`
-- Rationals by carrying out division: `$7/10 = 0.7 \in R$`.
-
-## Significant Digits
-
-There were 8000 people at the concert.
-
-There are 8057 census tracts in California.
-
-We don't know if there were exactly 8000 people at the concert, but we do know there are exactly 8057 census tracts in California.
-
-8000 has only 1 *signficant digit* while 8057 has 4.
-
-## Rules for Significant Digits
-
-1. All nonzero digits are significant
-2. A zeros is a significant digit if it is between two significant digits
-3. Leading 0s are not signficant
-4. Trailing 0s are significant only if the number contains a decimal point
-
-
-## Accuracy and Precision
+- slivers
 
 
 
