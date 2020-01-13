@@ -42,6 +42,7 @@
 - Geostatistical Data
 - Lattice (Polygon) Data
 - Network Data
+- Spatial Interaction Data
 
 
 ## Digital Data
@@ -169,9 +170,25 @@ Two key views of geospatial reality are the:
 
 ## Issues with Vector Data
 
-- under and overshoots
-
 - slivers
+- under and overshoots
+- topological errors
+
+## Slivers
+<CENTER>
+<img src="../content/lectures/images/02/vector_slivers.png" alt="vector slivers"
+/>
+</CENTER>
+
+
+
+## Under and overshoots
+
+<CENTER>
+<img src="../content/lectures/images/02/vector_overshoots.png" alt="vector_overshoots"
+/>
+</CENTER>
+
 
 
 
