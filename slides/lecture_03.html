@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8">
  
-<title>Geographic Data Science - Lecture III</title>
+<title>Geographic Information Systems for Public Policy - Lecture III</title>
  
-<meta name="description" content="Geographic Data Science - Lecture III">    
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture III">    
  
-  <meta name="author" content="Spatial Data" />
+  <meta name="author" content="Data Models" />
  
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -43,197 +43,224 @@
 <div class="slides">
  
 <section>
-<h1>Geographic Data Science - Lecture III</h1>
-<h3>Spatial Data</h3>
+<h1>Geographic Information Systems for Public Policy - Lecture III</h1>
+<h3>Data Models</h3>
 <p>
-<h4><a href="http://darribas.org">Dani Arribas-Bel</a></h4>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
 </p>
 </section>  
  
  
-<section id="section" class="level1">
-<h1></h1>
-<section id="day-1" class="level2">
-<h2>“Day 1”</h2>
+<section id="last-time" class="level2">
+<h2>Last Time</h2>
 <ul>
-<li><p>Introduced the (geo-)data revolution</p>
-<ul>
-<li>What is it?</li>
-<li>Why now?</li>
-</ul></li>
-<li><p>The <em>need</em> of <strong>(geo-)data science</strong> to make sense of it all</p></li>
+<li>Open Source/Science/Education</li>
+<li>Introduction to QGIS</li>
 </ul>
 </section>
 <section id="today" class="level2">
 <h2>Today</h2>
 <ul>
-<li>Types of (geo-)data: refresher</li>
-<li>Traditional and new sources of spatial data</li>
-<li>New ways for traditional approaches</li>
+<li>(Spatial) Data</li>
+<li>GIS Data Models</li>
+<li>Vector Model</li>
 </ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="spatial-data" class="level2">
+<h2>(Spatial) Data</h2>
+</section>
+<section id="what-is-data" class="level2">
+<h2>What is Data?</h2>
+<CENTER>
+<img src="../content/lectures/images/02/DIKW_Pyramid.svg" alt="locatorbar"
+/>
+</CENTER>
+<p>[<a href="https://commons.wikimedia.org/w/index.php?curid=37705247">Source</a>]</p>
+</section>
+<section id="spatial-data-1" class="level2">
+<h2>Spatial Data</h2>
+<ul>
+<li>Also known as geospatial data</li>
+<li>Observation that identify the geographic locations of
+<ul>
+<li>features on the Earth</li>
+<li>boundaries on the Earth</li>
+</ul></li>
+<li>Stored as coordinates and topology</li>
+<li>80-100% of all data have a geographical component (Cressie 1993)</li>
+</ul>
+</section>
+<section id="types-of-spatial-data" class="level2">
+<h2>Types of Spatial Data</h2>
+<ul>
+<li>Point Pattern Data</li>
+<li>Geostatistical Data</li>
+<li>Lattice (Polygon) Data</li>
+<li>Network Data</li>
+<li>Spatial Interaction Data</li>
+</ul>
+</section>
+<section id="digital-data" class="level2">
+<h2>Digital Data</h2>
+<p>In order to encode spatial data, we need a conceptual view that can form the basis for a data model.</p>
+<p>By encode, we mean turn data as observations into digital data that can be used in a GISystem</p>
+</section>
+<section id="representation" class="level2">
+<h2>Representation</h2>
+<p>Two key views of geospatial reality are the:</p>
+<ul>
+<li>object view</li>
+<li>field views</li>
+</ul>
+</section>
+<section id="object-view" class="level2">
+<h2>Object View</h2>
+<ul>
+<li>the world is viewed as a set of discrete spatial objects (entities)</li>
+<li>can take different forms
+<ul>
+<li>points: location of a traffic accident</li>
+<li>lines: stream segment/river segment</li>
+<li>areas/polygons: Riverside County</li>
+</ul></li>
+</ul>
+</section>
+<section id="object-view-1" class="level2">
+<h2>Object View</h2>
+<CENTER>
+<img src="../content/lectures/images/02/object_view.png" alt="object view"
+/>
+</CENTER>
+</section>
+<section id="field-view" class="level2">
+<h2>Field View</h2>
+<ul>
+<li>geography seen as a collection of continuous variables</li>
+<li>phenomena could be measured everywhere (at any point in space)</li>
+<li>ex: air pollution, elevation, precipitation</li>
+</ul>
+</section>
+<section id="field-view-1" class="level2">
+<h2>Field View</h2>
+<CENTER>
+<img src="../content/lectures/images/02/laAir.png" alt="field_view"
+/>
+</CENTER>
 </section>
 </section>
 <section id="section-1" class="level1">
 <h1></h1>
-<section id="representing-the-world-digitally" class="level2">
-<h2>Representing the World Digitally</h2>
-</section>
 <section id="gis-data-models" class="level2">
 <h2>GIS Data Models</h2>
-<p>Traditionally, geographic information is represented as:</p>
+</section>
+<section id="gis-data-models-1" class="level2">
+<h2>GIS Data Models</h2>
 <ul>
-<li><code>Vector</code> <span class="fragment"><span class="hlg">finite</span> set of entities (<span class="hlg">shapes</span>/geometries)</span></li>
-<li><code>Raster</code> <span class="fragment"> <span class="hlg">images</span> encoding <span class="hlg">surfaces</span> (values, colours, etc.)</span></li>
+<li>Vector Data Model (Today)</li>
+<li>Raster Data Model (Future)</li>
 </ul>
 </section>
-<section id="vector" class="level2">
-<h2>Vector</h2>
-<table>
-<col width="33%">
-<col width="33%">
-<col width="33%">
-<tr>
-<td>
-<img src="../content/lectures/figs/l03_points.png" style="height:250px">
-</td>
-<td>
-<img src="../content/lectures/figs/l03_streets.png" style="height:250px">
-</td>
-<td>
-<img src="../content/lectures/figs/l03_polygons.png" style="height:250px">
-</td>
-</tr>
-</table>
-</section>
-<section id="raster" class="level2">
-<h2>Raster</h2>
-<table>
-<col width="60%">
-<col width="40%">
-<tr>
-<td>
-<img src="../content/lectures/figs/l03_dem.jpg" style="height:300px">
-</td>
-<td>
-<img src="../content/lectures/figs/l03_sat.jpg" style="height:300px">
-</td>
-</tr>
-</table>
-</section>
-</section>
-<section id="section-2" class="level1">
-<h1></h1>
-<section id="good-old-spatial-data" class="level2">
-<h2><em>Good old</em> spatial data</h2>
-</section>
-<section id="good-old-spatial-data-1" class="level2">
-<h2><em>Good old</em> spatial data</h2>
-<p>[<a href="https://www.youtube.com/embed/RY2J8ETZzLo">source</a>]</p>
-<iframe width="660" height="415" src="https://www.youtube.com/embed/RY2J8ETZzLo" frameborder="0" allowfullscreen>
-</iframe>
-</section>
-<section id="good-old-spatial-data-2" class="level2">
-<h2><em>Good old</em> spatial data (+)</h2>
-<p>Traditionally, datasets used in the (social) sciences are:</p>
+<section id="vector-data-model" class="level2">
+<h2>Vector Data Model</h2>
 <ul>
-<li>Collected for the purpose –&gt; <strong>carefully</strong> designed</li>
-<li><strong>Detailed</strong> in information (“<em>…rich profiles and portraits of the country…</em>”)</li>
-<li><strong>High quality</strong></li>
+<li>Each discrete object is considered to be a <strong>feature</strong></li>
+<li>Vector features have <strong>attributes</strong>, which consist of text or numerical information that describe the features</li>
+<li>A vector feature has its shape represented using <strong>geometry</strong></li>
+<li>The geometry is made up of one or more interconnected <strong>vertices</strong></li>
 </ul>
 </section>
-<section id="good-old-spatial-data--" class="level2">
-<h2><em>Good old</em> spatial data (-)</h2>
-<p>But also:</p>
+<section id="vector-geometry" class="level2">
+<h2>Vector Geometry</h2>
 <ul>
-<li>Massive enterprises ("<em>…every single person…</em>) –&gt; <strong>costly</strong></li>
-<li>But <strong>coarse</strong> in resolution (to preserve pricacy they need to be aggregated)</li>
-<li><strong>Slow</strong>: the more detailed, the less frequent they are available</li>
+<li>The geometry is made up of one or more interconnected <strong>vertices</strong></li>
+<li>A vertex describes a position in space using an X, Y and optionally Z axis.</li>
+<li>Geometries which have vertices with a Z axis are often referred to as 2.5D since they describe height or depth at each vertex, but not both.</li>
 </ul>
 </section>
-<section id="examples" class="level2">
-<h2>Examples</h2>
-<ul>
-<li>Decenial census (and census geographies)</li>
-<li>Longitudinal surveys</li>
-<li>Customly collected surveys, interviews, etc.</li>
-<li>Economic indicators</li>
-<li>…</li>
-</ul>
-</section>
-</section>
-<section id="section-3" class="level1">
-<h1></h1>
-<section id="new-sources-of-spatial-data" class="level2">
-<h2>New sources of (spatial) data</h2>
-</section>
-<section id="new-sources-of-spatial-data-1" class="level2">
-<h2>New sources of (spatial) data</h2>
-<p>Tied into the (geo-)data revolution, new sources are appearing that are:</p>
-<ul>
-<li><span class="hlg"><strong>Accidental</strong></span> –&gt; created for different purposes but available for analysis as a side effect</li>
-<li>Very <span class="hlg">diverse</span> in nature, resolution, and quality but, potentially, much more <strong>detailed</strong> in both space and time</li>
-</ul>
-<p>Different ways to categorise them…</p>
-</section>
-<section id="lazer-radford-2017" class="level2">
-<h2>Lazer &amp; Radford (2017)</h2>
-<ul>
-<li><span class="hlg">Digital life</span>: digital actions (Twitter, Facebook, WikiPedia…)</li>
-<li><span class="hlg">Digital traces</span>: record of digital actions (CDRs, metadata…)</li>
-<li><span class="hlg">Digitalised life</span>: nonintrinsically digital life in digital form (Government records, web…)</li>
-</ul>
-</section>
-<section id="arribas-bel-2014" class="level2">
-<h2>Arribas-Bel (2014)</h2>
-<p>Three levels, based on how they originate:</p>
-<ul>
-<li><span class="hlg">Bottom up</span>: “Citizens as sensors”</li>
-<li><span class="hlg">Intermediate</span>: Digital businesses/businesses going digital</li>
-<li><span class="hlg">Top down</span>: Open Government Data</li>
-</ul>
-</section>
-<section id="opportunities-lazer-radford-2017" class="level2">
-<h2>Opportunities (Lazer &amp; Radford, 2017)</h2>
-<ul>
-<li>Massive, passive</li>
-<li>Nowcasting</li>
-<li>Data on social systems</li>
-<li>Natural and field experiments (“always-on” observatory of human behaviour)</li>
-<li>Making big data small</li>
-</ul>
-</section>
-<section id="challenges-arribas-bel-2014" class="level2">
-<h2>Challenges (Arribas-Bel, 2014)</h2>
-<ul>
-<li>Bias</li>
-<li>Technical barriers</li>
-<li>Methodological “mismatch”</li>
-</ul>
-</section>
-</section>
-<section id="section-4" class="level1">
-<h1></h1>
-<section id="oldnew-rastervector" class="level2">
-<h2>Old/New, raster/vector…</h2>
-</section>
-<section id="oldnew-rastervector-1" class="level2">
-<h2>Old/New, raster/vector…</h2>
-<p><span class="fragment"> Traditional <span class="hlg">approaches</span> to represent the world in a computer are <span class="hlg">blending</span> thanks to new forms of data </span></p>
-<p><span class="fragment"> Keep an <span class="hlg">open mind</span> to tools, approaches, and methods </span></p>
-</section>
-<section id="section-5" class="level2" data-background="../content/lectures/figs/l03_buildings.png" data-background-size="contain" data-transition="none">
+<section id="section-2" class="level2">
 <h2></h2>
+<CENTER>
+<img src="../content/lectures/images/02/point_feature.png" alt="point feature"
+/>
+</CENTER>
 </section>
-<section id="section-6" class="level2" data-background="../content/lectures/figs/l03_strava.png" data-background-size="contain" data-transition="none">
+<section id="section-3" class="level2">
 <h2></h2>
+<CENTER>
+<img src="../content/lectures/images/02/polyline_feature.png" alt="polyline feature"
+/>
+</CENTER>
 </section>
-<section id="section-7" class="level2" data-background="../content/lectures/figs/l03_ghsl.png" data-background-size="contain" data-transition="none">
+<section id="section-4" class="level2">
 <h2></h2>
+<CENTER>
+<img src="../content/lectures/images/02/polygon_feature.png" alt="polygon feature"
+/>
+</CENTER>
+</section>
+<section id="scale-and-representation" class="level2">
+<h2>Scale and Representation</h2>
+<CENTER>
+<img src="../content/lectures/images/02/riverside_point.png" alt="riverside as point"
+/>
+</CENTER>
+</section>
+<section id="scale-and-representation-1" class="level2">
+<h2>Scale and Representation</h2>
+<CENTER>
+<img src="../content/lectures/images/02/riverside_network.png" alt="riverside as network"
+/>
+</CENTER>
+</section>
+<section id="vector-attributes" class="level2">
+<h2>Vector Attributes</h2>
+<CENTER>
+<img src="../content/lectures/images/02/attribute_table.png" alt="attribute table"
+/>
+</CENTER>
+</section>
+<section id="attribute-properties" class="level2">
+<h2>Attribute Properties</h2>
+<CENTER>
+<img src="../content/lectures/images/02/attribute_properties.png" alt="attribute properties"
+/>
+</CENTER>
+</section>
+<section id="issues-with-vector-data" class="level2">
+<h2>Issues with Vector Data</h2>
+<ul>
+<li>slivers</li>
+<li>under and overshoots</li>
+<li>topological errors</li>
+</ul>
+</section>
+<section id="slivers" class="level2">
+<h2>Slivers</h2>
+<CENTER>
+<img src="../content/lectures/images/02/vector_slivers.png" alt="vector slivers"
+/>
+</CENTER>
+</section>
+<section id="under-and-overshoots" class="level2">
+<h2>Under and overshoots</h2>
+<CENTER>
+<img src="../content/lectures/images/02/vector_overshoots.png" alt="vector_overshoots"
+/>
+</CENTER>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
+<ul>
+<li>Vector Tables</li>
+<li>Queries</li>
+</ul>
 </section>
 </section>
-<section id="section-8" class="level1">
+<section id="section-5" class="level1">
 <h1></h1>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Geographic Data Science’19</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </section>
 </div>
  
