@@ -2,9 +2,14 @@
 layout: page
 title: Exercises
 ---
+# Table of Contents
+
+- [Exercise 1](#exer1)
+- [Exercise 2](#exer2)
 
 
-## Exercise 1: Introduction to QGIS<a name='exer1'></a>
+
+# Exercise 1: Introduction to QGIS<a name='exer1'></a>
 
 ## Deadline
 
@@ -13,23 +18,23 @@ title: Exercises
 
 
 
-### Objectives
+## Objectives
 
 - Installing QGIS on your personal computer
 - Familiarizing yourself with the QGIS Interface
 - Reading and Creating Data
 - Managing Files and Projects
 
-### Instructions
+## Instructions
 
 
-#### Setup
+### Setup
 
 1. If you have not done so already, [download and install](https://qgis.org/en/site/forusers/download.html) QGIS, Version 3.4, on your laptop.
 2. Download the [exercise data](http://gisdata.scag.ca.gov/Lists/GISData/Attachments/25/tract_boundary_scag_2010.zip).
 
 
-#### Analysis 
+### Analysis 
 Using QGIS, answer the following questions (posting your answers on [ilearn](https://ilearn.ucr.edu))
 
 1. How many features are in this data set?
@@ -48,3 +53,43 @@ Creating a new layer
 3. Submit a screenshot that shows the layer panel and the canvas with the new Riverside layer on top of the original layer
 
 
+# Exercise 2: Working with Attributes<a name='exer2'></a>
+
+## Deadline
+- Hand in your work on [ilearn](https://ilearn.ucr.edu) by **January 29 12 p.m.**
+
+
+## Objectives
+- Learn how to complete table joins to add attributes
+- Creation of new attributes using expressions
+- Filtering attributes
+- Virtual layers for query presentations
+
+## Instructions
+
+### Setup
+- You will be using the same dataset from [exercise 1](#exer01).
+- Create a new project called `exer02`
+
+### Analysis
+#### Joins and Attribute Creation
+1. Using a table join, attach a new attribute with the name `CountyName` that uses the `COUNTY` as the field to match on.
+2. Create an attribute named `pctHISP` that reports the percentage of the tract's total population that is Hispanic.
+3. Create an attribute named `pctNHBLK` that reports the percentage of the tract's total population that is non-Hispanic Black.
+4. Create an attribute named `majHISP` that takes a value of 1 if the `pctHISP` is greater than 0.50.
+4. Create an attribute named `majNHBLK` that takes a value of 1 if the `pctNHBLK` is greater than 0.50.
+
+#### Layer creation
+1. Create a layer that contains the tracts where `majHISP` takes a value of 1. Name this layer `majHISP`
+2. Create a layer that contains the tracts where `majNHBLK` takes a value of 1. Name this layer `majNHBLK`
+3. Upload a screen shot that shows the map canvas with the two new layers on top of the original project layer.
+4. Comment on the spatial distribution displayed in  the `majHISP` and `majNHBLK` layers.
+
+#### Virtual Layers
+The next steps require building  different virtual layers to generate  table reports:
+1. Report the number of tracts by county.
+2. Report the number of majority Hispanic tracts by county
+3. Report the percentage of majority Hispanic tracts by county
+4. Report the percentage of the total county population that is Hispanic by county.
+5. Compare the previous percentage to the average of the Hispanic population by tract in each county.
+6. Comment on the last report. Why do the two views of percentage Hispanic differ?

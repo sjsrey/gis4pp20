@@ -21,3 +21,7 @@ title: Lectures
   - <a href="../slides/lecture_03.html">Slides</a> 
   - <a href="https://mgimond.github.io/Spatial/feature-representation.html">Reading: Gilmond, M. "Feature Representation"</a>
   - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_data.html">Reading: Sutton, T. "Vector Data" </a>
+
+### Jan 15: Attributes and Attribute Tables
+  - <a href="../slides/lecture_04.html">Slides</a> 
+  - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_attribute_data.html">Reading: Sutton, T. "Vector Attribute Data" </a>

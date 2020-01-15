@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8">
  
-<title>Geographic Data Science - Lecture IV</title>
+<title>Geographic Information Systems for Public Policy - Lecture IV</title>
  
-<meta name="description" content="Geographic Data Science - Lecture IV">    
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture IV">    
  
-  <meta name="author" content="Mapping Data" />
+  <meta name="author" content="Vector Attributes and Tables" />
  
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -43,278 +43,377 @@
 <div class="slides">
  
 <section>
-<h1>Geographic Data Science - Lecture IV</h1>
-<h3>Mapping Data</h3>
+<h1>Geographic Information Systems for Public Policy - Lecture IV</h1>
+<h3>Vector Attributes and Tables</h3>
 <p>
-<h4><a href="http://darribas.org">Dani Arribas-Bel</a></h4>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
 </p>
 </section>  
  
  
-<section id="section" class="level1">
-<h1></h1>
+<section id="last-time" class="level2">
+<h2>Last Time</h2>
+<ul>
+<li>GIS Data Models</li>
+<li>Vector Data Model</li>
+</ul>
+</section>
 <section id="today" class="level2">
 <h2>Today</h2>
 <ul>
-<li>Visualisation</li>
-<li>Geo-Visualisation</li>
-<li>Mapping data
-<ul>
-<li>MAUP</li>
-<li>Choropleths</li>
-</ul></li>
+<li>Vector Attributes</li>
+<li>Table Joins</li>
+<li>Virtual Layers</li>
 </ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="recap-vector-data-model" class="level2">
+<h2>Recap: Vector Data Model</h2>
+<ul>
+<li>Each discrete object is considered to be a <strong>feature</strong></li>
+<li>Vector features have <strong>attributes</strong>, which consist of text or numerical information that describe the features</li>
+<li>A vector feature has its shape represented using <strong>geometry</strong></li>
+<li>The geometry is made up of one or more interconnected <strong>vertices</strong></li>
+</ul>
+</section>
+<section id="features-and-attributes" class="level2">
+<h2>Features and Attributes</h2>
+<ul>
+<li>Each <code>Feature</code> has a corresponding <code>Record</code> or <code>Row</code> in the <code>Attribute Table</code></li>
+<li>The ordering of these rows has no intrinsic meaning</li>
+<li>Each <code>Feature</code> has a unique <code>ID</code> this is relied upon to link the row to the feature</li>
+</ul>
+</section>
+<section id="example-data" class="level2">
+<h2>Example Data</h2>
+<ul>
+<li>Voting Precincts: Riverside County 2016</li>
+<li>[<a href="../content/lectures/data/04/voting.zip">Download</a>]</li>
+<li>[<a href="https://github.com/datadesk/california-2016-election-precinct-maps">Source</a>]</li>
+</ul>
+</section>
+<section id="voting-precincts-riverside-county-2016" class="level2">
+<h2>Voting Precincts: Riverside County 2016</h2>
+<CENTER>
+<img src="../content/lectures/images/04/precincts.png" alt="precincts"
+/>
+</CENTER>
+</section>
+<section id="attribute-table" class="level2">
+<h2>Attribute Table</h2>
+<CENTER>
+<img src="../content/lectures/images/04/attribute_table.png" alt="table"
+/>
+</CENTER>
 </section>
 </section>
 <section id="section-1" class="level1">
 <h1></h1>
-<section id="visualization" class="level2">
-<h2>Visualization</h2>
+<section id="table-joins" class="level2">
+<h2>Table Joins</h2>
 </section>
-<section id="section-2" class="level2">
-<h2></h2>
-<center>
-<em>“Data graphics <strong>visually display measured quantities</strong> by means of the <strong>combined use</strong> of points, lines, a coordinate system, numbers, symbols, words, shading, and color.”</em>
-</center>
-<div style="text-align:right">
-<p><small> <em>The Visual Display of Quantitative Information</em>. Edward R. Tufte. </small></p>
-</div>
-</section>
-<section id="section-3" class="level2">
-<h2></h2>
+<section id="loading-csv-layer" class="level2">
+<h2>Loading csv layer</h2>
 <CENTER>
-<img src="../content/lectures/figs/l03_monalisa_data.png" alt="ML data"
-style="width:450px;height:450px;"/> <span class="fragment"> <img src="../content/lectures/figs/l03_monalisa.png" alt="ML pic"
-style="width:450px;height:450px;"/>
+<img src="../content/lectures/images/04/delimited_text.png" alt="figure"
+/>
 </CENTER>
-<p>[<a href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg/687px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg">Source</a>]</p>
 </section>
-<section id="visualization-1" class="level2">
-<h2>Visualization</h2>
-<ul>
-<li>By <strong>encoding information visually</strong>, they allow to present <strong>large amounts</strong> of numbers in a <strong>meaninful</strong> way.</li>
-<li>If well made, visualizations provide leads into the processes underlying the graphic.</li>
-</ul>
-<div style="text-align:right">
-<p><small> <em>The Visual Display of Quantitative Information</em>. Edward R. Tufte. </small></p>
-</div>
-</section>
-</section>
-<section id="section-4" class="level1">
-<h1></h1>
-<section id="geovisualization" class="level2">
-<h2><strong>Geo</strong>visualization</h2>
-</section>
-<section id="tufte-1983" class="level2">
-<h2>Tufte (1983)</h2>
-<center>
-<em>“The most extensive data maps […] place millions of bits of information on a single page before our eyes. No other method for the display of statistical information is so powerful”</em>
-</center>
-</section>
-<section id="maceachren-1994" class="level2">
-<h2>MacEachren (1994)</h2>
-<center>
-<em>“<strong>Geographic visualization</strong> can be defined as the use of concrete visual representations –whether on paper or through computer displays or other media–to <strong>make spatial contexts and problems visible</strong>, so as to engage the most powerful <strong>human information processing</strong> abilities, those associated with vision.”</em>
-</center>
-</section>
-<section id="geovisualization-1" class="level2">
-<h2>GeoVisualization</h2>
-<ul>
-<li>Not to replace the human <em>in the loop</em>, but to <strong>augment</strong> her/him.</li>
-<li>Augmentation through engaging the <strong>pattern recognition</strong> capabilities that our brain inherently has.</li>
-<li>Combines cartography, infovis and statistics</li>
-</ul>
-</section>
-<section id="a-map-for-everyone" class="level2">
-<h2>A map for everyone</h2>
-<p>Maps can fulfill several needs, looking very different depending on the end-goal</p>
-<p>MacEachren &amp; Kraak (1997) identify three main dimensions:</p>
-<ul>
-<li>Knowledge of what is being plotted</li>
-<li>Target audience</li>
-<li>Degree of interactivity</li>
-</ul>
-</section>
-<section id="maceachren-kraak-1997-map-cube" class="level2">
-<h2>MacEachren &amp; Kraak (1997) map cube</h2>
-<div style="height: 500px;" data-markdown="1">
-<p><img src="../content/lectures/figs/l03_map_cube.png" /></p>
-</div>
-<p>[<a href="http://cartography.tuwien.ac.at/wordpress/wp-content/uploads/2013/01/cartotalk-corne-van-elzakker.pdf">Source</a>]</p>
-</section>
-</section>
-<section id="making-good-data-maps" class="level1">
-<h1>Making good data maps</h1>
-<ul>
-<li>“Containers”</li>
-<li>Choropleths</li>
-</ul>
-</section>
-<section id="section-5" class="level1">
-<h1></h1>
-<section id="data-containers" class="level2">
-<h2>Data “containers”</h2>
-</section>
-<section id="section-6" class="level2">
-<h2></h2>
-<p><strong>M</strong>odifiable <strong>A</strong>real <strong>U</strong>nit <strong>P</strong>roblem <span class="fragment">(Openshaw, 1984)</span></p>
-</section>
-<section id="section-7" class="level2">
-<h2></h2>
-<center>
-<img src="../content/lectures/figs/l04_maup_pts.png" alt=""
-style="width:300px;height:300px;"/> <span class="fragment"> <img src="../content/lectures/figs/l04_maup_2x2_grid.png" alt=""
-style="width:300px;height:300px;"/> <span class="fragment"> <img src="../content/lectures/figs/l04_maup_2x2_map.png" alt=""
-style="width:300px;height:300px;"/>
-</center>
-</section>
-<section id="section-8" class="level2">
-<h2></h2>
-<center>
-<img src="../content/lectures/figs/l04_maup_pts.png" alt=""
-style="width:300px;height:300px;"/> <span class="fragment"> <img src="../content/lectures/figs/l04_maup_5x5_grid.png" alt=""
-style="width:300px;height:300px;"/> <span class="fragment"> <img src="../content/lectures/figs/l04_maup_5x5_map.png" alt=""
-style="width:300px;height:300px;"/>
-</center>
-</section>
-<section id="section-9" class="level2">
-<h2></h2>
-<center>
-<img src="../content/lectures/figs/l04_maup_pts.png" alt=""
-style="width:300px;height:300px;"/> <span class="fragment"> <img src="../content/lectures/figs/l04_maup_10x10_grid.png" alt=""
-style="width:300px;height:300px;"/> <span class="fragment"> <img src="../content/lectures/figs/l04_maup_10x10_map.png" alt=""
-style="width:300px;height:300px;"/>
-</center>
-</section>
-<section id="section-10" class="level2">
-<h2></h2>
-<center>
-<img src="../content/lectures/figs/l04_maup_2x2_map.png" alt=""
-style="width:300px;height:300px;"/> <img src="../content/lectures/figs/l04_maup_5x5_map.png" alt=""
-style="width:300px;height:300px;"/> <img src="../content/lectures/figs/l04_maup_10x10_map.png" alt=""
-style="width:300px;height:300px;"/>
-</center>
-</section>
-<section id="maup" class="level2">
-<h2>MAUP</h2>
-<p><strong>Scale</strong> and <strong>delineation mismatch</strong> between:</p>
-<ul>
-<li>Underlying process (e.g. individuals, firms, shops)</li>
-<li>Unit of measurement (e.g. neighborhoods, regions, etc.)</li>
-</ul>
-<p>In some cases, it can <strong>seriously mislead</strong> analysis on aggregated data (e.g. <a href="http://theconversation.com/how-zip-codes-nearly-masked-the-lead-problem-in-flint-65626">Flint, MI!!!</a>)</p>
-<p><span class="fragment">Always keep <strong>MAUP</strong> in mind when exploring aggregated data!!!</p>
-</section>
-</section>
-<section id="section-11" class="level1">
-<h1></h1>
-<section id="choropleths" class="level2">
-<h2>Choropleths</h2>
-</section>
-<section id="choropleths-1" class="level2">
-<h2>Choropleths</h2>
-<center>
-<em>Thematic map in which values of a variable are encoded using a color gradient of some sort</em>
-</center>
-<ul>
-<li>Counterpart of the histogram</li>
-<li><strong>Values</strong> are <strong>classified</strong> into specific <strong>colors</strong>: value –&gt; bin</li>
-<li><strong>Information loss</strong> as a trade off for <strong>simplicity</strong></li>
-</ul>
-</section>
-<section id="classification-choices" class="level2">
-<h2>Classification choices</h2>
-<ul>
-<li>N. of bins</li>
-<li>How to bin?</li>
-<li>Colors</li>
-</ul>
-</section>
-<section id="how-many-bins" class="level2">
-<h2>How many bins?</h2>
-<ul>
-<li>Trade-off: detail Vs cognitive load</li>
-<li>Exact number depends on purpose of the map</li>
-<li>Usually not more than 12</li>
-</ul>
-</section>
-<section id="how-to-bin" class="level2">
-<h2>How to bin?</h2>
-</section>
-<section id="unique-values" class="level2">
-<h2>Unique values</h2>
-<ul>
-<li>Categorical data</li>
-<li>No gradient (reflect it with the color scheme!!!)</li>
-<li>Examples: Religion, country of origin…</li>
-</ul>
-</section>
-<section id="unique-values-1" class="level2">
-<h2>Unique values</h2>
-<center>
-<div style="height: 600px;" data-markdown="1">
-<p><img src="../content/lectures/figs/l04_unique_values.png" /></p>
-</div>
-</center>
-</section>
-<section id="equal-interval" class="level2">
-<h2>Equal interval</h2>
-<ul>
-<li>Take the <strong>value</strong> span of the data to represent and split it equally</li>
-<li><strong>Splitting</strong> happens based on the <strong>numerical value</strong></li>
-<li>Gives more weight to outliers if the distribution is skewed</li>
-</ul>
-</section>
-<section id="section-12" class="level2" data-background="../content/lectures/figs/l04_equal_interval.png" data-background-size="contain">
+<section id="section-2" class="level2" data-background="../content/lectures/images/04/loaded_delimited.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="quantiles" class="level2">
-<h2>Quantiles</h2>
-<ul>
-<li>Regardless of numerical values, split the distribution keeping the same amount of values in each bin</li>
-<li><strong>Splitting</strong> based on the <strong>rank</strong> of the value</li>
-<li>If distribution is skewed, it can put very different values in the same bin</li>
-</ul>
+<section id="sort-two-tables-by-their-precinct-attribute" class="level2">
+<h2>Sort two tables by their precinct attribute</h2>
 </section>
-<section id="section-13" class="level2" data-background="../content/lectures/figs/l04_quantiles.png" data-background-size="contain">
+<section id="section-3" class="level2" data-background="../content/lectures/images/04/sorted_by_precinct.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="other" class="level2">
-<h2>Other</h2>
+<section id="table-join" class="level2">
+<h2>Table Join</h2>
 <ul>
-<li>Fisher-Jenks</li>
-<li>Natural breaks</li>
-<li>Outlier maps: box maps, std. maps…</li>
+<li>We want to attach the data from the csv table into the shapefile layer</li>
+<li>While the two precinct attributes are aligned, they have different values pointing to the same precinct</li>
+<li>We need to fix this prior to doing a table join</li>
 </ul>
 </section>
-<section id="color-schemes" class="level2">
-<h2>Color schemes</h2>
-<p>Align with your purpose</p>
+<section id="creating-new-attributes" class="level2">
+<h2>Creating New Attributes</h2>
 <ul>
-<li><strong>Categories</strong>, non-ordered <a href="https://jiffyclub.github.io/palettable/wesanderson/#fantasticfox2_5"><img src="../content/lectures/figs/l04_pal_qual.png" alt="Qualitative"
-style="width:300px;height:50px;vertical-align:middle;border:0px;" class="fragment"/></a></li>
-<li>Graduated, <strong>sequential</strong> <a href="https://jiffyclub.github.io/palettable/colorbrewer/sequential/#rdpu_5"><img src="../content/lectures/figs/l04_pal_seq.png" alt="Sequential"
-style="width:300px;height:50px;vertical-align:middle;border:0px;" class="fragment"/></a></li>
-<li>Graduated, <strong>divergent</strong> <a href="https://jiffyclub.github.io/palettable/colorbrewer/diverging/#rdylgn_5"><img src="../content/lectures/figs/l04_pal_div.png" alt="Divergent"
-style="width:300px;height:50px;vertical-align:middle;border:0px;" class="fragment"/></a></li>
+<li>We will first create a new attribute in the csv layer that has values matching those in the relevant field in the shapefile layer.</li>
+<li>To do so we will make use of the <code>Field Calculator</code> of attribute tables</li>
+<li>We are going to proceed in several steps</li>
+<li>Ultimately we want to create a new field that changes <code>065-11103</code> into <code>11-103</code></li>
 </ul>
-<p><strong>TIP</strong>: check <a href="http://colorbrewer2.org/">ColorBrewer</a> for guidance</p>
 </section>
+<section id="create-an-interim-field" class="level2">
+<h2>Create an Interim Field</h2>
 </section>
-<section id="section-14" class="level1">
-<h1></h1>
-<section id="tips" class="level2">
-<h2>Tips</h2>
+<section id="section-4" class="level2" data-background="../content/lectures/images/04/220_next_field.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="create-the-final-new-field" class="level2">
+<h2>Create the Final New Field</h2>
+</section>
+<section id="section-5" class="level2" data-background="../content/lectures/images/04/230_final_new_join_field.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="new-field-in-attribute-table" class="level2">
+<h2>New Field in Attribute Table</h2>
+</section>
+<section id="section-6" class="level2" data-background="../content/lectures/images/04/231_new_field_in_table.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="table-join-1" class="level2">
+<h2>Table Join</h2>
 <ul>
-<li>Think of the purpose of the map</li>
-<li>Explore by trying different classification alternatives</li>
-<li>Combine (Geo)visualisation with other statistical devices</li>
+<li>Now were in a position to do a table join</li>
+<li>In the shapefile layer, open its properties dialog and select <code>Joins</code></li>
 </ul>
+</section>
+<section id="section-7" class="level2" data-background="../content/lectures/images/04/240_join_dialog.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="table-join-2" class="level2">
+<h2>Table Join</h2>
+<ul>
+<li>Ensure your dialog has the values as in the previous image</li>
+<li>Then click <code>apply</code></li>
+<li>Open up the attribute table for the layer</li>
+</ul>
+</section>
+<section id="section-8" class="level2" data-background="../content/lectures/images/04/250_join_result.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="save-our-layer-as-a-new-name" class="level2">
+<h2>Save our layer as a new name</h2>
+<p>It is good practice to save layers that have changed to a new layer.</p>
+<p>This ensures the values for the fields are updated.</p>
+<p>Save your layer as <code>voting joined</code></p>
+</section>
+<section id="section-9" class="level2" data-background="../content/lectures/images/04/260_save_as_layer.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="munged-field-names" class="level2">
+<h2>Munged Field Names</h2>
+<p>One issue is our field names got changed when we saved to a new layers</p>
+</section>
+<section id="section-10" class="level2" data-background="../content/lectures/images/04/270_fields_names_borked_on_save.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="fixing-field-names" class="level2">
+<h2>Fixing Field Names</h2>
+<p>We can fix this:</p>
+<ul>
+<li>open the layer properties dialog and select <code>Source Fields</code></li>
+</ul>
+</section>
+<section id="section-11" class="level2" data-background="../content/lectures/images/04/280_edit_fields.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="turn-on-field-editing-by-clicking-the-pencil-icon" class="level2">
+<h2>Turn on field editing by clicking the pencil icon</h2>
+<ul>
+<li>Edit the name for the relevant field</li>
+</ul>
+</section>
+<section id="section-12" class="level2" data-background="../content/lectures/images/04/290_editing_on.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="turn-editing-off-by-clicking-the-pencil" class="level2">
+<h2>Turn editing off by clicking the pencil</h2>
+</section>
+<section id="section-13" class="level2" data-background="../content/lectures/images/04/291_edit_off.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-14" class="level2" data-background="../content/lectures/images/04/299_renamed_fields.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="creating-more-attributes" class="level2">
+<h2>Creating More Attributes</h2>
+<ul>
+<li>We will limit our attention to the 2016 presidential results</li>
+<li>Let’s create a few new attributes that help us study these results</li>
+</ul>
+</section>
+<section id="create-a-new-variable-that-is-the-total-of-clinton-trump" class="level2">
+<h2>Create a new variable that is the total of Clinton + Trump</h2>
+<CENTER>
+<img src="../content/lectures/images/04/310_total_vote.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="new-total" class="level2">
+<h2>New Total</h2>
+<CENTER>
+<img src="../content/lectures/images/04/311_updated_table.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="create-a-pctclinton-attribute" class="level2">
+<h2>Create a pctClinton Attribute</h2>
+<CENTER>
+<img src="../content/lectures/images/04/320_pct_clinton.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="new-pctclinton-attribute" class="level2">
+<h2>New pctClinton Attribute</h2>
+<CENTER>
+<img src="../content/lectures/images/04/321_pct_clinton_result.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="create-a-winner-attribute-string" class="level2">
+<h2>Create a Winner Attribute (String)</h2>
+<CENTER>
+<img src="../content/lectures/images/04/340_winner.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="new-winner-attribute-string" class="level2">
+<h2>New Winner Attribute (String)</h2>
+<CENTER>
+<img src="../content/lectures/images/04/341_winner_result.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="symbology" class="level2">
+<h2>Symbology</h2>
+<CENTER>
+<img src="../content/lectures/images/04/350_winner_symbology.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="sybmology-default" class="level2">
+<h2>Sybmology Default</h2>
+<CENTER>
+<img src="../content/lectures/images/04/351_winner_map.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="sybmology-changing-fill-colors" class="level2">
+<h2>Sybmology Changing Fill Colors</h2>
+<CENTER>
+<img src="../content/lectures/images/04/352_winner_red_blue.png" alt="figure"
+/>
+</CENTER>
 </section>
 </section>
 <section id="section-15" class="level1">
 <h1></h1>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Geographic Data Science’19</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<section id="virtual-layers" class="level2">
+<h2>Virtual Layers</h2>
+</section>
+<section id="virtual-layer-menu" class="level2">
+<h2>Virtual Layer Menu</h2>
+<CENTER>
+<img src="../content/lectures/images/04/360_virtual_layer_menu.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="getting-the-path" class="level2">
+<h2>Getting the path</h2>
+<CENTER>
+<img src="../content/lectures/images/04/361_get_shp_path.png" alt="361_get_shp_path"
+/>
+</CENTER>
+</section>
+<section id="path-set" class="level2">
+<h2>Path set</h2>
+<CENTER>
+<img src="../content/lectures/images/04/362_shape_path.png" alt="362_shape_path"
+/>
+</CENTER>
+</section>
+<section id="query" class="level2">
+<h2>Query</h2>
+<CENTER>
+<img src="../content/lectures/images/04/363_query_clinton_trump_total.png" alt="363_query_clinton_trump_total"
+/>
+</CENTER>
+</section>
+<section id="test-query" class="level2">
+<h2>Test Query</h2>
+<CENTER>
+<img src="../content/lectures/images/04/364_query_ok.png" alt="364_query_ok"
+/>
+</CENTER>
+</section>
+<section id="accessing-virtual-layer-attribute-tables" class="level2">
+<h2>Accessing Virtual Layer Attribute Tables</h2>
+<CENTER>
+<img src="../content/lectures/images/04/365_virtual_layer_attribute_menu.png" alt="365_virtual_layer_attribute_menu"
+/>
+</CENTER>
+</section>
+<section id="query-result" class="level2">
+<h2>Query Result</h2>
+<CENTER>
+<img src="../content/lectures/images/04/366_query_result.png" alt="366_query_result"
+/>
+</CENTER>
+</section>
+<section id="rename-virtual-layer" class="level2">
+<h2>Rename Virtual Layer</h2>
+<ul>
+<li>right click on the virtual layer</li>
+<li>click rename</li>
+<li>rename to <code>clinton_trump_total</code></li>
+</ul>
+</section>
+<section id="duplicate-layer" class="level2">
+<h2>Duplicate Layer</h2>
+<CENTER>
+<img src="../content/lectures/images/04/400_duplicate_layer.png" alt="400_duplicate_layer"
+/>
+</CENTER>
+</section>
+<section id="rename-duplicate-layer" class="level2">
+<h2>Rename Duplicate Layer</h2>
+<CENTER>
+<img src="../content/lectures/images/04/401_rename_layer.png" alt="401_rename_layer"
+/>
+</CENTER>
+</section>
+<section id="edit-new-virtual-layer" class="level2">
+<h2>Edit New Virtual Layer</h2>
+<CENTER>
+<img src="../content/lectures/images/04/402_edit_virtual_layer.png" alt="402_edit_virtual_layer"
+/>
+</CENTER>
+</section>
+<section id="query-for-tracts-won-by-candidate" class="level2">
+<h2>Query for Tracts Won by Candidate</h2>
+<CENTER>
+<img src="../content/lectures/images/04/410_query_tract_count.png" alt="410_query_tract_count"
+/>
+</CENTER>
+</section>
+<section id="warning" class="level2">
+<h2>Warning</h2>
+<CENTER>
+<img src="../content/lectures/images/04/412_query_tract_warning.png" alt="412_query_tract_warning"
+/>
+</CENTER>
+</section>
+<section id="result-tracts-won-by-candidate" class="level2">
+<h2>Result: Tracts Won by Candidate</h2>
+<CENTER>
+<img src="../content/lectures/images/04/413_query_tract_count_result.png" alt="413_query_tract_count_result"
+/>
+</CENTER>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
+<ul>
+<li>Raster Data</li>
+</ul>
+</section>
+</section>
+<section id="section-16" class="level1">
+<h1></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </section>
 </div>
  

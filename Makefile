@@ -15,6 +15,10 @@ sl03:
 	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_03.md -o slides/lecture_03.html
 
 
+sl04:
+	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_04.md -o slides/lecture_04.html
+
+
 lectures: le01 le02 le03 le04 le05 le06 le07 le08 le07 le10
 le01:
 	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_01.md -o slides/lecture_01.html
@@ -27,6 +31,10 @@ exercises: exer01
 
 exer01:
 	pandoc -t html5  --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/exercises/ex01.md -o exercises/exercise_01.html
+
+exer02:
+	pandoc -t html5  --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/exercises/ex01.md -o exercises/exercise_01.html
+
 
 labs: la00 la01 la02 la03 la04 la05 la06 la08 la07
 la00:
