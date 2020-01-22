@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8">
  
-<title>Geographic Data Science - Lecture V</title>
+<title>Geographic Information Systems for Public Policy - Lecture V</title>
  
-<meta name="description" content="Geographic Data Science - Lecture V">    
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture V">    
  
-  <meta name="author" content="Space, formally" />
+  <meta name="author" content="Raster Data Models" />
  
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -43,229 +43,293 @@
 <div class="slides">
  
 <section>
-<h1>Geographic Data Science - Lecture V</h1>
-<h3>Space, formally</h3>
+<h1>Geographic Information Systems for Public Policy - Lecture V</h1>
+<h3>Raster Data Models</h3>
 <p>
-<h4><a href="http://darribas.org">Dani Arribas-Bel</a></h4>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
 </p>
 </section>  
  
  
-<section id="section" class="level1">
-<h1></h1>
+<section id="last-time" class="level2">
+<h2>Last Time</h2>
+<ul>
+<li>Vector Attributes</li>
+<li>Table Joins</li>
+<li>Virtual Layers</li>
+</ul>
+</section>
 <section id="today" class="level2">
 <h2>Today</h2>
 <ul>
-<li>The need to represent space formally</li>
-<li>Spatial weights matrices
-<ul>
-<li>What</li>
-<li>Why</li>
-<li>Types</li>
-</ul></li>
-<li>The spatial lag</li>
-<li>The Moran Plot</li>
+<li>Raster Data Model</li>
+<li>Conversions</li>
+<li>Rasters in Public Policy/Social Sciences</li>
 </ul>
 </section>
-</section>
-<section id="section-1" class="level1">
+<section id="section" class="level1">
 <h1></h1>
-<section id="space-formally" class="level2">
-<h2>Space, formally</h2>
-</section>
-<section id="section-2" class="level2">
-<h2></h2>
-<p>For a statistical method to be <strong>explicitly spatial</strong>, it needs to contain some representation of the geography, or <strong>spatial context</strong></p>
-<p><span class="fragment"> One of the most common ways is through <strong>Spatial Weights Matrices</strong></p>
-</section>
-<section id="section-3" class="level2">
-<h2></h2>
+<section id="raster-data-model" class="level2">
+<h2>Raster Data Model</h2>
 <ul>
-<li><strong>(Geo)Visualization</strong>: translating numbers into a (visual) language that the human brain <em>“speaks better”</em></li>
-<li><strong>Spatial Weights Matrices</strong>: translating geography into a (numerical) language that a computer <em>“speaks better”</em>.</li>
+<li>Rasters composed of a matrix of pixels (cells)</li>
+<li>Each pixel contains a value representing the conditions for the area covered by that pixel</li>
+</ul>
+<CENTER>
+<img src="../content/lectures/images/05/100_raster.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="section-1" class="level2" data-background="../content/lectures/images/05/101_raster_neon.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="advantages-of-rasters" class="level2">
+<h2>Advantages of Rasters</h2>
+<ul>
+<li>Representing <em>continuous</em> spatial variation</li>
+<li>More efficient than small polygons (in the vector model)
+<CENTER>
+<img src="../content/lectures/images/05/110_raster_representation.png" alt="figure"
+/>
+</CENTER></li>
 </ul>
 </section>
-<section id="section-4" class="level2">
-<h2></h2>
-<p>Core element in several spatial analysis techniques:</p>
+<section id="georeferencing-rasters" class="level2">
+<h2>Georeferencing Rasters</h2>
 <ul>
-<li>Spatial autocorrelation</li>
-<li>Spatial clustering / geodemographics</li>
-<li>Spatial regression</li>
+<li>Defines the correspondence between each pixel and location on the earth’s surface</li>
+<li>Coordinates of top left pixel in the images</li>
+<li>Size of each pixel in X and Y direction</li>
+<li>Rotation angle</li>
+</ul>
+</section>
+<section id="raster-in-qgis" class="level2">
+<h2>Raster in QGIS</h2>
+<CENTER>
+<img src="../content/lectures/images/05/120_raster_qgis.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="raster-in-qgis-1" class="level2">
+<h2>Raster in QGIS</h2>
+<CENTER>
+<img src="../content/lectures/images/05/121_raster_info.png" alt="figure"
+/>
+</CENTER>
+</section>
+<section id="sources-of-raster-data" class="level2">
+<h2>Sources of raster data</h2>
+</section>
+<section id="remote-sensing-satellites" class="level2">
+<h2>Remote Sensing Satellites</h2>
+<CENTER>
+<a href="https://www.geospatialworld.net/news/remote-sensing-services-market-will-worth-21-62-billion-2022-report/"><img src="../content/lectures/images/05/211_rs.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="remote-sensors" class="level2">
+<h2>Remote Sensors</h2>
+<CENTER>
+<a href="http://www.visualdictionaryonline.com/earth/geography/remote-sensing/satellite-remote-sensing.php"><img src="../content/lectures/images/05/201_rs_sensors.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="planet" class="level2">
+<h2>Planet</h2>
+<CENTER>
+<a href="https://www.planet.com/products/planet-imagery/"><img src="../content/lectures/images/05/213_planet.png" alt="213_planet"
+/></a>
+</CENTER>
+</section>
+<section id="earth-engine-timelapse" class="level2">
+<h2>Earth Engine Timelapse</h2>
+</section>
+<section id="section-2" class="level2" data-background="../content/lectures/images/05/212_earth_engine.png" data-background-size="contain">
+<h2></h2>
+<p><a href="https://earthengine.google.com/timelapse/">‘url’</a></p>
+</section>
+<section id="remote-sensing-imagery-resolution" class="level2">
+<h2>Remote Sensing Imagery Resolution</h2>
+<ul>
+<li>Spatial Resolution</li>
+<li>Spectral Resolution</li>
+<li>Temporal Resultion</li>
+</ul>
+</section>
+<section id="spatial-resolution" class="level2">
+<h2>Spatial Resolution</h2>
+<p>How much area is represented in each pixel</p>
+<ul>
+<li class="fragment">
+MODIS 500m x 500m
+</li>
+<li class="fragment">
+SPOT5 satellites: 10m x 10m
+</li>
+<li class="fragment">
+Areal Photography, drones: 50cm x 50cm
+</li>
+</ul>
+<div class="fragment">
+<p><strong>Remember</strong>: images with pixel size covering a <em>small area</em> are called <em>high resolution</em> images.</p>
+</div>
+</section>
+<section id="spatial-resolution-and-scale" class="level2">
+<h2>Spatial Resolution and Scale</h2>
+<table>
+<col width="50%">
+<col width="50%">
+<tr>
+<td>
+<img src="../content/lectures/images/05/220_raster_small_scale.png" style="height:250px">
+</td>
+<td>
+<img src="../content/lectures/images/05/221_raster_large_scale.png" style="height:250px">
+</td>
+</tr>
+</table>
+</section>
+<section id="spectral-resolution" class="level2">
+<h2>Spectral Resolution</h2>
+<ul>
+<li>The number of spectral bands in which a sensor can collect reflected radiance</li>
+<li>Choice depends upon application of use</li>
+<li>Different types of ground targets have different spectral signatures</li>
+</ul>
+<CENTER>
+<a href="https://www.planet.com/products/planet-imagery/"><img src="../content/lectures/images/05/230_spectral_resolution.png" alt="213_planet"
+/></a>
+</CENTER>
+</section>
+<section id="temporal-resolution" class="level2">
+<h2>Temporal Resolution</h2>
+<p>Revisit Periods for Satellites</p>
+<ul>
+<li class="fragment">
+SPOT5 - 3 days
+</li>
+<li class="fragment">
+Modis - daily
+</li>
+<li class="fragment">
+Airborne - as needed
+</li>
 </ul>
 </section>
 </section>
-<section id="section-5" class="level1">
+<section id="section-3" class="level1">
 <h1></h1>
-<section id="w-as-a-formal-representation-of-space" class="level2">
-<h2><span class="math inline"><em>W</em></span> as a formal representation of space</h2>
+<section id="conversions" class="level2">
+<h2>Conversions</h2>
 </section>
-<section id="w" class="level2">
-<h2><span class="math inline"><em>W</em></span></h2>
-<center>
-<em><span class="math inline"><em>N</em></span> x <span class="math inline"><em>N</em></span> positive matrix <span class="fragment"> that contains <strong>spatial relations</strong> <span class="fragment"> between all the observations in the sample</em>
-</center>
-<p class="fragment">
-<script type="math/tex; mode=display">
-w_{ij} = \left\{ \begin{array}{rl}
-x > 0 &\mbox{ if $i$ and $j$ are neighbors} \\
-0 &\mbox{ otherwise}
-\end{array} \right\}
-</script>
-<span class="math inline"><em>w</em><sub><em>i</em><em>i</em></sub> = 0</span> by convention
-</p>
-<p><span class="fragment"> <em>…What is a <strong>neighbor</strong>???</em></p>
+<section id="which-model" class="level2">
+<h2>Which Model?</h2>
+<CENTER>
+<img src="../content/lectures/images/02/vector_vs_raster.jpg" alt="vector v. raster"
+/>
+</CENTER>
 </section>
-<section id="types-of-w" class="level2">
-<h2>Types of <span class="math inline"><em>W</em></span></h2>
-<p>A neighbor is “somebody” who is:</p>
-<ul>
-<li>Next door <span class="fragment"> <span class="math inline">→</span> <strong>Contiguity</strong>-based <span class="math inline"><em>W</em></span>s</li>
-<li>Close <span class="fragment"> <span class="math inline">→</span> <strong>Distance</strong>-based <span class="math inline"><em>W</em></span>s</li>
-<li>In the same “place” as us <span class="fragment"> <span class="math inline">→</span> <strong>Block</strong> weights</li>
-<li>…</li>
-</ul>
-<p><span class="fragment"> See <a href="http://www.amazon.com/Modern-Spatial-Econometrics-Practice-GeoDaSpace/dp/0986342106/ref=sr_1_1?ie=UTF8&amp;qid=1421531753&amp;sr=8-1&amp;keywords=anselin+spatial+econometrics">Anselin &amp; Rey (2014)</a> for an in-detail discussion and more types of <span class="math inline"><em>W</em></span>. </span></p>
+<section id="vector-to-raster-conversion" class="level2">
+<h2>Vector to raster conversion</h2>
+<CENTER>
+<a href="https://www.e-education.psu.edu/natureofgeoinfo/book/export/html/1604"><img src="../content/lectures/images/05/240_vec2ras.png" alt="240_vec2ras "
+/></a>
+</CENTER>
 </section>
-<section id="contiguity-based-weights" class="level2">
-<h2>Contiguity-based weights</h2>
-<p><strong>Sharing boundaries</strong> to any extent</p>
-<ul>
-<li>Rook</li>
-<li>Queen</li>
-<li>…</li>
-</ul>
-</section>
-<section id="section-6" class="level2" data-background="../content/lectures/figs/l05_queen.png">
-<h2></h2>
-</section>
-<section id="distance-based-weights" class="level2">
-<h2>Distance-based weights</h2>
-<p>Weight is (inversely) proportional to distance between observations</p>
-<ul>
-<li>Inverse distance (threshold)</li>
-<li>KNN (fixed number of neighbors)</li>
-<li>…</li>
-</ul>
-</section>
-<section id="section-7" class="level2" data-background="../content/lectures/figs/l05_dist.png">
-<h2></h2>
-</section>
-<section id="section-8" class="level2">
-<h2></h2>
-<center>
-<img src="../content/lectures/figs/l05_queen.png" alt=""
-style="width:400px;height:400px;"/> <img src="../content/lectures/figs/l05_dist.png" alt=""
-style="width:400px;height:400px;"/>
-</center>
-</section>
-<section id="block-weights" class="level2">
-<h2>Block weights</h2>
-<p>Weights are assigned based on discretionary rules loosely related to geography</p>
-<p>For example:</p>
-<ul>
-<li>LSOAs into MSOAs</li>
-<li>Post-codes within city boundaries</li>
-<li>Counties within states</li>
-<li>…</li>
-</ul>
-</section>
-<section id="section-9" class="level2" data-background="../content/lectures/figs/l05_block.png">
-<h2></h2>
-</section>
-<section id="how-much-of-a-neighbor" class="level2">
-<h2><em>How much of a neighbor?</em></h2>
-<p>No neighbors receive zero weight: <span class="math inline"><em>w</em><sub><em>i</em><em>j</em></sub> = 0</span></p>
-<p>Neighbors, it depends, <span class="math inline"><em>w</em><sub><em>i</em><em>j</em></sub></span> can be:</p>
-<ul>
-<li>One <span class="math inline"><em>w</em><sub><em>i</em><em>j</em></sub> = 1</span> <span class="math inline">→</span> <span class="hlg">Binary</span></li>
-<li><p>Some proportion (<span class="math inline">0 &lt; <em>w</em><sub><em>i</em><em>j</em></sub> &lt; 1</span>, <span class="hlg">continuous</span>) which can be a function of:</p>
-<ul>
-<li>Distance</li>
-<li>Strength of interaction (e.g. commuting flows, trade, etc.)</li>
-<li>…</li>
-</ul></li>
-</ul>
-</section>
-<section id="choice-of-w" class="level2">
-<h2>Choice of <span class="math inline"><em>W</em></span></h2>
-<p>Should be based on and reflect the <strong>underlying channels of interaction</strong> for the question at hand.</p>
-<p>Examples:</p>
-<ul>
-<li>Processes propagated by inmediate contact (e.g. disease contagion) <span class="math inline">→</span> Contiguity weights</li>
-<li>Accessibility <span class="math inline">→</span> Distance weights</li>
-<li>Effects of county differences in laws <span class="math inline">→</span> Block weights</li>
-</ul>
-</section>
-<section id="do-your-own-contiguity-weights-time" class="level2">
-<h2>Do your own (contiguity) weights time!</h2>
-</section>
-<section id="section-10" class="level2">
-<h2></h2>
-<center>
-<img src="../content/lectures/figs/l05_geo.png" alt=""
-style="width:400px;height:500px;"/> <span class="fragment"> <img src="../content/lectures/figs/l05_geo_w.png" alt=""
-style="width:400px;height:500px;"/>
-</center>
-</section>
-<section id="standardization" class="level2">
-<h2>Standardization</h2>
-<p>In some applications (e.g. spatial autocorrelation) it is common to <em>standardize</em> <span class="math inline"><em>W</em></span></p>
-<p>The most widely used standardization is <strong>row-based</strong>: divide every element by the sum of the row:</p>
-<p>
-<script type="math/tex; mode=display">
-\bar{w_{ij}} = \dfrac{w_{ij}}{w_{i\cdotp}}
-</script>
-</p>
-<p>where <span class="math inline"><em>w</em><sub><em>i</em>·</sub></span> is the sum of a row.</p>
+<section id="raster-to-vector-conversion" class="level2">
+<h2>Raster to vector conversion</h2>
+<CENTER>
+<a href="https://www.safe.com/blog/2017/08/3-ways-to-convert-a-raster-image-to-vector/"><img src="../content/lectures/images/05/241_ras2vec.png" alt="241_ras2vec"
+/></a>
+</CENTER>
 </section>
 </section>
-<section id="section-11" class="level1">
+<section id="section-4" class="level1">
 <h1></h1>
-<section id="the-spatial-lag" class="level2">
-<h2>The spatial lag</h2>
+<section id="rasters-in-gis-for-public-policy" class="level2">
+<h2>Rasters in GIS for Public Policy</h2>
+<ul>
+<li>Measures of environmental variables</li>
+<li>Risk surfaces</li>
+<li>Dasymetric mapping and areal interpolation</li>
+</ul>
 </section>
-<section id="the-spatial-lag-1" class="level2">
-<h2>The spatial lag</h2>
-<p>Product of a spatial weights matrix <span class="math inline"><em>W</em></span> and a given variably <span class="math inline"><em>Y</em></span></p>
-<p class="fragment">
-<br /><span class="math display"><em>Y</em><sub><em>s</em><em>l</em></sub> = <em>W</em><em>Y</em></span><br /> <br /><span class="math display"><em>y</em><sub><em>s</em><em>l</em> − <em>i</em></sub> = ∑<sub><em>j</em></sub><em>w</em><sub><em>i</em><em>j</em></sub><em>y</em><sub><em>j</em></sub></span><br />
-</p>
+<section id="environmental-variables" class="level2">
+<h2>Environmental variables</h2>
+<p><a href="https://scholar.harvard.edu/files/freeman/files/willngess_to_pay_for_clean_air_in_china_ms-for-dash_freeman-laing-song-timmins_dec2017.pdf">Freeman et al. (2017)</a> “Willingness to pay for clean air in China”</p>
+<CENTER>
+<a href="https://scholar.harvard.edu/files/freeman/files/willngess_to_pay_for_clean_air_in_china_ms-for-dash_freeman-laing-song-timmins_dec2017.pdf"><img src="../content/lectures/images/05/303_willingness.png" alt="303_willingness"
+/></a>
+</CENTER>
 </section>
-<section id="section-12" class="level2">
+<section id="fema-risk-surface" class="level2">
+<h2>FEMA: Risk Surface</h2>
+<CENTER>
+<a href="https://www.fema.gov/media-library-data/1523562952942-4c54fdae20779bb004857f1915236e6c/Flood_Depth_and_Analysis_Grids_Guidance_Feb_2018.pdf"><img src="../content/lectures/images/05/307_risk_flooding_raster.png" alt="307_risk"
+/></a>
+</CENTER>
+</section>
+<section id="dasymetric-mapping" class="level2">
+<h2>Dasymetric Mapping</h2>
+<CENTER>
+<a href="https://www.epa.gov/enviroatlas/dasymetric-toolbox"><img src="../content/lectures/images/05/301_dasymetric.png" alt="301_dasymetric"
+/></a>
+</CENTER>
+</section>
+<section id="nsf-neighborhoods" class="level2">
+<h2>NSF-Neighborhoods</h2>
+<CENTER>
+<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1733705&amp;HistoricalAwards=false"><img src="../content/lectures/images/05/309_nsf_neighborhoods.png" alt="309_nsf_neighborhoods"
+/></a>
+</CENTER>
+</section>
+<section id="section-5" class="level2" data-background="../content/lectures/images/05/312_geosnap.png" data-background-size="contain">
 <h2></h2>
-<ul>
-<li>Measure that captures the behaviour of a variable in the neighborhood of a given observation <span class="math inline"><em>i</em></span>.</li>
-<li>If <span class="math inline"><em>W</em></span> is <strong>standardized</strong>, the spatial lag is the <em>average value of the variable in the neighborhood</em></li>
-</ul>
 </section>
-<section id="section-13" class="level2">
+<section id="interpolation-and-harmonization" class="level2">
+<h2>Interpolation and Harmonization</h2>
+</section>
+<section id="section-6" class="level2" data-background="../content/lectures/images/05/300_toy_census_tracts_example.png" data-background-size="contain">
 <h2></h2>
+</section>
+<section id="tobler" class="level2">
+<h2>Tobler</h2>
+<CENTER>
+<a href="https://github.com/pysal/tobler/blob/master/notebooks/areal.ipynb"><img src="../content/lectures/images/05/304_areal_interpolation.png" alt="304_"real
+/></a>
+</CENTER>
+</section>
+<section id="tobler-voting-precincts" class="level2">
+<h2>Tobler: Voting Precincts</h2>
+<CENTER>
+<a href="https://github.com/pysal/tobler/blob/master/notebooks/precincts.ipynb"><img src="../content/lectures/images/05/305_voting_precincts.png" alt="305_"real
+/></a>
+</CENTER>
+</section>
+<section id="tobler-dasymetric" class="level2">
+<h2>Tobler: Dasymetric</h2>
+<CENTER>
+<a href="https://github.com/pysal/tobler"><img src="../content/lectures/images/05/311_tobler_nlcd.png" alt="305_"real
+/></a>
+</CENTER>
+</section>
+<section id="national-land-cover-database" class="level2">
+<h2>National Land Cover Database</h2>
+<CENTER>
+<a href="https://www.mrlc.gov/nlcd-2016-video"><img src="../content/lectures/images/05/111_nlcd_video.png" alt="figure"
+/></a>
+</CENTER>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
 <ul>
-<li>Common way to introduce space formally in a statistical framework</li>
-<li><p>Heavily used in both ESDA and spatial regression to delineate neighborhoods. Examples:</p>
-<ul>
-<li>Moran’s I</li>
-<li>LISAs</li>
-<li>Spatial models (lag, error…)</li>
-</ul></li>
+<li>Coordinate Reference Systems</li>
 </ul>
 </section>
 </section>
-<section id="section-14" class="level1">
+<section id="section-7" class="level1">
 <h1></h1>
-<section id="recapitulation" class="level2">
-<h2>Recapitulation</h2>
-<ul>
-<li>Spatial Weights matrices: matrix encapsulation of space</li>
-<li>Different types for different cases</li>
-<li>Useful in many contexts, like the spatial lag and Moran plot, but also many other things!</li>
-</ul>
-</section>
-</section>
-<section id="section-15" class="level1">
-<h1></h1>
-<pre><code>&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-sa/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;span xmlns:dct=&quot;http://purl.org/dc/terms/&quot; property=&quot;dct:title&quot;&gt;Geographic Data Science&#39;18&lt;/span&gt; by &lt;a xmlns:cc=&quot;http://creativecommons.org/ns#&quot; href=&quot;http://darribas.org&quot; property=&quot;cc:attributionName&quot; rel=&quot;cc:attributionURL&quot;&gt;Dani Arribas-Bel&lt;/a&gt; is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt;.</code></pre>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </section>
 </div>
  

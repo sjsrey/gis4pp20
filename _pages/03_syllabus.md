@@ -99,8 +99,8 @@ Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https:/
 
 ### Week 3: January 20, 22
 
-- 20: Raster Data
-- 22: Data Capture
+- 20: Martin Luther King Holiday
+- 22: Raster Data
 
 ### Week 4: January 27, 29
 

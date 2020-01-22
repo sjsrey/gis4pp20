@@ -4,6 +4,9 @@ container_web:
 container_slides:
 	docker run -it -v  ${PWD}:/home/jovyan/host sjsrey/gds:3.1 sh -c "/bin/bash"
 
+container_bf:
+	docker run -p 8080:4000 -v $(pwd):/site bretfisher/jekyll-serve
+
 slides: le01
 sl01:
 	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_01.md -o slides/lecture_01.html
@@ -17,6 +20,10 @@ sl03:
 
 sl04:
 	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_04.md -o slides/lecture_04.html
+
+sl05:
+	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_05.md -o slides/lecture_05.html
+
 
 
 lectures: le01 le02 le03 le04 le05 le06 le07 le08 le07 le10

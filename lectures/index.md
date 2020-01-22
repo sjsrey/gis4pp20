@@ -25,3 +25,13 @@ title: Lectures
 ### Jan 15: Attributes and Attribute Tables
   - <a href="../slides/lecture_04.html">Slides</a> 
   - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_attribute_data.html">Reading: Sutton, T. "Vector Attribute Data" </a>
+
+
+## Week 3 January 20, 22 
+
+
+### Jan 20: Martin Luther King Holiday
+
+### Jan 22: Rasters
+  - <a href="../slides/lecture_05.html">Slides</a> 
+  - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/raster_data.html">Reading: Sutton, T. "Raster Data" </a>
