@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8">
  
-<title>Geographic Data Science - Lecture VI</title>
+<title>Geographic Information Systems for Public Policy - Lecture VI</title>
  
-<meta name="description" content="Geographic Data Science - Lecture VI">    
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture VI">    
  
-  <meta name="author" content="Exploring Space in Data" />
+  <meta name="author" content="Coordinate Reference Systems" />
  
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -43,208 +43,256 @@
 <div class="slides">
  
 <section>
-<h1>Geographic Data Science - Lecture VI</h1>
-<h3>Exploring Space in Data</h3>
+<h1>Geographic Information Systems for Public Policy - Lecture VI</h1>
+<h3>Coordinate Reference Systems</h3>
 <p>
-<h4><a href="http://darribas.org">Dani Arribas-Bel</a></h4>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
 </p>
 </section>  
  
  
-<section id="section" class="level1">
-<h1></h1>
-<section id="today" class="level2">
+<section id="last-time" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2>Last Time</h2>
+<ul>
+<li>Rasters</li>
+</ul>
+</section>
+<section id="today" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
 <h2>Today</h2>
 <ul>
-<li>ESDA</li>
-<li>Spatial Autocorrelation</li>
-<li><p>Measures</p>
+<li>Coordinate Reference Systems</li>
+<li>Map Projections</li>
+</ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="coordinate-reference-systems" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2>Coordinate Reference Systems</h2>
+</section>
+<section id="earth" class="level2" data-background="../content/lectures/images/06/earth.jpg" data-background-size="cover">
+<h2>Earth</h2>
 <ul>
-<li>Global</li>
-<li>Local</li>
+<li>Equatorial circumference: 24,901 miles (40,075 km)</li>
+<li>Meridional circumference: 24,860 miles (40,008 km)</li>
+</ul>
+</section>
+<section id="earth-1" class="level2">
+<h2>Earth</h2>
+<ul>
+<li>Equatorial circumference: 24,901 miles (40,075 km)</li>
+<li>Meridional circumference: 24,860 miles (40,008 km)</li>
+</ul>
+</section>
+<section id="section-1" class="level2" data-background="../content/lectures/images/06/mapmaker.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-2" class="level2" data-background="../content/lectures/images/06/map_projection.jpg" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="coordinate-reference-systems-1" class="level2">
+<h2>Coordinate Reference Systems</h2>
+<ul>
+<li>Geographic Coordinate Systems</li>
+<li>Projected Coordinate Systems</li>
+</ul>
+</section>
+<section id="geographic-coordinate-system" class="level2">
+<h2>Geographic Coordinate System</h2>
+</section>
+<section id="section-3" class="level2" data-background="../content/lectures/images/06/geographic_crs.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="geographic-coordinate-system-1" class="level2">
+<h2>Geographic Coordinate System</h2>
+<ul>
+<li>lines of latitude
+<ul>
+<li>parallel to the equator</li>
+<li>180 equally spaced sections from North to South</li>
+<li>each hemisphere divided into ninety sections (0-90 degrees)</li>
+</ul></li>
+<li>lines of longitude
+<ul>
+<li>perpendicular to the equator</li>
+<li>converge at the poles</li>
+<li>0-180 E(+) or W(-) of prime Meridian</li>
 </ul></li>
 </ul>
 </section>
+<section id="why-math-in-gis" class="level2">
+<h2>Why Math in GIS?</h2>
+<CENTER>
+<img src="https://imgs.xkcd.com/comics/coordinate_precision.png" alt="coordinate precision"
+/>
+</CENTER>
 </section>
-<section id="section-1" class="level1">
-<h1></h1>
-<section id="esda" class="level2">
-<h2><strong><code>ESDA</code></strong></h2>
+<section id="projected-coordinate-systems" class="level2">
+<h2>Projected Coordinate Systems</h2>
 </section>
-<section id="section-2" class="level2">
+<section id="section-4" class="level2" data-background="../content/lectures/images/06/projected_crs.png" data-background-size="contain">
 <h2></h2>
-<p><strong>E</strong>xploratory</p>
-<p><strong>S</strong>patial</p>
-<p><strong>D</strong>ata</p>
-<p><strong>A</strong>nalysis</p>
 </section>
-<section id="section-3" class="level2">
-<h2></h2>
-<p><strong>[Exploratory]</strong></p>
-<p>Focus on discovery and assumption-free investigation</p>
-<p><strong>[Spatial]</strong></p>
-<p>Patterns and processes that put <em>space</em> and <em>geography</em> at the core</p>
-<p><strong>[Data Analysis]</strong></p>
-<p>Statistical techniques</p>
-</section>
-<section id="section-4" class="level2">
-<h2></h2>
-<p>Questions that <strong>ESDA</strong> helps…</p>
-<p><strong>Answer</strong></p>
+<section id="universal-transverse-mercator-utm" class="level2">
+<h2>Universal Transverse Mercator (UTM)</h2>
 <ul>
-<li><em>Is the variable I’m looking at concentrated over space? Do similar values tend to locate closeby?</em></li>
-<li><em>Can I identify any particular areas where certain values are clustered?</em></li>
-</ul>
-<div class="fragment">
-<p><strong>Ask</strong></p>
-<ul>
-<li><em>What is behind this pattern? What could be generating the process?</em></li>
-<li><em>Why do we observe certain clusters over space?</em></li>
-</ul>
-</div>
-</section>
-</section>
-<section id="section-5" class="level1">
-<h1></h1>
-<section id="spatial-autocorrelation" class="level2">
-<h2>Spatial Autocorrelation</h2>
-</section>
-<section id="section-6" class="level2">
-<h2></h2>
-<center>
-<em>Everything is related to everything else, but near things are more related than distant things</em>
-</center>
-<div style="text-align:right">
-<p><small> Waldo Tobler (1970) </small></p>
-</div>
-</section>
-<section id="spatial-autocorrelation-1" class="level2">
-<h2>Spatial Autocorrelation</h2>
-<p>-Statistical representation of Tobler’s law</p>
-<p>-Spatial counterpart of traditional correlation</p>
-<p><span class="fragment"> <b><em>Degree to which similar values are located in similar locations</em></b></p>
-<div class="fragment">
-<p>Two flavors:</p>
-<ul>
-<li><strong>Positive</strong>: similar values <span class="math inline">→</span> similar location (<em>closeby</em>)</li>
-<li><strong>Negative</strong>: similar values <span class="math inline">→</span> disimilar location (<em>further apart</em>)</li>
-</ul>
-</div>
-</section>
-<section id="examples" class="level2">
-<h2>Examples</h2>
-<p><strong>Positive</strong> SA: <span class="fragment">income, <span class="fragment"> poverty, <span class="fragment"> vegetation, <span class="fragment"> temperature…</p>
-<p><strong>Negative</strong> SA: <span class="fragment"> supermarkets, <span class="fragment"> police stations, <span class="fragment"> fire stations, <span class="fragment"> hospitals…</p>
-</section>
-<section id="scales" class="level2">
-<h2>Scales</h2>
-<div>
-<p><strong>[Global]</strong></p>
-<p><em>Clustering</em>: do values tend to be close to other (dis)similar values?</p>
-</div>
-<div class="fragment">
-<p><strong>[Local]</strong></p>
-<p><em>Clusters</em>: are there any specific parts of a map with an extraordinary concentration of (dis)similar values?</p>
-</div>
-</section>
-</section>
-<section id="section-7" class="level1">
-<h1></h1>
-<section id="global-spatial-autocorr." class="level2">
-<h2><strong>Global</strong> Spatial Autocorr.</h2>
-</section>
-<section id="global-spatial-autocorr.-1" class="level2">
-<h2><strong>Global</strong> Spatial Autocorr.</h2>
-<p><strong><i>“Clustering”</i></strong></p>
-<p><em>Overall trend where the distribution of values follows a particular pattern over space</em></p>
-<p><span class="fragment"> <strong>[Positive]</strong> Similar values close to each other (high-high, low-low)</p>
-<p><span class="fragment"> <strong>[Negative]</strong> Similar values far from each other (high-low)</p>
-<p><span class="fragment"> How to measure it???</p>
-</section>
-<section id="moran-plot" class="level2">
-<h2>Moran Plot</h2>
-<ul>
-<li>Graphical device that displays <strong>a variable</strong> on the horizontal axis against <strong>its spatial lag</strong> on the vertical one</li>
-<li>Variable and spatial weights matrix are preferably <strong>standardized</strong></li>
-<li>Asssessment of the overall association between a variable in a given location and in its <em>neighborhood</em></li>
+<li>Global <em>map projection</em></li>
+<li>60 equal zones of 6 degrees of longitude (1-60)</li>
 </ul>
 </section>
-<section id="section-8" class="level2">
+<section id="section-5" class="level2" data-background="../content/lectures/images/06/utm_zones.png" data-background-size="cover">
 <h2></h2>
-<center>
-<img src="../content/lectures/figs/l06_imd_score_choro.png" alt="IMD Choropleth"
-style="width:450px;height:450px;"/> <span class="fragment"> <img src="../content/lectures/figs/l05_moranplot_std.png" alt="IMD Moran Plot"
-style="width:450px;height:450px;"/>
-</center>
 </section>
-<section id="interactive-demo" class="level2">
-<h2><a href="http://mybinder.org/repo/darribas/int_sp_auto">[Interactive Demo]</a></h2>
-</section>
-<section id="morans-i" class="level2">
-<h2>Moran’s I</h2>
-<p><strong>Formal test</strong> of global spatial autocorrelation</p>
-<p><strong>Statistically</strong> identify the presence of clustering in a variable</p>
-<p>Slope of the Moran plot</p>
-<p>Inference based on how likely it is to obtain a map like observed from a purely random pattern</p>
-<div class="fragment">
-<script type="math/tex; mode=display">
-I = \dfrac{N} {\sum_{i} \sum_{j} w_{ij}} \dfrac {\sum_{i} \sum_{j}
-w_{ij}(Z_i) (Z_j)} {\sum_{i} (Z_i)^2}
-</script>
-</div>
-</section>
-</section>
-<section id="section-9" class="level1">
-<h1></h1>
-<section id="local-spatial-autocorr." class="level2">
-<h2><strong>Local</strong> Spatial Autocorr.</h2>
-</section>
-<section id="local-spatial-autocorr.-1" class="level2">
-<h2><strong>Local</strong> Spatial Autocorr.</h2>
-<p><strong><i>“Clusters”</i></strong></p>
-<p><em>Pockets of spatial instability</em></p>
-<p>Portions of a map where values are correlated in a particularly strong and specific way</p>
-<p><span class="fragment"> <strong>[High-High]</strong> + SA of <em>high</em> values (<em>hotspots</em>)</p>
-<p><span class="fragment"> <strong>[Low-Low]</strong> + SA of <em>low</em> values (<em>coldspots</em>)</p>
-<p><span class="fragment"> <strong>[High-Low]</strong> - SA (<em>spatial outliers</em>)</p>
-<p><span class="fragment"> <strong>[Low-High]</strong> - SA (<em>spatial outliers</em>)</p>
-</section>
-<section id="lisas" class="level2">
-<h2>LISAs</h2>
-<p><strong>L</strong>ocal <strong>I</strong>ndicators of <strong>S</strong>patial <strong>A</strong>ssociation</p>
-<p>Statistical tests for <strong>spatial cluster detection</strong> <span class="math inline">→</span> Statistical significance</p>
-<p><strong>Compares</strong> the <strong>observed</strong> map with many <strong>random</strong>ly generated ones to see how likely it is to obtain the observed associations <strong>for each location</strong></p>
-<div class="fragment">
-<script type="math/tex; mode=display">
-I_i = \frac{Z_i}{m_2} \sum_j W_{ij} Z_j \; \; ; \; \;  m_2= \frac{\sum_i Z_i^2
-}{N}
-</script>
-</div>
-</section>
-<section id="section-10" class="level2">
+<section id="section-6" class="level2" data-background="../content/lectures/images/06/eastings.png" data-background-size="contain">
 <h2></h2>
-<center>
-<img src="../content/lectures/figs/l06_brexit_choro.png" alt="Choropleth"
-style="width:450px;height:650px;"/> <span class="fragment"> <img src="../content/lectures/figs/l06_brexit_lisa.png" alt="LISA Map"
-style="width:450px;height:650px;"/>
-</center>
 </section>
+<section id="section-7" class="level2" data-background="../content/lectures/images/06/utm_for_sa.png" data-background-size="cover">
+<h2></h2>
 </section>
-<section id="section-11" class="level1">
-<h1></h1>
-<section id="recapitulation" class="level2">
-<h2>Recapitulation</h2>
-<p><strong>ESDA</strong> is a family of techniques to explore and spatially interrogate data</p>
-<p>Main function: characterize <strong>spatial autocorrelation</strong>, which can be explored:</p>
+<section id="utm" class="level2">
+<h2>UTM</h2>
 <ul>
-<li><strong>Global</strong>ly (e.g. Moran Plot, Moran’s I)</li>
-<li><strong>Local</strong>ly (e.g. LISAs)</li>
+<li>northing (Y) value
+<ul>
+<li>distance from equator in meters</li>
+</ul></li>
+<li>easting (X) value
+<ul>
+<li>distance from zone central meridian</li>
+</ul></li>
+</ul>
+</section>
+<section id="coordinates-for-point-of-interest" class="level2">
+<h2>Coordinates for Point of interest</h2>
+<ul>
+<li>UTM Zone 35S</li>
+<li>35 415,000 m E/ 6,540,000 m N</li>
+<li>Coordinates from the point of origin of the zone
+<ul>
+<li>intersection of equator and zone central meridian</li>
+</ul></li>
+<li>Southern Hemisphere: northings decrease to the south</li>
+</ul>
+</section>
+<section id="utm-northing-y" class="level2">
+<h2>UTM: northing (Y)</h2>
+<ul>
+<li>Place of interest: 3,550,000 meters south of the equator</li>
+<li>northing (Y): -3,550,00000</li>
+<li>Add false northing of 10,000,000</li>
+<li>6,450,000m</li>
+</ul>
+</section>
+<section id="utm-easting-x" class="level2">
+<h2>UTM: easting (X)</h2>
+<ul>
+<li>Central meridian for UTM Zone 35s: 27 degrees easting</li>
+<li>Place of interest is 85,000 meters West of this</li>
+<li>-85,000m</li>
+<li>False easting of 500,000m</li>
+<li>easting (X): 415,000</li>
 </ul>
 </section>
 </section>
-<section id="section-12" class="level1">
+<section id="section-8" class="level1">
 <h1></h1>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">Geographic Data Science’18</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<section id="map-projections" class="level2">
+<h2>Map Projections</h2>
+</section>
+<section id="section-9" class="level2" data-background="../content/lectures/images/06/map_projection.jpg" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="map-projection-characteristics" class="level2">
+<h2>Map Projection Characteristics</h2>
+<ul>
+<li>Class</li>
+<li>Case</li>
+<li>Aspect</li>
+</ul>
+</section>
+<section id="class" class="level2" data-background="../content/lectures/images/06/class.png" data-background-size="contain">
+<h2>Class</h2>
+</section>
+<section id="case" class="level2" data-background="../content/lectures/images/06/projection.gif" data-background-size="contain">
+<h2>Case</h2>
+</section>
+<section id="aspect-projections-center" class="level2">
+<h2>Aspect: Projection’s Center</h2>
+<ul>
+<li>equatorial: centered somewhere along equator</li>
+<li>polar: centered about one of the poles</li>
+<li>oblique: between poles and equator</li>
+</ul>
+</section>
+<section id="accuracy-of-map-projections" class="level2">
+<h2>Accuracy of Map Projections</h2>
+<ul>
+<li>Angular distortion</li>
+<li>Distance distortion</li>
+<li>Area distortion</li>
+</ul>
+</section>
+<section id="angular-conformity-mercator" class="level2">
+<h2>Angular Conformity: Mercator</h2>
+<ul>
+<li>maintain 90 degrees for compaass rose (N,S,E,W)</li>
+<li>difficult for large areas</li>
+<li>only used for small portions of earth surface</li>
+<li>distorts area</li>
+<li>uses: navigation and meterological tasks</li>
+</ul>
+</section>
+<section id="section-10" class="level2" data-background="../content/lectures/images/06/mercator_projection.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="equal-distance-plate-carree-equidistant-cylindrical" class="level2">
+<h2>Equal Distance: Plate Carree Equidistant Cylindrical</h2>
+<ul>
+<li>scale of the map is kept constant</li>
+<li>accurate distances from the center of projection to any other place</li>
+<li>accurate along given lines</li>
+<li>uses: radio and seismic mapping</li>
+</ul>
+</section>
+<section id="section-11" class="level2" data-background="../content/lectures/images/06/plate_carree_projection.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="equal-area-mollweide-equal-area-cylindrical" class="level2">
+<h2>Equal Area: Mollweide Equal Area Cylindrical</h2>
+<ul>
+<li>preserves proportional relationships of mapped areas to areas on the Earth</li>
+<li>uses: when area needs to be measured (density, deforestation)</li>
+<li>distortions of angular conformity</li>
+</ul>
+</section>
+<section id="section-12" class="level2" data-background="../content/lectures/images/06/mollweide_equal_area_projection.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="map-projections-1" class="level2">
+<h2>Map Projections</h2>
+<ul>
+<li>Each map projection has advantages and disadvantages</li>
+<li>The best projection for a map depends on the scale of the map, and on the purposes for which it will be used.</li>
+<li>A projection may have unacceptable distortions if used to map the entire African continent, but may be an excellent choice for a large-scale (detailed) map of your country.</li>
+</ul>
+</section>
+<section id="on-the-fly-projection" class="level2">
+<h2>On-The-Fly Projection</h2>
+<ul>
+<li>Project starts with a given CRS</li>
+<li>Subsequently loaded layers get projected to that CRS</li>
+<li>Allows overlays of layers with different CRSs</li>
+</ul>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
+<ul>
+<li>Map Production</li>
+</ul>
+</section>
+</section>
+<section id="section-13" class="level1">
+<h1></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </section>
 </div>
  

@@ -5,10 +5,9 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Serif);
 @import url(../../../assets/fonts/tufte/et-book.css);
 body {
-  width: 87.5%;
+  width: 100.0%;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1400px;
   counter-reset: sidenote-counter; }
 
 code {
@@ -31,22 +30,22 @@ code {
  *********************************************/
 
 .hlg {
-    background-color: #FFFF00
+    background-color: #1b2631
 }
 
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #ffffff;
-  background-color: #ffffff; }
+    background: #1b2631;
+    background-color:#1b2631; }
 
 .reveal {
   font-family: 'et-book', "PT Serif", serif;
   font-size: 45px;
   font-weight: normal;
   line-height: 1.00;
-  color: #666666; }
+  color: #FDFEFE; }
 
 ::selection {
   color: #fff;
@@ -68,7 +67,7 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #444444;
+  color: #fdfefe;
   font-family: 'et-book', "PT Serif", serif;
   font-weight: normal;
   line-height: 1.2;
@@ -103,8 +102,8 @@ body {
 .reveal img,
 .reveal video,
 .reveal iframe {
-  max-width: 95%;
-  max-height: 95%; }
+  max-width: 100%;
+  max-height: 100%; }
 
 .reveal strong,
 .reveal b {

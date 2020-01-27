@@ -24,6 +24,10 @@ sl04:
 sl05:
 	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_05.md -o slides/lecture_05.html
 
+sl06:
+	pandoc -t html5 --template=slides/template.revealjs --standalone --section-divs --variable theme="journal"   --variable transition="linear" content/lectures/lecture_06.md -o slides/lecture_06.html
+
+
 
 
 lectures: le01 le02 le03 le04 le05 le06 le07 le08 le07 le10
