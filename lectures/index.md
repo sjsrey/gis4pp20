@@ -35,3 +35,10 @@ title: Lectures
 ### Jan 22: Rasters
   - <a href="../slides/lecture_05.html">Slides</a> 
   - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/raster_data.html">Reading: Sutton, T. "Raster Data" </a>
+  
+## Week 4 January 27, 29
+
+### Jan 27: Coordinate Reference Systems
+  - <a href="../slides/lecture_06.html">Slides</a> 
+  - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/coordinate_reference_systems.html">Reading: Sutton, T. "Coordinate Reference Systems" </a>
+ 
