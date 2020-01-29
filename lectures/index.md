@@ -42,3 +42,9 @@ title: Lectures
   - <a href="../slides/lecture_06.html">Slides</a> 
   - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/coordinate_reference_systems.html">Reading: Sutton, T. "Coordinate Reference Systems" </a>
  
+### Jan 29: QGIS Studio
+  - <a href="../slides/lecture_07.html">Slides</a> 
+  
+ 
+
+

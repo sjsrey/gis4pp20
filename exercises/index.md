@@ -56,7 +56,7 @@ Creating a new layer
 # Exercise 2: Working with Attributes<a name='exer2'></a>
 
 ## Deadline
-- Hand in your work on [ilearn](https://ilearn.ucr.edu) by **January 29 12 p.m.**
+- Hand in your work on [ilearn](https://ilearn.ucr.edu) by **February  3, 12 p.m.**
 
 
 ## Objectives
