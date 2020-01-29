@@ -139,3 +139,60 @@ Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https:/
 ### Final Exam: March 17 
 - 17: [7:00pm](https://registrar.ucr.edu/registering/plan-for-final-exams#monday_wednesday)
 
+
+
+## Readings {#sec:org861d953}
+
+
+Readings supporting the lecture are taken from the following sources:
+
+- Sutton,T, O. Dassau, and M. Sutton (2009) [A Gentle Introduction to GIS](https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/preamble.html). Spatial Information Management Unit, Office of the Premier, Eastern Cape, South Africa.
+
+- Longley, P.A., M.F. Goodchild, D.J. Maguire, and D.W. Rhind (2015) [Geographic Information Science and Systems](https://www.wiley.com/en-us/Geographic+Information+Science+and+Systems%2C+4th+Edition-p-9781119031307),  4th Edition, Wiley.
+
+Additional readings will be assigned and made available on the course
+learning site.
+
+## Academic Integrity {#sec:orgde332a6}
+
+The UCR student academic integrity policy lists violations in detail.
+These violations fall into eight broad areas that include but are not
+limited to: cheating, fabrication, plagiarism, facilitating academic
+misconduct, unauthorized collaboration, interference or sabbotage,
+non-compliance with research regulations and retaliation. For more
+information about the UCR student academic integrity policy, please use
+the following web link
+<http://conduct.ucr.edu/policies/academicintegrity.html>
+
+## Disability accommodations
+
+Qualified students with disabilities who will require disability
+accommodations in this class are encouraged to make their requests to me
+at the beginning of the quarter either during office hours or by
+appointment.
+
+
+**Note**: Prior to receiving disability accommodations,
+verification of eligibility from the [Student Disability Resource
+Center](http://sdrc.ucr.edu/) is required. Disability information is
+confidential.
+
+## Code of Conduct
+
+As course instructor, I am dedicated to providing a harassment-free
+learning experience for all students, regardless of gender, sexual
+orientation, disability, physical appearance, body size, race, religion,
+or choice of operating system. All course participants are expected to
+show respect and courtesy to other students throughout the semester. As
+a learning community we do not tolerate harassment of participants in
+any form.
+
+- All communication should be appropriate for a professional audience including people of many different backgrounds. Sexual language and imagery are not appropriate in this course.
+- Be kind to others. Do not insult or put down other students. Behave professionally. Remember that harassment and sexist, racist, or exclusionary jokes are not appropriate for PBPL273.
+- Students violating these rules may be asked to leave the course, and their violations will be reported to the UCR administration.
+
+This code of conduct is an adaptation of the [SciPy 2018 Code of Conduct](https://scipy2018.scipy.org/ehome/299527/648147/index9a04.html).
+
+
+
+
