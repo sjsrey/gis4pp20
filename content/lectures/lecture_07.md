@@ -1,5 +1,5 @@
 % Geographic Information Systems for Public Policy - Lecture VII
-% Map Production
+% QGIS Studio 
 %[Sergio Rey](http://sergrey.org)
 
 
@@ -13,20 +13,35 @@
 
 
 <ul>
-<li class="fragment"> Map Production </li>
-<li class="fragment"> Choropleth Classification </li>
+<li class="fragment"> Review Planning </li>
+<li class="fragment"> QGIS Studio: Exercise 2 </li>
+</ul>
+
+# 
+## Midterm Review
+
+<ul>
+<li class="fragment">Review is February 3 </li>
+<li class="fragment">Student-led</li>
+<li class="fragment">Sign ups (Collaboration Points) </li>
+<li class="fragment">Cold call if not signed up</li>
+</ul>
+
+## Review Logistics
+
+<ul>
+<li class="fragment"> Two slots per lecture</li>
+<li class="fragment"> Summarize top 2-3 points from lecture/readings  </li>
+<li class="fragment"> Two minute presentation by each student </li>
+<li class="fragment"> Discussion and questions to round out review </li>
+<li class="fragment"> Sign-up on Google sheets (first come, first served)</li>
+
 </ul>
 
 #
-## Map Production
+## QGIS Studio
 
-- [Module: Creating a Basic Map](https://docs.qgis.org/testing/en/docs/training_manual/basic_map/index.html)
-- Stop at [3.2.13](https://docs.qgis.org/testing/en/docs/training_manual/basic_map/symbology.html#backlink-symbology-marker-line)
-
-#
-## Choropleth Classification
-
-- [Module: Classifying Vector Data](https://docs.qgis.org/testing/en/docs/training_manual/vector_classification/index.html)
+- Collaboration on [Exercise 2](https://sergerey.org/gis4pp20/exercises/#exer2)
 
 
 
