@@ -118,8 +118,8 @@ Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https:/
 - 12: *Exercise 3 Out*
 
 ### Week 7: February 17, 19
-- 17: Vector Analysis 
-- 19: Network Analysis 
+- 17: Holiday
+- 19: Vector Analysis 
 
 ### Week 8: February 24, 26
 - 24: Raster Analysis 
