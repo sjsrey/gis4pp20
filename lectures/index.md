@@ -46,5 +46,17 @@ title: Lectures
   - <a href="../slides/lecture_07.html">Slides</a> 
   
  
+## Week 5 February 3, 5
+
+### Feb 3: Review
+### Feb 5: Midterm
+
+  
+ ## Week 6 February 10, 12
+
+### Feb 10: Creating Maps
+  - <a href="../slides/lecture_08.html">Slides</a> 
+  - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_attribute_data.html">Reading: Sutton, T. "Vector Attribute Data" </a>
+ 
 
 
