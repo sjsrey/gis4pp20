@@ -52,7 +52,7 @@ title: Lectures
 ### Feb 5: Midterm
 
   
- ## Week 6 February 10, 12
+## Week 6 February 10, 12
 
 ### Feb 10: Creating Maps
   - <a href="../slides/lecture_08.html">Slides</a> 
