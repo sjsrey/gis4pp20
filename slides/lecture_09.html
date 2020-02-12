@@ -1,0 +1,423 @@
+<!-- Copied from https://gist.github.com/aaronwolen/5017084#file-template-revealjs-html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+ 
+<title>Geographic Information Systems for Public Policy - Lecture IX</title>
+ 
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture IX">    
+ 
+  <meta name="author" content="Creating and Fixing Vector Data" />
+ 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+<link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/journal.css" id="theme">
+ 
+ 
+<!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+ 
+ 
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + 
+    '.css" type="text/css" media="print">' );
+</script>
+ 
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+ 
+<body>
+ 
+<div class="reveal">
+ 
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+ 
+<section>
+<h1>Geographic Information Systems for Public Policy - Lecture IX</h1>
+<h3>Creating and Fixing Vector Data</h3>
+<p>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
+</p>
+</section>  
+ 
+ 
+<section id="last-time" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2>Last Time</h2>
+<ul>
+<li class="fragment">
+Working with Vector Data
+</li>
+<li class="fragment">
+Symbology
+</li>
+<li class="fragment">
+Classifying Vector Data
+</li>
+<li class="fragment">
+Color
+</li>
+</ul>
+</section>
+<section id="today" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2>Today</h2>
+<ul>
+<li class="fragment">
+Detecting Geometry Problems
+</li>
+<li class="fragment">
+Understanding Geometry Problems
+</li>
+<li class="fragment">
+Fixing Geometry Problems
+</li>
+</ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="detecting-geometry-problems" class="level2">
+<h2>Detecting Geometry Problems</h2>
+</section>
+<section id="scag-shapefile-exer-2" class="level2">
+<h2>SCAG Shapefile (Exer 2)</h2>
+</section>
+<section id="section-1" class="level2" data-background="../content/lectures/images/09/900_scag.png" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="splitting-by-attribute" class="level2">
+<h2>Splitting by Attribute</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/910_unique_county_values.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="splitting-by-attribute-menu" class="level2">
+<h2>Splitting by Attribute: Menu</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/911_split_menu.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="splitting-by-attribute-dialog" class="level2">
+<h2>Splitting by Attribute: Dialog</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/912_split_dialog.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="splitting-by-attribute-error" class="level2">
+<h2>Splitting by Attribute: Error</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/913_split_error.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="processing-toolbox" class="level2">
+<h2>Processing Toolbox</h2>
+<ul>
+<li class="fragment">
+GUI for Processing
+</li>
+<li class="fragment">
+Native and 3rd Party GIS Algorithms
+</li>
+<li class="fragment">
+Organized by Provider
+</li>
+</ul>
+</section>
+<section id="processing-toolbox-menu" class="level2">
+<h2>Processing Toolbox Menu</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/920_processing_toolbox_menu.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="processing-toolbox-search" class="level2">
+<h2>Processing Toolbox Search</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/921_check_search.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-geometry-validity" class="level2">
+<h2>Check Geometry Validity</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/922_check_validity_dialog.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-geometry-results" class="level2">
+<h2>Check Geometry Results</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/923_check_validity_results.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-geometry-new-layers" class="level2">
+<h2>Check Geometry New Layers</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/924_error_layer.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-geometry-canvas" class="level2">
+<h2>Check Geometry Canvas</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/925_error_zoom.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="invalid-ouptut-layer-table" class="level2">
+<h2>Invalid Ouptut Layer Table</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/926_errors_attribute_table.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+</section>
+<section id="section-2" class="level1">
+<h1></h1>
+<section id="understanding-geometry-problems" class="level2">
+<h2>Understanding Geometry Problems</h2>
+</section>
+<section id="self-intersecting-ring" class="level2">
+<h2>Self-intersecting Ring</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/940_problem_geometry.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="self-intersecting-ring-1" class="level2">
+<h2>Self-intersecting Ring</h2>
+<ul>
+<li>Problem with area calculations</li>
+<li>Other GIS operations</li>
+</ul>
+</section>
+<section id="polygon-area" class="level2">
+<h2>Polygon Area</h2>
+</section>
+<section id="section-3" class="level2" data-background="../content/lectures/images/09/941.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-4" class="level2" data-background="../content/lectures/images/09/942.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-5" class="level2" data-background="../content/lectures/images/09/943.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-6" class="level2" data-background="../content/lectures/images/09/944.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-7" class="level2" data-background="../content/lectures/images/09/945.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-8" class="level2" data-background="../content/lectures/images/09/946.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-9" class="level2" data-background="../content/lectures/images/09/947.png" data-background-size="contain">
+<h2></h2>
+</section>
+</section>
+<section id="section-10" class="level1">
+<h1></h1>
+<section id="fixing-geometry-problems" class="level2">
+<h2>Fixing Geometry Problems</h2>
+</section>
+<section id="remove-other-layers" class="level2">
+<h2>Remove Other Layers</h2>
+</section>
+<section id="section-11" class="level2">
+<h2></h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/950.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="search-for-buffer" class="level2">
+<h2>Search for Buffer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/951.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="buffer-dialog-set-distance0" class="level2">
+<h2>Buffer Dialog: Set Distance=0</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/952.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="buffer-log" class="level2">
+<h2>Buffer Log</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/953.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-validity-of-buffered-layer" class="level2">
+<h2>Check Validity of Buffered Layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/954.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-validity-of-buffered-layer-1" class="level2">
+<h2>Check Validity of Buffered Layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/955.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-validity-of-invalid-output" class="level2">
+<h2>Check Validity of Invalid Output</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/956.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-validity-of-invalid-output-1" class="level2">
+<h2>Check Validity of Invalid Output</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/957.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="split-by-attribute-revisited" class="level2">
+<h2>Split by Attribute Revisited</h2>
+</section>
+<section id="back-to-original-tract-layer" class="level2">
+<h2>Back to original tract layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/960.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="buffer-the-original-tract-layer" class="level2">
+<h2>Buffer the original tract layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/960.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="new-buffered-layer" class="level2">
+<h2>New Buffered Layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/961.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-validity-of-buffered" class="level2">
+<h2>Check Validity of Buffered</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/962.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="check-validity-of-buffered-1" class="level2">
+<h2>Check Validity of Buffered</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/963.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="make-layer-permanent" class="level2">
+<h2>Make Layer Permanent</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/964.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="split-vector-layer" class="level2">
+<h2>Split Vector Layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/965.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="split-vector-layer-set-output-directory" class="level2">
+<h2>Split Vector Layer: Set Output Directory</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/966.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="split-vector-layer-results" class="level2">
+<h2>Split Vector Layer Results</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/977.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="split-vector-layer-results-1" class="level2">
+<h2>Split Vector Layer Results</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/09/979_counties_geopkg.png" alt="scag"
+/></a>
+</CENTER>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
+<ul>
+<li>Vector Analysis</li>
+</ul>
+</section>
+</section>
+<section id="section-12" class="level1">
+<h1></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+</section>
+</div>
+ 
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+ 
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'linear',
+
+        math: {
+            // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'
+        },
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'journal', 
+   
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'linear',
+   
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '../../lib/js/classList.js' },
+    { src: 'plugin/math/math.js', async: true }
+  ]
+  });
+ 
+</script>
+
+</body>
+</html>
