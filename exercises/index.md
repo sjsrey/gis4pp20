@@ -6,6 +6,7 @@ title: Exercises
 
 - [Exercise 1](#exer1)
 - [Exercise 2](#exer2)
+- [Exercise 3](#exer3)
 
 
 
@@ -14,7 +15,6 @@ title: Exercises
 ## Deadline
 
 - Hand in your work on [ilearn](https://ilearn.ucr.edu) by **January 15 12 p.m.**
-
 
 
 
@@ -68,7 +68,7 @@ Creating a new layer
 ## Instructions
 
 ### Setup
-- You will be using the same dataset from [exercise 1](#exer01).
+- You will be using the same dataset from [exercise 1](#exer1).
 - Create a new project called `exer02`
 
 ### Analysis
@@ -93,3 +93,50 @@ The next steps require building  different virtual layers to generate  table rep
 4. Report the percentage of the total county population that is Hispanic by county.
 5. Compare the previous percentage to the average of the Hispanic population by tract in each county.
 6. Comment on the last report. Why do the two views of percentage Hispanic differ?
+
+
+# Exercise 3: Choropleth Maps<a name='exer3'></a>
+
+## Deadline
+- Hand in your work on [ilearn](https://ilearn.ucr.edu) by **February  26, 12 p.m.**
+
+
+## Objectives
+- Learn how to choose choropleth classification schemes for different attribute types
+- Learn how to use the layout manager to create publication quality choropleth maps
+- Use choropleth maps to compare demographic patterns across subregions of Southern California
+
+## Instructions
+
+### Readings
+Read the chapter on [Laying out the Map](https://docs.qgis.org/3.4/en/docs/user_manual/print_composer/index.html)
+
+You will be handing in a single pdf that combines maps and text supporting your analysis below. All maps must be produced using the Layout manager and exported to pdf prior to compiling your single document.
+
+
+
+### Setup
+- You will be using the dataset you produced in [exercise 2](#exer2).
+- Create a new project called `exer03`
+
+
+### Analysis
+Read through the entire set of tasks below before carrying out any analysis. 
+
+#### Data Creation
+1. Using the SCAG layer create (or recreate) the following attributes:
+   - `pctHISP` = 100 X `HISP/TOTPOP` 
+   - `majHISP` = 1 if `pctHISP` > 0.5, 0 otherwise
+1. Create two new layers: one that contains the tracts for the inland counties, and a second for the coastal Counties.
+2. Provide a step by step description of how you used QGIS to create these new layers.
+
+#### Choropleth Maps
+1. For each of the two subregions (coastal, inland) create a choropleth map for the `pctHISP` variable.
+2. For each of the two subregions (coastal, inland) create a choropleth map for the `majHISP` variable.
+3. For the entire SCAG region, make a map for `pctHISP`
+3. Explain your design choices regarding:
+   - classification scheme  and number of classes
+   - color scheme
+
+#### Comparison of Coastal and Inland Distributions 
+Using your maps from the previous steps, compare the `pctHISP` distributions between the inland and the coastal subregions. Be sure to comment on both the statistical distributions as well as the spatial distributions, and explain how the design of your maps supports your analysis.

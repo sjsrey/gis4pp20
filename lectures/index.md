@@ -59,4 +59,9 @@ title: Lectures
   - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_attribute_data.html">Reading: Sutton, T. "Vector Attribute Data" </a>
  
 
+### Feb 12: Creating and Fixing Vector Data
+  - <a href="../slides/lecture_09.html">Slides</a> 
+  - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_attribute_data.html">Reading: Sutton, T. "Vector Attribute Data" </a>
+ 
+
 

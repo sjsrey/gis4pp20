@@ -28,11 +28,10 @@
 
 
 
-## SCAG Shapefile
-<CENTER>
-[<img src="../content/lectures/images/09/900_scag.png" alt="scag"
-/>](url)
-</CENTER>
+## SCAG Shapefile (Exer 2)
+
+## {data-background=../content/lectures/images/09/900_scag.png data-background-size=cover}
+
 
 ## Splitting by Attribute
 
@@ -64,7 +63,13 @@
 
 ## Processing Toolbox
 
-EXPLAIN
+<ul>
+<li class="fragment"> GUI for Processing</li>
+<li class="fragment"> Native and 3rd Party GIS Algorithms</li>
+<li class="fragment"> Organized by Provider</li>
+</ul>
+
+
 
 
 ## Processing Toolbox Menu
@@ -132,30 +137,19 @@ EXPLAIN
 - Other GIS operations
 
 
-## Self-intersecting Ring
-<CENTER>
-[<img src="../content/lectures/images/09/941.png" alt="scag"
-/>](url)
-</CENTER>
+## Polygon Area
 
-
-## Self-intersecting Ring
-<CENTER>
-[<img src="../content/lectures/images/09/942.png" alt="scag"
-/>](url)
-</CENTER>
-
-##  {data-background=../content/lectures/images/09/941.png data-background-size=cover}
+##  {data-background=../content/lectures/images/09/941.png data-background-size=contain}
 
 
 
-##  {data-background=../content/lectures/images/09/942.png data-background-size=cover}
+##  {data-background=../content/lectures/images/09/942.png data-background-size=contain}
 
 
-##  {data-background=../content/lectures/images/09/943.png data-background-size=cover}
+##  {data-background=../content/lectures/images/09/943.png data-background-size=contain}
 
 
-##  {data-background=../content/lectures/images/09/944.png data-background-size=cover}
+##  {data-background=../content/lectures/images/09/944.png data-background-size=contain}
 
 
 ##  {data-background=../content/lectures/images/09/945.png data-background-size=contain}
@@ -164,13 +158,15 @@ EXPLAIN
 ##  {data-background=../content/lectures/images/09/946.png data-background-size=contain}
 
 
-##  {data-background=../content/lectures/images/09/947.png data-background-size=cover}
+##  {data-background=../content/lectures/images/09/947.png data-background-size=contain}
 
 
 #
 ## Fixing Geometry Problems
 
 ## Remove Other Layers
+
+##
 <CENTER>
 [<img src="../content/lectures/images/09/950.png" alt="scag"
 />](url)

@@ -119,11 +119,11 @@ Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https:/
 
 ### Week 7: February 17, 19
 - 17: Holiday
-- 19: Vector Analysis 
+- 19: Vector Analysis: Buffers and Spatial Joins 
 
 ### Week 8: February 24, 26
-- 24: Raster Analysis 
-- 26: Conversions 
+- 24: Vector Analysis: Clipping and Partitions
+- 26: OpenStreetMap
 - 26: *Exercise 3 Due*
 - 26: *Exercise 4 Out*
 
