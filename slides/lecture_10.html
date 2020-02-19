@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8">
  
-<title>Geographic Data Science - Lecture X</title>
+<title>Geographic Information Systems for Public Policy - Lecture X</title>
  
-<meta name="description" content="Geographic Data Science - Lecture X">    
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture X">    
  
-  <meta name="author" content="Causal Inference" />
+  <meta name="author" content="Vector Analysis: Buffering" />
  
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -43,225 +43,552 @@
 <div class="slides">
  
 <section>
-<h1>Geographic Data Science - Lecture X</h1>
-<h3>Causal Inference</h3>
+<h1>Geographic Information Systems for Public Policy - Lecture X</h1>
+<h3>Vector Analysis: Buffering</h3>
 <p>
-<h4><a href="http://darribas.org">Dani Arribas-Bel</a></h4>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
 </p>
 </section>  
  
  
-<section id="today" class="level2">
+<section id="last-time" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2>Last Time</h2>
+<ul>
+<li class="fragment">
+Detecting Geometry Problems
+</li>
+<li class="fragment">
+Understanding Geometry Problems
+</li>
+<li class="fragment">
+Fixing Geometry Problems
+</li>
+</ul>
+</section>
+<section id="today" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
 <h2>Today</h2>
 <ul>
-<li>Correlation Vs Causation</li>
-<li>Causal inference</li>
-<li>Why/when causality matters</li>
-<li>Hurdles to causal inference &amp; strategies to overcome them</li>
+<li class="fragment">
+Deterministic Spatial Analysis
+</li>
+<li class="fragment">
+Buffers and Buffering
+</li>
+<li class="fragment">
+Select by Location
+</li>
+<li class="fragment">
+Health Deserts
+</li>
 </ul>
 </section>
 <section id="section" class="level1">
 <h1></h1>
-<section id="correlation-vs-causation" class="level2">
-<h2>Correlation Vs Causation</h2>
+<section id="deterministic-spatial-analysis" class="level2">
+<h2>Deterministic Spatial Analysis</h2>
 </section>
-<section id="correlation-vs-causation-1" class="level2">
-<h2>Correlation Vs Causation</h2>
-<p>Two fundamental ways to look at the relationship between two (or more) variables:</p>
-<div class="fragment">
-<p><strong><code>Correlation</code></strong></p>
-<p>Two variables have <strong>co-movement</strong>. If we know the value of one, we know something about the value of the other one.</p>
-</div>
-<div class="fragment">
-<p><strong><code>Causation</code></strong></p>
-<p>There is a <strong>“cause-effect”</strong> link between the two and, as a result, they display co-movement.</p>
-</div>
-</section>
-<section id="correlation-vs-causation-2" class="level2">
-<h2>Correlation Vs Causation</h2>
+<section id="dimensions-of-vector-geometries" class="level2">
+<h2>Dimensions of vector geometries</h2>
 <ul>
-<li><p>Both are useful, but for different purposes</p></li>
-<li><p>Causation <em>implies</em> correlation but <strong>not</strong> the other way around</p></li>
-<li><p>It is vital to keep this distinction in mind for meaningful and credible analysis</p></li>
+<li class="fragment">
+Point: 0-dimension
+</li>
+<li class="fragment">
+Line: 1-dimensional (length)
+</li>
+<li class="fragment">
+Polygon: 2-dimensional (area)
+</li>
 </ul>
 </section>
-<section id="examples" class="level2">
-<h2>Examples</h2>
-<p><em>Sign correlation? Causal link?</em></p>
-<p>Take a guess (2mins)…</p>
-<ul>
-<li>Temperature and ice-cream consumption <span class="fragment"> <span class="math inline">→</span> <strong>Positive</strong>. <strong>Positive</strong>.</li>
-<li>Non-commercial space launches &amp; Sociology PhDs awarded</li>
-<li>Crime &amp; policing</li>
-<li>IMD in an area Vs its neighbors (Liverpool)</li>
-</ul>
+<section id="spatial-relations" class="level2">
+<h2>Spatial Relations</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/TopologicSpatialRelarions2.png" alt="DE-9IM"
+/></a>
+</CENTER>
 </section>
-<section id="section-1" class="level2" data-background="../content/lectures/figs/l10_spurius.svg">
+<section id="dimensionally-extended-nine-intersection-mode-de-9im" class="level2">
+<h2>Dimensionally Extended nine-Intersection Mode (DE-9IM)</h2>
+</section>
+<section id="section-1" class="level2">
 <h2></h2>
-<p>[<a href="http://tylervigen.com/spurious-correlations">Source</a>]</p>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/DE-9IM.png" alt="DE-9IM"
+/></a>
+</CENTER>
+<p><a href="https://en.wikipedia.org/wiki/DE-9IM">[url]</a></p>
 </section>
-<section id="examples-1" class="level2">
-<h2>Examples</h2>
-<p><em>Positive or negative correlation? Causal link?</em></p>
-<p>Take a guess (2mins)…</p>
-<ul>
-<li>Temperature and ice-cream consumption <span class="math inline">→</span> <strong>Positive</strong>. <strong>Positive</strong>.</li>
-<li>Non-commercial space launches &amp; Sociology PhDs awarded <span class="math inline">→</span> <strong>Positive</strong>. <strong>None</strong>.</li>
-<li>Crime &amp; policing <span class="fragment"> <span class="math inline">→</span> <strong>Positive</strong>. <strong>Negative</strong>.</span></li>
-<li>IMD in an area Vs its neighbors (Liverpool)</li>
-</ul>
+<section id="food-deserts-url" class="level2">
+<h2>Food Deserts <a href="https://proceedings.esri.com/library/userconf/healthy-communities10/pdfs/mapping-food-deserts.pdf">url</a></h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/000_food_desert.png" alt="fd"
+/></a>
+</CENTER>
+<p><a href="https://proceedings.esri.com/library/userconf/healthy-communities10/pdfs/mapping-food-deserts.pdf">[url]</a></p>
 </section>
-<section id="section-2" class="level2" data-background="../content/lectures/figs/l05_moranplot_std.png">
+<section id="today-clinic-deserts" class="level2">
+<h2>Today: Clinic Deserts</h2>
+</section>
+<section id="section-2" class="level2" data-background="../content/lectures/images/10/200_scag_riverside_select.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="examples-2" class="level2">
-<h2>Examples</h2>
-<p><em>Positive or negative correlation? Causal link?</em></p>
-<p>Take a guess (2mins)…</p>
-<ul>
-<li>Temperature and ice-cream consumption <span class="math inline">→</span> <strong>Positive</strong>. <strong>Positive</strong>.</li>
-<li>Non-commercial space launches &amp; Sociology PhDs awarded <span class="math inline">→</span> <strong>Positive</strong>. <strong>None</strong>.</li>
-<li>Crime &amp; policing <span class="math inline">→</span> <strong>Positive</strong>. <strong>Negative</strong>.</li>
-<li>IMD in an area Vs its neighbors (Liverpool) <span class="math inline">→</span> <strong>Positive</strong>. <strong>?</strong></li>
-</ul>
-</section>
-</section>
-<section id="section-3" class="level1">
-<h1></h1>
-<section id="causal-inference" class="level2">
-<h2>Causal Inference</h2>
-</section>
-<section id="section-4" class="level2">
+<section id="section-3" class="level2" data-background="../content/lectures/images/10/210_riverside_tracts.png" data-background-size="contain">
 <h2></h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JA5s-Uh6q8s" frameborder="0" allowfullscreen>
-</iframe>
-<center>
-[<a href="https://www.youtube.com/watch?v=JA5s-Uh6q8s">Source</a>]
-</center>
 </section>
+<section id="section-4" class="level2" data-background="../content/lectures/images/10/220_clinics.png" data-background-size="contain">
+<h2></h2>
 </section>
-<section id="section-5" class="level1">
-<h1></h1>
-<section id="whywhen-to-get-causal" class="level2">
-<h2><em>Why/When to get Causal?</em></h2>
-</section>
-<section id="why" class="level2">
-<h2>Why</h2>
-<ul>
-<li>Most often, we are interested in understanding the <strong>processes</strong> that <em>generate</em> the world, not only in observing its outcomes</li>
-<li>Many of these processes are only <strong>indirectly observable</strong> through <strong>outcomes</strong></li>
-<li>The only way to link both is through <strong>causal channels</strong></li>
-</ul>
-</section>
-<section id="when" class="level2">
-<h2>When</h2>
-<p>Essentially when the <strong>core interest</strong> is to find out if <strong>something <em>causes</em> something else</strong></p>
-<ul>
-<li>Policy interventions</li>
-<li>Medical trials</li>
-<li>Business decisions (product/feature development…)</li>
-<li>Empirical (Social) Sciences</li>
-<li>…</li>
-</ul>
-</section>
-<section id="when-not-necessarily" class="level2">
-<h2>When Not (necessarily)</h2>
-<div class="fragment">
-<p><strong><code>Exploratory analysis</code></strong></p>
-<p>Distracting if not enough knowledge about the dataset</p>
-</div>
-<div class="fragment">
-<p><strong><code>Predictive settings</code></strong></p>
-<p><strong>Interest</strong> not in understanding the underlying mechanisms but want to obtain <strong>best possible estimates</strong> of a variable you do not have by combining others you do have <small style='vertical-align:middle;'> (e.g. Kriging) </small></p>
-</div>
+<section id="section-5" class="level2" data-background="../content/lectures/images/10/221_clinics_table.png" data-background-size="contain">
+<h2></h2>
 </section>
 </section>
 <section id="section-6" class="level1">
 <h1></h1>
-<section id="hurdles-to-causal-inference" class="level2">
-<h2>Hurdles to Causal Inference</h2>
+<section id="buffers-and-buffering" class="level2">
+<h2>Buffers and Buffering</h2>
 </section>
-<section id="hurdles-to-causal-inference-1" class="level2">
-<h2>Hurdles to causal inference</h2>
-<p>Causation <em>implies</em> Correlation</p>
-<p>Correlation <em>does <strong>not</strong> imply</em> Causation</p>
-<p><em>Why?</em></p>
-<div class="fragment">
+<section id="buffers" class="level2">
+<h2>Buffers</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/300_buffers.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="buffers-variable" class="level2">
+<h2>Buffers (Variable)</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/310_buffers.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="buffers-rings" class="level2">
+<h2>Buffers (Rings)</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/320_buffers_rings.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="buffers-dissolve" class="level2">
+<h2>Buffers (Dissolve)</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/330_buffers_dissolve.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="buffering-the-clinics" class="level2">
+<h2>Buffering the Clinics</h2>
 <ul>
-<li>Reverse causality</li>
-<li>Confounding factors/endogeneity</li>
+<li class="fragment">
+food deserts: 0.5 mile distance
+</li>
+<li class="fragment">
+use for the clinic points
+</li>
+<li class="fragment">
+will revisit other distances later
+</li>
 </ul>
-</div>
 </section>
-<section id="reverse-causality" class="level2">
-<h2>Reverse Causality</h2>
-<p>There <em>is</em> a causal link between the two variables but it either runs the oposite direction as we think, or runs in both</p>
-<div class="fragment">
-<p>E.g. Education and income</p>
-</div>
+<section id="mile-clinic-buffer" class="level2">
+<h2>.5 mile clinic buffer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/400_buffer_menu.png" alt="image"
+/></a>
+</CENTER>
 </section>
-<section id="confounding-factors" class="level2">
-<h2>Confounding Factors</h2>
-<p>Two variables are correlated because they are <em>both</em> determined by other, unobserved, variables (factors) that <em>confound</em> the effect</p>
-<div class="fragment">
-<p>E.g. Ice cream and cold beverages consumption</p>
-</div>
+<section id="buffer-menu" class="level2">
+<h2>buffer menu</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/410_half_mile_menu.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="buffer-result" class="level2">
+<h2>buffer result</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/411_result.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="buffer-result-geometry" class="level2">
+<h2>buffer result: geometry</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/411_result_shape.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="buffer-rename" class="level2">
+<h2>buffer rename</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/412_rename.png" alt="image"
+/></a>
+</CENTER>
 </section>
 </section>
 <section id="section-7" class="level1">
 <h1></h1>
-<section id="strategies" class="level2">
-<h2>Strategies</h2>
+<section id="buffering" class="level2">
+<h2>Buffering</h2>
 </section>
-<section id="section-8" class="level2">
-<h2></h2>
-<p><em>Is there any way to overcome reverse causality and confounding factors to recover causal effects?</em></p>
-<p><span class='fragment'> The key is to get an <strong>“<em>exogenous source of variation</em>”</strong></p>
+<section id="using-the-buffers-for-locational-analysis" class="level2">
+<h2>Using the Buffers for Locational Analysis</h2>
+<ul>
+<li class="fragment">
+Find what tracts intersect with the buffers
+</li>
+<li class="fragment">
+Create layer with these tracts
+</li>
+<li class="fragment">
+Use: Select by Location
+</li>
+</ul>
 </section>
-<section id="strategies-1" class="level2">
-<h2>Strategies</h2>
-<div class="fragment">
-<p><strong><code>Randomized Control Trials</code></strong></p>
-<p><small> <em>Treated</em> Vs <em>control</em> groups. Probability of treatment is independent of everything else </small></p>
-</div>
-<div class="fragment">
-<p><strong><code>Quasi-natural experiments</code></strong></p>
-<p><small> Like a RCT, but that just <em>“happen to occur <strong>naturally</strong>”</em> (natural dissasters, exogenous law changes…) </small></p>
-</div>
-<div class="fragment">
-<p><strong><code>Econometric techniques</code></strong></p>
-<p><small> For the interested reader: space-time regression, instrumental variables, propensity score matching, differences-in-differences, regression discontinuity… </small></p>
-</div>
+<section id="processing-select-by-location" class="level2">
+<h2>Processing: Select by Location</h2>
+(Bring up Processing Toolbox with CTRL-ALT-T)
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/500_select_by_location.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="processing-select-by-location-dialog" class="level2">
+<h2>Processing: Select by Location Dialog</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/510_sbl_dialog.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="what-tracts-intersect-with-the-.5-mile-buffers" class="level2">
+<h2>What tracts intersect with the .5 mile buffers?</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/511_sbl_results.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="save-layer" class="level2">
+<h2>Save Layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/512_save_layer.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="saved-layer" class="level2">
+<h2>Saved Layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/513_layer_saved.png" alt="image"
+/></a>
+</CENTER>
+</section>
+</section>
+<section id="section-8" class="level1">
+<h1></h1>
+<section id="health-deserts" class="level2">
+<h2>Health Deserts</h2>
+</section>
+<section id="traditional-approach" class="level2">
+<h2>Traditional Approach</h2>
+<ul>
+<li class="fragment">
+Tracts <em>not</em> intersecting buffers
+</li>
+<li class="fragment">
+Add up population in <strong>desert polygons</strong>
+</li>
+</ul>
+</section>
+<section id="identifying-clinic-desert-tracts" class="level2">
+<h2>Identifying Clinic Desert Tracts</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/600_sbl_desert.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="clinic-desert" class="level2">
+<h2>Clinic Desert</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/610_desert_tracts.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="clinic-desert-layer" class="level2">
+<h2>Clinic Desert Layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/611_desert_tracts_saved.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="what-is-the-population-residing-in-clinic-desert" class="level2">
+<h2>What is the population residing in Clinic Desert?</h2>
+</section>
+<section id="desert-tracts-tables" class="level2">
+<h2>Desert Tracts Tables</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/700_totpop.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="basic-statistics-for-fields" class="level2">
+<h2>Basic Statistics for Fields</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/705_stats_menu.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="basic-statistics-for-fields-dialog" class="level2">
+<h2>Basic Statistics for Fields: Dialog</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/710_stats_menu.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="basic-statistics-for-fields-results" class="level2">
+<h2>Basic Statistics for Fields: Results</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/711_stats_log.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="basic-statistics-for-fields-file" class="level2">
+<h2>Basic Statistics for Fields: File</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/711_stats_log_0.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="basic-statistics-for-fields-file-1" class="level2">
+<h2>Basic Statistics for Fields: File</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/712_stats_html.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="total-county-tract-population" class="level2">
+<h2>Total County Tract Population</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/713_county_tract_population.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="population-estimates" class="level2">
+<h2>Population Estimates</h2>
+<ul>
+<li>County Total: 2,189,641</li>
+<li>In Clinic Desert Tracts: 1,881,643</li>
+<li>In Buffer Tracts: 307,998</li>
+<li>Population with access problems: 1,881,643</li>
+</ul>
+</section>
+<section id="issues-in-measuring-access-to-clinics" class="level2">
+<h2>Issues in measuring access to clinics</h2>
+<ul>
+<li>all individuals in the tracts intersecting the buffers are in the buffer</li>
+<li>overestimation of people within .5 miles of a clinic</li>
+<li>underestimation of people in the clinic desert</li>
+</ul>
+</section>
+<section id="why-overestimation-of-buffer-population" class="level2">
+<h2>Why overestimation of buffer population?</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/800_overestimation.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="we-can-do-better" class="level2">
+<h2>We can do better</h2>
+</section>
+<section id="buffer-tracts" class="level2">
+<h2>Buffer Tracts</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/810_buffer_tracts.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="random-points" class="level2">
+<h2>Random Points</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/811_points_menu.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="random-points-generated" class="level2">
+<h2>Random Points Generated</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/812_points_output.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="random-points-layer" class="level2">
+<h2>Random Points Layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/813_points_layer.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="random-points-layer-symbology" class="level2">
+<h2>Random Points Layer Symbology</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/814_points_size.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="random-points-layer-1" class="level2">
+<h2>Random Points Layer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/815_point_density.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="count-points-in-buffers-layers" class="level2">
+<h2>Count points in buffers: Layers</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/816_layers_on.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="count-points-in-buffers" class="level2">
+<h2>Count points in buffers</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/900_points_in_polygon.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="points-in-polygons" class="level2">
+<h2>Points in polygons</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/910_points_output.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="count-field" class="level2">
+<h2>Count Field</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/920_point_fields.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="count-summary" class="level2">
+<h2>Count Summary</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/930_point_sum.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="count-table" class="level2">
+<h2>Count Table</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/940_counts_table.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="revised-estimates" class="level2">
+<h2>Revised Estimates</h2>
+<ul>
+<li>County Total: 2,189,641</li>
+<li>In Clinic Desert Tracts: 1,881,643</li>
+<li>In Buffer Tracts: 307,998
+<ul>
+<li>90,630 in buffer, in tract</li>
+<li>217,358 out of buffer, in tract</li>
+</ul></li>
+<li>Population with access problems: 2,099,011</li>
+<li>Population within .5 miles of clinic: 90,630</li>
+</ul>
+</section>
+<section id="issue" class="level2">
+<h2>Issue</h2>
+<ul>
+<li>double counting</li>
+<li>points contained in more than a single buffer are counted more than once</li>
+</ul>
+</section>
+<section id="overlapping-buffers" class="level2">
+<h2>Overlapping Buffers</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/950_overlapping_buffers.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="count-table-with-overlapping-buffers" class="level2">
+<h2>Count Table With Overlapping Buffers</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/951_overlap_select.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="fix" class="level2">
+<h2>Fix</h2>
+<ul>
+<li>dissolve on buffering</li>
+</ul>
+</section>
+<section id="buffer-and-dissolve" class="level2">
+<h2>Buffer and Dissolve</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/960_buffer_dissolve.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="dissolved-buffer" class="level2">
+<h2>Dissolved Buffer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/961_buffer_dissolved.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="new-buffer" class="level2">
+<h2>New Buffer</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/970_new_buffer.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="new-buffer-feature-count" class="level2">
+<h2>New Buffer Feature Count</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/971_feature_count.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="points-in-polygon-count" class="level2">
+<h2>Points in Polygon Count</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/972_points_in_polygons.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="population-within-.5-miles-of-a-clinic" class="level2">
+<h2>Population within .5 Miles of a Clinic</h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/10/990_final_count.png" alt="image"
+/></a>
+</CENTER>
+</section>
+<section id="revised-estimates-1" class="level2">
+<h2>Revised Estimates</h2>
+<ul>
+<li>County Total: 2,189,641</li>
+<li>In Clinic Desert Tracts: 1,881,643</li>
+<li>In Buffer Tracts: 307,998
+<ul>
+<li>50,190 in buffer, in tract (no double counting)</li>
+<li>257,808 out of buffer, in tract</li>
+</ul></li>
+<li>Population with access problems: 2,139,451</li>
+<li>Population within .5 miles of clinic: 50,190</li>
+</ul>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
+<ul>
+<li>Vector Analysis: Clipping and Spatial Joins</li>
+</ul>
 </section>
 </section>
 <section id="section-9" class="level1">
 <h1></h1>
-<section id="correlation-or-causation" class="level2">
-<h2>Correlation <em>or</em> Causation?</h2>
-<div class="fragment">
-<p>Establishing <strong>causality is much harder</strong> than identifying correlation, <span class="fragment"> but sometimes it’s needed to move forward!</p>
-</div>
-<div class="fragment">
-<p>Correlation <em>precludes</em> causation and, in some cases, it is all that is needed.</p>
-</div>
-<div class="fragment">
-<p>It is <strong>important</strong> to always draw <em>conclusions based on analysis</em>, know what the data can and cannot tell, and stay <strong>honest</strong>.</p>
-</div>
-</section>
-<section id="section-10" class="level2">
-<h2></h2>
-<center>
-<img src="../content/lectures/figs/l10_xkcd.png" alt=""
-style="width:800px;height:400px;"/>
-</center>
-<center>
-[<a href="https://xkcd.com/552/">Source</a>]
-</center>
-</section>
-</section>
-<section id="section-11" class="level1">
-<h1></h1>
-<pre><code>&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-sa/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;span xmlns:dct=&quot;http://purl.org/dc/terms/&quot; property=&quot;dct:title&quot;&gt;Geographic Data Science&#39;19&lt;/span&gt; by &lt;a xmlns:cc=&quot;http://creativecommons.org/ns#&quot; href=&quot;http://darribas.org&quot; property=&quot;cc:attributionName&quot; rel=&quot;cc:attributionURL&quot;&gt;Dani Arribas-Bel&lt;/a&gt; is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt;.</code></pre>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </section>
 </div>
  
