@@ -64,4 +64,13 @@ title: Lectures
   - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_attribute_data.html">Reading: Sutton, T. "Vector Attribute Data" </a>
  
 
+## Week 7 February 17, 19
+
+### Feb 17: Presidents Day (holiday)
+
+### Feb 19: Vector Analysis: Buffering
+
+  - <a href="../slides/lecture_10.html">Slides</a> 
+  - [Data](../slides/data/lecture_10.zip)
+  - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_spatial_analysis_bufers.html">Reading: Sutton, T. "Vector Spatial Analysis (Buffers)" </a>
 
