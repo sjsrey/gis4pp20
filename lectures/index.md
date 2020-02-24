@@ -72,5 +72,14 @@ title: Lectures
 
   - <a href="../slides/lecture_10.html">Slides</a> 
   - [Data](../slides/data/lecture_10.zip)
-  - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_spatial_analysis_bufers.html">Reading: Sutton, T. "Vector Spatial Analysis (Buffers)" </a>
+  - <a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">Reading: Sutton, T. "Vector Spatial Analysis (Buffers)" </a>
+
+## Week 8 February 24, 26 
+
+### Feb 24: Clipping, Dissolve, Spatial Joins
+
+  - <a href="../slides/lecture_11.html">Slides</a> 
+  - [Data](https://stacks.stanford.edu/file/druid:xc453kn9742/data.zip?download=true)
+  - <a href="https://www.e-education.psu.edu/geog585/node/693">Reading: PSU.
+Walkthrough: Clipping and projecting vector data with QGIS and OGR</a>
 

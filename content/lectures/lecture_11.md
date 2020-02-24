@@ -132,8 +132,8 @@
 ## Spatial Joins
 
 - Add additional attributes to layer based on spatial relations with other layer
-- Ex: assign tract poverty rate to houses in each tract (hedonic modeling)
-- Ex: dummy variable for tracts intersecting road buffer
+- e.g. assign tract poverty rate to houses in each tract (hedonic modeling)
+- e.g. dummy variable for tracts intersecting road buffer
 
 ## {data-background=../content/lectures/images/11/300_spatial_joins.png data-background-size=contain}
 
