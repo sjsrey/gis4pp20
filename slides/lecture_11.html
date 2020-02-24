@@ -1,0 +1,353 @@
+<!-- Copied from https://gist.github.com/aaronwolen/5017084#file-template-revealjs-html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+ 
+<title>Geographic Information Systems for Public Policy - Lecture XI</title>
+ 
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture XI">    
+ 
+  <meta name="author" content="Vector Analysis: Clipping, Dissolve, and Spatial Joins" />
+ 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+<link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/journal.css" id="theme">
+ 
+ 
+<!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+ 
+ 
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + 
+    '.css" type="text/css" media="print">' );
+</script>
+ 
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+ 
+<body>
+ 
+<div class="reveal">
+ 
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+ 
+<section>
+<h1>Geographic Information Systems for Public Policy - Lecture XI</h1>
+<h3>Vector Analysis: Clipping, Dissolve, and Spatial Joins</h3>
+<p>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
+</p>
+</section>  
+ 
+ 
+<section id="last-time" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2>Last Time</h2>
+<ul>
+<li class="fragment">
+Deterministic Spatial Analysis
+</li>
+<li class="fragment">
+Buffers and Buffering
+</li>
+<li class="fragment">
+Select by Location
+</li>
+<li class="fragment">
+Health Deserts
+</li>
+</ul>
+</section>
+<section id="today" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2>Today</h2>
+<ul>
+<li class="fragment">
+Clipping
+</li>
+<li class="fragment">
+Dissolve
+</li>
+<li class="fragment">
+Spatial Joins
+</li>
+</ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="motivation" class="level2">
+<h2>Motivation</h2>
+<CENTER>
+<a href="https://www.latimes.com/projects/la-me-freeway-pollution"><img src="../content/lectures/images/11/000_latimes.png" alt="DE-9IM"
+/></a>
+</CENTER>
+</section>
+<section id="motivation-1" class="level2">
+<h2>Motivation</h2>
+<blockquote>
+<p>More than 1.2 million people already live in high-pollution zones within 500 feet of a Southern California freeway, with more moving in every day. Between 2000 and 2010 — the most recent period available — the population within 500 feet of a Los Angeles freeway grew 3.9%, compared with a rate of 2.6% citywide.</p>
+</blockquote>
+<p><a href="https://www.latimes.com/projects/la-me-freeway-pollution/">url</a></p>
+</section>
+<section id="replication-for-riverside-county" class="level2">
+<h2>Replication for Riverside County</h2>
+<ul>
+<li>goal is to detect which tracts intersect highway buffer</li>
+<li>estimate populations inside buffer</li>
+<li>(exercise 4)</li>
+</ul>
+</section>
+<section id="data" class="level2">
+<h2>Data</h2>
+<ul>
+<li>State highway layer</li>
+<li>Riverside County tracts</li>
+</ul>
+</section>
+<section id="highway-layer-url" class="level2">
+<h2>Highway Layer <a href="https://stacks.stanford.edu/file/druid:xc453kn9742/data.zip?download=true">[url]</a></h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/11/100_tracts_highway.png" alt="fd"
+/></a>
+</CENTER>
+</section>
+<section id="section-1" class="level2">
+<h2></h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/11/103_tracts_table.png" alt="fd"
+/></a>
+</CENTER>
+</section>
+<section id="section-2" class="level2">
+<h2></h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/11/105_tracts_info.png" alt="fd"
+/></a>
+</CENTER>
+</section>
+</section>
+<section id="section-3" class="level1">
+<h1></h1>
+<section id="clipping" class="level2">
+<h2>Clipping</h2>
+</section>
+<section id="highway-layer-url-1" class="level2">
+<h2>Highway Layer <a href="https://stacks.stanford.edu/file/druid:xc453kn9742/data.zip?download=true">[url]</a></h2>
+<CENTER>
+<a href="url"><img src="../content/lectures/images/11/100_tracts_highway.png" alt="fd"
+/></a>
+</CENTER>
+</section>
+<section id="issue" class="level2">
+<h2>Issue</h2>
+<ul>
+<li>We don’t need the entire state network</li>
+<li>Only segments in Riverside County</li>
+<li>Efficient: replicate for all counties</li>
+<li>Divide and conquer</li>
+</ul>
+</section>
+<section id="clipping-1" class="level2">
+<h2>Clipping</h2>
+<ul>
+<li>Need a layer that has the clipping polygon</li>
+<li>Apply to segment layer</li>
+</ul>
+</section>
+<section id="clipping-polygon" class="level2">
+<h2>Clipping polygon</h2>
+<ul>
+<li>Dissolve Riverside tracts</li>
+</ul>
+</section>
+<section id="dissolve-menu" class="level2">
+<h2>Dissolve: Menu</h2>
+</section>
+<section id="section-4" class="level2" data-background="../content/lectures/images/11/110_dissolve_menu.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-5" class="level2" data-background="../content/lectures/images/11/120_dissolve_dialog.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-6" class="level2" data-background="../content/lectures/images/11/130_dissolve_results.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="clipping-2" class="level2">
+<h2>Clipping</h2>
+</section>
+<section id="section-7" class="level2" data-background="../content/lectures/images/11/200_clipping.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-8" class="level2" data-background="../content/lectures/images/11/210_clip_menu.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-9" class="level2" data-background="../content/lectures/images/11/220_clip_dialog.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-10" class="level2" data-background="../content/lectures/images/11/230_clip_results.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-11" class="level2" data-background="../content/lectures/images/11/240_clip_info.png" data-background-size="contain">
+<h2></h2>
+</section>
+</section>
+<section id="section-12" class="level1">
+<h1></h1>
+<section id="spatial-joins" class="level2">
+<h2>Spatial Joins</h2>
+</section>
+<section id="spatial-joins-1" class="level2">
+<h2>Spatial Joins</h2>
+<ul>
+<li>Add additional attributes to layer based on spatial relations with other layer</li>
+<li>Ex: assign tract poverty rate to houses in each tract (hedonic modeling)</li>
+<li>Ex: dummy variable for tracts intersecting road buffer</li>
+</ul>
+</section>
+<section id="section-13" class="level2" data-background="../content/lectures/images/11/300_spatial_joins.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-14" class="level2" data-background="../content/lectures/images/11/310_spatial_joins_results.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-15" class="level2" data-background="../content/lectures/images/11/320_spatial_joins_table.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-16" class="level2" data-background="../content/lectures/images/11/330_spatial_joins_table_all.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-17" class="level2" data-background="../content/lectures/images/11/340_spatial_joins_duplicates.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="segments-and-tracts" class="level2">
+<h2>Segments and Tracts</h2>
+<ul>
+<li>One tract can intersect more than one segment</li>
+<li>Not what we want</li>
+</ul>
+</section>
+<section id="fix-buffer" class="level2">
+<h2>Fix: Buffer</h2>
+<ul>
+<li>Buffer segments</li>
+<li>Creates polygons</li>
+</ul>
+</section>
+<section id="section-18" class="level2" data-background="../content/lectures/images/11/400_buffer_projection.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="problem-with-crs" class="level2">
+<h2>Problem with CRS</h2>
+</section>
+<section id="section-19" class="level2" data-background="../content/lectures/images/11/401_clipped_crs.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-20" class="level2" data-background="../content/lectures/images/11/401_tracts_crs.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-21" class="level2" data-background="../content/lectures/images/11/402_clinics_crs.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="change-crs" class="level2">
+<h2>Change CRS</h2>
+</section>
+<section id="section-22" class="level2" data-background="../content/lectures/images/11/403_tracts_new_crs_dialog.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="buffer-again" class="level2">
+<h2>Buffer Again</h2>
+</section>
+<section id="section-23" class="level2" data-background="../content/lectures/images/11/420_buffer_menu.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-24" class="level2" data-background="../content/lectures/images/11/425_buffer_result.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-25" class="level2" data-background="../content/lectures/images/11/426_buffer_count.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="remember-dissolve" class="level2">
+<h2>Remember Dissolve?</h2>
+</section>
+<section id="section-26" class="level2" data-background="../content/lectures/images/11/450_buffer_dissolve.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-27" class="level2" data-background="../content/lectures/images/11/451_buffer_dissolve_one.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-28" class="level2" data-background="../content/lectures/images/11/452_table_join.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-29" class="level2" data-background="../content/lectures/images/11/460_table_join_expression.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-30" class="level2" data-background="../content/lectures/images/11/465_table_join_result.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-31" class="level2" data-background="../content/lectures/images/11/466_zoom.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
+<ul>
+<li>OpenStreetMap</li>
+</ul>
+</section>
+</section>
+<section id="section-32" class="level1">
+<h1></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span data-xmlns:dct="http://purl.org/dc/terms/" data-property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+</section>
+</div>
+ 
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+ 
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'linear',
+
+        math: {
+            // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'
+        },
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'journal', 
+   
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'linear',
+   
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '../../lib/js/classList.js' },
+    { src: 'plugin/math/math.js', async: true }
+  ]
+  });
+ 
+</script>
+
+</body>
+</html>
