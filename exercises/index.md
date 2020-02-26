@@ -7,6 +7,7 @@ title: Exercises
 - [Exercise 1](#exer1)
 - [Exercise 2](#exer2)
 - [Exercise 3](#exer3)
+- [Exercise 4](#exer4)
 
 
 
@@ -140,3 +141,55 @@ Read through the entire set of tasks below before carrying out any analysis.
 
 #### Comparison of Coastal and Inland Distributions 
 Using your maps from the previous steps, compare the `pctHISP` distributions between the inland and the coastal subregions. Be sure to comment on both the statistical distributions as well as the spatial distributions, and explain how the design of your maps supports your analysis.
+
+
+
+# Exercise 4: Disparities in Exposure to Freeway Pollution<a name='exer4'></a>
+
+## Deadline
+
+- Hand in your work on [ilearn](https://ilearn.ucr.edu) by **March 11  p.m.**
+
+### Readings
+Read the description of  the [LA Times Freeway Pollution Project](https://www.latimes.com/projects/la-me-freeway-pollution/)
+
+You will be handing in a single pdf that combines maps and text supporting your analysis below. All maps must be produced using the Layout manager and exported to pdf prior to compiling your single document.
+
+
+
+### Setup
+- You will be using the dataset you produced in [exercise 2](#exer2) along with the [highway dataset](https://stacks.stanford.edu/file/druid:xc453kn9742/data.zip?download=true) from Lecture 11.
+- Create a new project called `exer04`
+
+
+### Analysis
+Read through the entire set of tasks below before carrying out any analysis. 
+
+**In all the analysis that follows, provide screenshots and a description of your workflow with enough
+detail that a colleague (or your instructor) could replicate your results.**
+
+#### Buffering Part I
+1. Construct a 500 foot buffer around the state highway system.
+1. Identify all the tracts in the SCAG region that intersect this buffer
+2. Estimate the percentages of the following groups who live in tracts that intersect the buffer
+   - TOTPOP
+   - HISP
+   - NHWHT
+   - NHBLK
+   - NHASIAN
+   
+#### Buffering Part II
+Using the buffer from part I
+
+1. Estimate the percentage of the population living within 500 feet of the freeway system for the following groups:
+   - TOTPOP
+   - HISP
+   - NHWHT
+   - NHBLK
+   - NHASIAN
+
+### Discussion
+1. Provide an interpretation of your data analysis. Does your analysis support a finding of disparities in exposure to freeway pollution? Why or why not?
+1. How do the results from the two approaches (Part I and Part II) differ. Why is this?
+2. What are the qualifications you need to make regarding your analysis?
+3. How might this study be extended in future work for a more refined estimation of population exposure to freeway pollution?

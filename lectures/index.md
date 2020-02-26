@@ -83,3 +83,9 @@ title: Lectures
   - <a href="https://www.e-education.psu.edu/geog585/node/693">Reading: PSU.
 Walkthrough: Clipping and projecting vector data with QGIS and OGR</a>
 
+### Feb 26: Volunteered Geographic Information
+
+  - <a href="../slides/lecture_12.html">Slides</a> 
+  - <a href="https://www.e-education.psu.edu/geog585/node/737">Reading: PSU.
+VGI and crowdsourced data collection</a>
+
