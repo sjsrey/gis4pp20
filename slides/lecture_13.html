@@ -1,0 +1,312 @@
+<!-- Copied from https://gist.github.com/aaronwolen/5017084#file-template-revealjs-html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+ 
+<title>Geographic Information Systems for Public Policy - Lecture XIII</title>
+ 
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture XIII">    
+ 
+  <meta name="author" content="Introduction to QGIS Scripting" />
+ 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+<link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/journal.css" id="theme">
+ 
+ 
+<!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+ 
+ 
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + 
+    '.css" type="text/css" media="print">' );
+</script>
+ 
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+ 
+<body>
+ 
+<div class="reveal">
+ 
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+ 
+<section>
+<h1>Geographic Information Systems for Public Policy - Lecture XIII</h1>
+<h3>Introduction to QGIS Scripting</h3>
+<p>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
+</p>
+</section>  
+ 
+ 
+<section id="last-time" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2 data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">Last Time</h2>
+<ul>
+<li class="fragment">
+Volunteered Geographic Information
+</li>
+<li class="fragment">
+OpenStreetMap
+</li>
+<li class="fragment">
+Exercise 4
+</li
+</ul>
+</section>
+<section id="today" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2 data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">Today</h2>
+<ul>
+<li class="fragment">
+QGIS console
+</li>
+<li class="fragment">
+Working with layers
+</li>
+<li class="fragment">
+Exercise 2 in the console
+</li>
+</ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="qgis-console" class="level2">
+<h2>QGIS Console</h2>
+</section>
+<section id="section-1" class="level2" data-background="../content/lectures/images/13/100_layer.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/100_layer.png" data-background-size="contain"></h2>
+</section>
+<section id="section-2" class="level2" data-background="../content/lectures/images/13/120_python_menu.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/120_python_menu.png" data-background-size="contain"></h2>
+</section>
+<section id="section-3" class="level2" data-background="../content/lectures/images/13/130_console.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/130_console.png" data-background-size="contain"></h2>
+</section>
+<section id="working-with-the-console" class="level2">
+<h2>Working with the console</h2>
+</section>
+<section id="section-4" class="level2" data-background="../content/lectures/images/13/131_print.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/131_print.png" data-background-size="contain"></h2>
+</section>
+<section id="section-5" class="level2" data-background="../content/lectures/images/13/132_print_output.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/132_print_output.png" data-background-size="contain"></h2>
+</section>
+<section id="section-6" class="level2" data-background="../content/lectures/images/13/133_import.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/133_import.png" data-background-size="contain"></h2>
+</section>
+<section id="using-the-editor" class="level2">
+<h2>Using the editor</h2>
+</section>
+<section id="section-7" class="level2" data-background="../content/lectures/images/13/140_open_editor.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/140_open_editor.png" data-background-size="contain"></h2>
+</section>
+<section id="section-8" class="level2" data-background="../content/lectures/images/13/141_enter_editor.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/141_enter_editor.png" data-background-size="contain"></h2>
+</section>
+<section id="section-9" class="level2" data-background="../content/lectures/images/13/142_run_script.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/142_run_script.png" data-background-size="contain"></h2>
+</section>
+<section id="section-10" class="level2" data-background="../content/lectures/images/13/143_script_run.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/143_script_run.png" data-background-size="contain"></h2>
+</section>
+<section id="section-11" class="level2" data-background="../content/lectures/images/13/144_save_file.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/144_save_file.png" data-background-size="contain"></h2>
+</section>
+<section id="section-12" class="level2" data-background="../content/lectures/images/13/145_save_rerun.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/145_save_rerun.png" data-background-size="contain"></h2>
+</section>
+</section>
+<section id="section-13" class="level1">
+<h1></h1>
+<section id="working-with-layers" class="level2">
+<h2>Working with layers</h2>
+</section>
+<section id="section-14" class="level2" data-background="../content/lectures/images/13/150_path.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/150_path.png" data-background-size="contain"></h2>
+</section>
+<section id="section-15" class="level2" data-background="../content/lectures/images/13/151_right_click_path.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/151_right_click_path.png" data-background-size="contain"></h2>
+</section>
+<section id="section-16" class="level2" data-background="../content/lectures/images/13/152_edit_path.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/152_edit_path.png" data-background-size="contain"></h2>
+</section>
+<section id="section-17" class="level2" data-background="../content/lectures/images/13/153_remove_layer.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/153_remove_layer.png" data-background-size="contain"></h2>
+</section>
+<section id="section-18" class="level2" data-background="../content/lectures/images/13/154_load_layer.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/154_load_layer.png" data-background-size="contain"></h2>
+</section>
+<section id="changing-layer-name" class="level2">
+<h2>Changing layer name</h2>
+</section>
+<section id="section-19" class="level2" data-background="../content/lectures/images/13/155_layer_name_change.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/155_layer_name_change.png" data-background-size="contain"></h2>
+</section>
+<section id="section-20" class="level2" data-background="../content/lectures/images/13/156_newproject.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/156_newproject.png" data-background-size="contain"></h2>
+</section>
+<section id="section-21" class="level2" data-background="../content/lectures/images/13/200_layer_attributes.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/200_layer_attributes.png" data-background-size="contain"></h2>
+</section>
+<section id="section-22" class="level2" data-background="../content/lectures/images/13/210_multiple_layers.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/210_multiple_layers.png" data-background-size="contain"></h2>
+</section>
+<section id="commenting-out" class="level2">
+<h2>Commenting out</h2>
+</section>
+<section id="section-23" class="level2" data-background="../content/lectures/images/13/211_commenting.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/211_commenting.png" data-background-size="contain"></h2>
+</section>
+<section id="section-24" class="level2" data-background="../content/lectures/images/13/212_bounding_box.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/212_bounding_box.png" data-background-size="contain"></h2>
+</section>
+<section id="features" class="level2">
+<h2>Features</h2>
+</section>
+<section id="section-25" class="level2" data-background="../content/lectures/images/13/300_feature_count.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/300_feature_count.png" data-background-size="contain"></h2>
+</section>
+<section id="section-26" class="level2" data-background="../content/lectures/images/13/310_selected_feature_count.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/310_selected_feature_count.png" data-background-size="contain"></h2>
+</section>
+<section id="looping" class="level2">
+<h2>Looping</h2>
+</section>
+<section id="section-27" class="level2" data-background="../content/lectures/images/13/320_looping_subset.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/320_looping_subset.png" data-background-size="contain"></h2>
+</section>
+<section id="section-28" class="level2" data-background="../content/lectures/images/13/330_show_attribute_table.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/330_show_attribute_table.png" data-background-size="contain"></h2>
+</section>
+<section id="fields" class="level2">
+<h2>Fields</h2>
+</section>
+<section id="section-29" class="level2" data-background="../content/lectures/images/13/340_print_fields.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/340_print_fields.png" data-background-size="contain"></h2>
+</section>
+<section id="section-30" class="level2" data-background="../content/lectures/images/13/350_print_attributes.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/350_print_attributes.png" data-background-size="contain"></h2>
+</section>
+<section id="section-31" class="level2" data-background="../content/lectures/images/13/360_totpop_037.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/360_totpop_037.png" data-background-size="contain"></h2>
+</section>
+<section id="section-32" class="level2" data-background="../content/lectures/images/13/370_counties.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/370_counties.png" data-background-size="contain"></h2>
+</section>
+<section id="section-33" class="level2" data-background="../content/lectures/images/13/375_pop_dict.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/375_pop_dict.png" data-background-size="contain"></h2>
+</section>
+<section id="section-34" class="level2" data-background="../content/lectures/images/13/376_pop_result.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/376_pop_result.png" data-background-size="contain"></h2>
+</section>
+</section>
+<section id="section-35" class="level1">
+<h1></h1>
+<section id="exercise-2-in-the-console" class="level2">
+<h2>Exercise 2 in the console</h2>
+</section>
+<section id="creating-attributes" class="level2">
+<h2>Creating attributes</h2>
+<blockquote>
+<p>Create an attribute named pctHISP that reports the percentage of the tract’s total population that is Hispanic.</p>
+</blockquote>
+</section>
+<section id="section-36" class="level2" data-background="../content/lectures/images/13/377_new_field.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/377_new_field.png" data-background-size="contain"></h2>
+</section>
+<section id="section-37" class="level2" data-background="../content/lectures/images/13/380_pct_hisp_added.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/380_pct_hisp_added.png" data-background-size="contain"></h2>
+</section>
+<section id="creating-attributes-1" class="level2">
+<h2>Creating attributes</h2>
+<blockquote>
+<p>Create an attribute named majHISP that takes a value of 1 if pctHISP &gt; 0.50, 0 otherwise</p>
+</blockquote>
+</section>
+<section id="section-38" class="level2" data-background="../content/lectures/images/13/381_two_fields.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/381_two_fields.png" data-background-size="contain"></h2>
+</section>
+<section id="section-39" class="level2" data-background="../content/lectures/images/13/382_two_fields_result.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/382_two_fields_result.png" data-background-size="contain"></h2>
+</section>
+<section id="cloning-a-layer-saving-the-original" class="level2">
+<h2>Cloning a layer (saving the original)</h2>
+</section>
+<section id="section-40" class="level2" data-background="../content/lectures/images/13/400_copy_layer.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/400_copy_layer.png" data-background-size="contain"></h2>
+</section>
+<section id="section-41" class="level2" data-background="../content/lectures/images/13/405_original_layer.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/405_original_layer.png" data-background-size="contain"></h2>
+</section>
+<section id="section-42" class="level2" data-background="../content/lectures/images/13/410_new_layer.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/410_new_layer.png" data-background-size="contain"></h2>
+</section>
+<section id="section-43" class="level2" data-background="../content/lectures/images/13/420_select_min.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/420_select_min.png" data-background-size="contain"></h2>
+</section>
+<section id="next-up" class="level2">
+<h2>Next Up</h2>
+<ul>
+<li>Exercise 4 in the console</li>
+</ul>
+</section>
+</section>
+<section id="section-44" class="level1">
+<h1></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+</section>
+</div>
+ 
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+ 
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'linear',
+
+        math: {
+            // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'
+        },
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'journal', 
+   
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'linear',
+   
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '../../lib/js/classList.js' },
+    { src: 'plugin/math/math.js', async: true }
+  ]
+  });
+ 
+</script>
+
+</body>
+</html>

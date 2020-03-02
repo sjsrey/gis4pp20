@@ -89,3 +89,11 @@ Walkthrough: Clipping and projecting vector data with QGIS and OGR</a>
   - <a href="https://www.e-education.psu.edu/geog585/node/737">Reading: PSU.
 VGI and crowdsourced data collection</a>
 
+## Week 9 March 2, 4
+
+### March 2: Introduction to scripting QGIS
+
+  - <a href="../slides/lecture_13.html">Slides</a> 
+  - <a href="https://docs.qgis.org/3.4/en/docs/pyqgis_developer_cookbook/index.html">Reading: PyQGIS Developer Cookbook</a>
+
+
