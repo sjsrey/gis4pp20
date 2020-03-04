@@ -96,4 +96,10 @@ VGI and crowdsourced data collection</a>
   - <a href="../slides/lecture_13.html">Slides</a> 
   - <a href="https://docs.qgis.org/3.4/en/docs/pyqgis_developer_cookbook/index.html">Reading: PyQGIS Developer Cookbook</a>
 
+### March 4: QGIS Scripting Part II
+
+  - <a href="../slides/lecture_14.html">Slides</a> 
+  - <a href="https://docs.qgis.org/3.4/en/docs/pyqgis_developer_cookbook/index.html">Reading: PyQGIS Developer Cookbook</a>
+
+
 

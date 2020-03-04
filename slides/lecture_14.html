@@ -1,0 +1,244 @@
+<!-- Copied from https://gist.github.com/aaronwolen/5017084#file-template-revealjs-html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+ 
+<title>Geographic Information Systems for Public Policy - Lecture XIV</title>
+ 
+<meta name="description" content="Geographic Information Systems for Public Policy - Lecture XIV">    
+ 
+  <meta name="author" content="QGIS Scripting Part II" />
+ 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+<link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/journal.css" id="theme">
+ 
+ 
+<!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+ 
+ 
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + 
+    '.css" type="text/css" media="print">' );
+</script>
+ 
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+ 
+<body>
+ 
+<div class="reveal">
+ 
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+ 
+<section>
+<h1>Geographic Information Systems for Public Policy - Lecture XIV</h1>
+<h3>QGIS Scripting Part II</h3>
+<p>
+<h4><a href="http://sergrey.org">Sergio Rey</a></h4>
+</p>
+</section>  
+ 
+ 
+<section id="last-time" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2 data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">Last Time</h2>
+<ul>
+<li class="fragment">
+QGIS console
+</li>
+<li class="fragment">
+Working with layers
+</li>
+<li class="fragment">
+Exercise 2 in the console
+</li>
+</ul>
+</section>
+<section id="today" class="level2" data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">
+<h2 data-background="../content/lectures/images/06/100-globe.jpg" data-background-size="cover">Today</h2>
+<ul>
+<li class="fragment">
+Exercise 2 in the console
+</li>
+<li class="fragment">
+Cloning Layers
+</li>
+<li class="fragment">
+Exercise 4
+</li>
+</ul>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="exercise-2-in-the-console" class="level2">
+<h2>Exercise 2 in the console</h2>
+</section>
+<section id="creating-attributes" class="level2">
+<h2>Creating attributes</h2>
+<blockquote>
+<p>Create an attribute named pctHISP that reports the percentage of the tract’s total population that is Hispanic.</p>
+</blockquote>
+</section>
+<section id="section-1" class="level2" data-background="../content/lectures/images/13/377_new_field.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/377_new_field.png" data-background-size="contain"></h2>
+</section>
+<section id="section-2" class="level2" data-background="../content/lectures/images/13/380_pct_hisp_added.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/380_pct_hisp_added.png" data-background-size="contain"></h2>
+</section>
+<section id="creating-attributes-1" class="level2">
+<h2>Creating attributes</h2>
+<blockquote>
+<p>Create an attribute named majHISP that takes a value of 1 if pctHISP &gt; 0.50, 0 otherwise</p>
+</blockquote>
+</section>
+<section id="section-3" class="level2" data-background="../content/lectures/images/13/381_two_fields.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/381_two_fields.png" data-background-size="contain"></h2>
+</section>
+<section id="section-4" class="level2" data-background="../content/lectures/images/13/382_two_fields_result.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/382_two_fields_result.png" data-background-size="contain"></h2>
+</section>
+</section>
+<section id="section-5" class="level1">
+<h1></h1>
+<section id="cloning-a-layer-saving-the-original" class="level2">
+<h2>Cloning a layer (saving the original)</h2>
+</section>
+<section id="section-6" class="level2" data-background="../content/lectures/images/13/400_copy_layer.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/400_copy_layer.png" data-background-size="contain"></h2>
+</section>
+<section id="section-7" class="level2" data-background="../content/lectures/images/13/405_original_layer.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/405_original_layer.png" data-background-size="contain"></h2>
+</section>
+<section id="section-8" class="level2" data-background="../content/lectures/images/13/410_new_layer.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/410_new_layer.png" data-background-size="contain"></h2>
+</section>
+<section id="section-9" class="level2" data-background="../content/lectures/images/13/420_select_min.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/420_select_min.png" data-background-size="contain"></h2>
+</section>
+<section id="handling-paths" class="level2">
+<h2>Handling Paths</h2>
+</section>
+<section id="windows" class="level2">
+<h2>Windows</h2>
+</section>
+<section id="section-10" class="level2" data-background="../content/lectures/images/13/500_path.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/500_path.png" data-background-size="contain"></h2>
+</section>
+<section id="mac-os-x" class="level2">
+<h2>Mac OS X</h2>
+</section>
+<section id="section-11" class="level2" data-background="../content/lectures/images/13/501_path.png" data-background-size="contain">
+<h2 data-background="../content/lectures/images/13/501_path.png" data-background-size="contain"></h2>
+</section>
+</section>
+<section id="section-12" class="level1">
+<h1></h1>
+<section id="exercise-4" class="level2">
+<h2>Exercise 4</h2>
+</section>
+<section id="program-requirements-url" class="level2">
+<h2>Program requirements <a href="https://sergerey.org/gis4pp20/exercises/#exer4">(URL)</a></h2>
+</section>
+<section id="approach" class="level2">
+<h2>Approach</h2>
+<ul>
+<li class="fragment">
+Plan the workflow (don’t just jump in writing code)
+</li>
+<li class="fragment">
+Break workflow into discrete, tractable steps
+</li>
+<li class="fragment">
+Work on one stage at a time
+</li>
+<li class="fragment">
+Use the console prompt to test ideas
+</li>
+</ul>
+</section>
+<section id="philosophy" class="level2">
+<h2>Philosophy</h2>
+<ul>
+<li class="fragment">
+Complexity -&gt; simplicity
+</li>
+<li class="fragment">
+Make it work
+</li>
+<li class="fragment">
+Make it right
+</li>
+<li class="fragment">
+Make it fast (optional in this course)
+</li>
+</ul>
+</section>
+</section>
+<section id="section-13" class="level1">
+<h1></h1>
+<section id="next-up" class="level2">
+<h2>Next up</h2>
+<ul>
+<li>Exercise 4 continued.</li>
+</ul>
+</section>
+</section>
+<section id="section-14" class="level1">
+<h1></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">GIS for Public Policy’20</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sergerey.org" property="cc:attributionName" rel="cc:attributionURL">Sergio Rey</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+</section>
+</div>
+ 
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+ 
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'linear',
+
+        math: {
+            // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'
+        },
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'journal', 
+   
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'linear',
+   
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '../../lib/js/classList.js' },
+    { src: 'plugin/math/math.js', async: true }
+  ]
+  });
+ 
+</script>
+
+</body>
+</html>
