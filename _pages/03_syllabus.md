@@ -128,11 +128,11 @@ Find our class page at: [https://piazza.com/ucr/winter2020/pbpl273/home](https:/
 - 26: *Exercise 4 Out*
 
 ### Week 9: March 2, 4
-- 2: Extending QGIS
-- 4: PySAL and QGIS
+- 2: Introduction to QGIS Console
+- 4: Scripting QGIS Part II
 
 ### Week 10: March 9, 11
-- 9: Next steps with GIS
+- 9: QGIS Studio
 - 11: Final Review
 - 11: *Exercise 4 Due*
 
